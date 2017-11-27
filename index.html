@@ -2204,8 +2204,8 @@
 		var zoomy = 1;
 		var offx = 19;
 		var offy = 264;
-		var standStyle = 'fill:rgba(24,215,255,1);stroke-width:0.0;stroke:rgb(0,0,0)';
-		var markerStyle = 'fill:rgba(255,220,128,1);stroke-width:2;stroke:rgb(0,0,0)'
+		var standStyle = 'fill:rgba(0,128,0,1);stroke-width:0.0;stroke:rgba(128,255,128,0.7)';
+		var markerStyle = 'fill:rgba(64,255,128,1);stroke-width:3.5;stroke:rgba(0,0,0,0.8)'
 
 		var modx = 1/11*zoomx;
 		var mody = 1/11*zoomy;
@@ -2286,7 +2286,7 @@
 			for (i = 0; i < coords.length; i++) {
 				var tempX = coords[i][0]*modx+offx;
 				var tempY = coords[i][1]*mody+offy;
-				mapAddMark(svg, tempX, tempY, 2.5);
+				mapAddMark(svg, tempX, tempY, 2);
 			}
 		}
 
