@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Updated 2017.12.04</title>
+	<link rel="stylesheet" href="default.css" />
+</style>
+</head>
+<body>
+	<div id="rFloater">
+		<div class="filters">
+			<input type="text" id="filterGoods" onkeyup="applyFilters()" placeholder="Search for goods..." />
+			<input type="text" id="filterInfo" onkeyup="applyFilters()" placeholder="Search in details only..." />
+			<br />
+			<input type="text" id="filterQmin" onkeyup="applyFilters()" placeholder="Q min" /> 
+			<input type="text" id="filterQmax" onkeyup="applyFilters()" placeholder="Q max" />
+			<input type="text" id="filterLmin" onkeyup="applyFilters()" placeholder="Left min" />
+			<input type="text" id="filterLmax" onkeyup="applyFilters()" placeholder="Left max" />	
+			<br />
+
+			<br />
+			<input type="text" id="filterPrice" onkeyup="applyFilters()" placeholder="Search for price..." />
+			<br />
+			<input type="text" id="filterPQmin" onkeyup="applyFilters()" placeholder="PQ min" />
+			<input type="text" id="filterPQmax" onkeyup="applyFilters()" placeholder="PQ max" />				
+			<input type="text" id="filterPAMTmin" onkeyup="applyFilters()" placeholder="Px min" />
+			<input type="text" id="filterPAMTmax" onkeyup="applyFilters()" placeholder="Px max" />
+
+			<div id="mapContainer">
+				<svg id="mapSVG" 
+				xmlns="http://www.w3.org/2000/svg" 
+				xmlns:xlink="http://www.w3.org/1999/xlink"> 
+			</svg>
+		</div>
+	</div>
+</div>
+<div id="data-container">
+	<table id="data" class="sortable">
+		<thead>
+			<tr>
+				<th>Product</th>
+				<th>Q</th>
+				<th>Left</th>
+				<th>Price</th>
+				<th>Q</th>
+				<th>x</th>
+				<th>dx</th>
+				<th>dy</th>
+			</tr>
+		</thead>
+		<tbody>
+
+<tr><td>Mammoth Tusk<span></span></td><td>408</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>160</td><td>0.0</td><td>0.0</td></tr>
+<tr><td>Raw Mammoth<span></span></td><td>389</td><td>41</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>0.0</td><td>0.0</td></tr>
+<tr><td>Mammoth Hide<span></span></td><td>389</td><td>12</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>160</td><td>0.0</td><td>0.0</td></tr>
+<tr><td>Ivory Figurine<span></span></td><td>400</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>0.0</td><td>0.0</td></tr>
+<tr><td>Hide Strap<span></span></td><td>385</td><td>12</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>0.0</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>304</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>12</td><td>19.25</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>312</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>13</td><td>19.25</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>312</td><td>10</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>13</td><td>19.25</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>320</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>19.25</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>328</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>17</td><td>19.25</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>225</td><td>5</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>7</td><td>38.5</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>344</td><td>12</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>22</td><td>90.75</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>336</td><td>25</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>90.75</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>376</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>32</td><td>90.75</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>408</td><td>48</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>55</td><td>90.75</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>400</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>90.75</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>392</td><td>32</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>40</td><td>110.0</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>368</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>110.0</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>368</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>110.0</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>360</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>27</td><td>110.0</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>352</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>110.0</td><td>0.0</td></tr>
+<tr><td>Walrus Tusk<span></span></td><td>70</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>148.5</td><td>0.0</td></tr>
+<tr><td>Dried Camomile<span></span></td><td>89</td><td>18</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>148.5</td><td>0.0</td></tr>
+<tr><td>Bloated Bolete<span>FEP: per +1: 3.6, dex +1: 8.4</span></td><td>14</td><td>20</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>148.5</td><td>0.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>20</td><td>Wax<span></span></td><td>35</td><td>2</td><td>200.75</td><td>0.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>6</td><td>Wool<span></span></td><td>15</td><td>2</td><td>200.75</td><td>0.0</td></tr>
+<tr><td>Linen Shirt<span>Gildings (4): Hide Layer, Extra Stitches, Patterned Embroidery, Metal Buttons</span></td><td>365</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>60</td><td>200.75</td><td>0.0</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>8</td><td>Bar of Cast Iron<span></span></td><td>60</td><td>1</td><td>239.25</td><td>0.0</td></tr>
+<tr><td>Raw Bear<span></span></td><td>160</td><td>16</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>239.25</td><td>0.0</td></tr>
+<tr><td>Winged Helmet<span>Wear: 54/800</span></td><td>159</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>239.25</td><td>0.0</td></tr>
+<tr><td>Flax Fibres<span></span></td><td>264</td><td>11</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>239.25</td><td>0.0</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>8</td><td>Bar of Cast Iron<span></span></td><td>60</td><td>1</td><td>258.5</td><td>0.0</td></tr>
+<tr><td>Quilted Wadding<span></span></td><td>375</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>258.5</td><td>0.0</td></tr>
+<tr><td>Fur Boots<span>Gildings (3): Leather Patch, Extra Stitches, Bark Reinforcement</span></td><td>36</td><td>3</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>258.5</td><td>0.0</td></tr>
+<tr><td>Salt Crystals<span></span></td><td>21</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>310.75</td><td>0.0</td></tr>
+<tr><td>Pit Clay<span></span></td><td>42</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>200</td><td>310.75</td><td>0.0</td></tr>
+<tr><td>Camomile<span>FEP: wil +2: 1.64</span></td><td>12</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>310.75</td><td>0.0</td></tr>
+<tr><td>0.05 kg of Opium<span></span></td><td>156</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>310.75</td><td>0.0</td></tr>
+<tr><td>Beaver Teeth<span></span></td><td>36</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>459.25</td><td>0.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>40</td><td>Raw Mutton<span></span></td><td>20</td><td>2</td><td>459.25</td><td>0.0</td></tr>
+<tr><td>Feather Trinket<span></span></td><td>152</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>550.0</td><td>0.0</td></tr>
+<tr><td>Glimmermoss<span></span></td><td>12</td><td>3</td><td>Salt Crystals<span></span></td><td>10</td><td>1</td><td>550.0</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>222</td><td>11</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>8</td><td>569.25</td><td>0.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>240</td><td>12</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>569.25</td><td>0.0</td></tr>
+<tr><td>Gauze<span></span></td><td>107</td><td>42</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>588.5</td><td>0.0</td></tr>
+<tr><td>Cigar<span></span></td><td>181</td><td>24</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>660.0</td><td>0.0</td></tr>
+<tr><td>Mulch<span></span></td><td>324</td><td>20</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>660.0</td><td>0.0</td></tr>
+<tr><td>Mulch<span></span></td><td>324</td><td>46</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>660.0</td><td>0.0</td></tr>
+<tr><td>Grapes<span>FEP: cha +1: 2.74</span></td><td>75</td><td>48</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>660.0</td><td>0.0</td></tr>
+<tr><td>0.50 kg of Opium<span></span></td><td>158</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>100</td><td>660.0</td><td>0.0</td></tr>
+<tr><td>Reinforced Hem<span></span></td><td>231</td><td>2</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>789.25</td><td>0.0</td></tr>
+<tr><td>Extra Stitches<span></span></td><td>330</td><td>3</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>789.25</td><td>0.0</td></tr>
+<tr><td>Cornbraid<span></span></td><td>297</td><td>17</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>789.25</td><td>0.0</td></tr>
+<tr><td>Leather<span></span></td><td>110</td><td>11</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>789.25</td><td>0.0</td></tr>
+<tr><td>0.50 kg of Black pepper<span>Pepper Shaker Q53  /  Wear: 0/23</span></td><td>168</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>65</td><td>808.5</td><td>0.0</td></tr>
+<tr><td>Mud Ointment<span></span></td><td>80</td><td>6</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>808.5</td><td>0.0</td></tr>
+<tr><td>Coal<span></span></td><td>142</td><td>37</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>808.5</td><td>0.0</td></tr>
+<tr><td>50 seeds of Barley<span></span></td><td>205</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>860.75</td><td>0.0</td></tr>
+<tr><td>50 seeds of Poppy<span></span></td><td>137</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>860.75</td><td>0.0</td></tr>
+<tr><td>50 seeds of Grape<span></span></td><td>79</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>880.0</td><td>0.0</td></tr>
+<tr><td>50 seeds of Cucumber<span></span></td><td>53</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>880.0</td><td>0.0</td></tr>
+<tr><td>Hop Cones<span></span></td><td>43</td><td>36</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>880.0</td><td>0.0</td></tr>
+<tr><td>Flax Fibres<span></span></td><td>286</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>880.0</td><td>0.0</td></tr>
+<tr><td>Bouquet of Flowers<span></span></td><td>102</td><td>57</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>4</td><td>970.75</td><td>0.0</td></tr>
+<tr><td>Bouquet of Flowers<span></span></td><td>117</td><td>10</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>4</td><td>970.75</td><td>0.0</td></tr>
+<tr><td>Exquisite Rot<span></span></td><td>67</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>990.0</td><td>0.0</td></tr>
+<tr><td>Gauze<span></span></td><td>72</td><td>7</td><td>Red Apple<span></span></td><td>Any</td><td>1</td><td>1028.5</td><td>0.0</td></tr>
+<tr><td>Carrot<span>FEP: per +1: 5.17</span></td><td>267</td><td>26</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1028.5</td><td>0.0</td></tr>
+<tr><td>Silkworm Egg<span></span></td><td>88</td><td>63</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>1028.5</td><td>0.0</td></tr>
+<tr><td>Mulch<span></span></td><td>301</td><td>18</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1028.5</td><td>0.0</td></tr>
+<tr><td>Ball Clay<span></span></td><td>55</td><td>10</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1080.75</td><td>0.0</td></tr>
+<tr><td>Stalagoomba<span></span></td><td>10</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>13</td><td>1100.0</td><td>0.0</td></tr>
+<tr><td>Metal Saw<span></span></td><td>121</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>12</td><td>1100.0</td><td>0.0</td></tr>
+<tr><td>Heartwood Leaves<span></span></td><td>13</td><td>25</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>8</td><td>1100.0</td><td>0.0</td></tr>
+<tr><td>Hirdsman's Sword<span></span></td><td>110</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>32</td><td>1100.0</td><td>0.0</td></tr>
+<tr><td>Tankard<span>Wear: 0/39</span></td><td>150</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>1138.5</td><td>0.0</td></tr>
+<tr><td>Goldbeater's Skin<span></span></td><td>19</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1138.5</td><td>0.0</td></tr>
+<tr><td>Oscypki<span>FEP: psy +2: 25.69, agi +2: 51.38, con +2: 25.69</span></td><td>65</td><td>34</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>1190.75</td><td>-1.375</td></tr>
+<tr><td>Oscypki<span>FEP: psy +2: 30.68, agi +2: 61.36, con +2: 30.68</span></td><td>94</td><td>14</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>9</td><td>1190.75</td><td>-1.375</td></tr>
+<tr><td>Oscypki<span>FEP: psy +2: 24.02, agi +2: 48.03, con +2: 24.02</span></td><td>57</td><td>63</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>1190.75</td><td>-1.375</td></tr>
+<tr><td>Block of Walnutwood<span></span></td><td>183</td><td>6</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1300.75</td><td>-1.375</td></tr>
+<tr><td>Red Onion<span></span></td><td>155</td><td>43</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1300.75</td><td>-1.375</td></tr>
+<tr><td>Mulch<span></span></td><td>222</td><td>7</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1300.75</td><td>-1.375</td></tr>
+<tr><td>Suckling's Maw<span></span></td><td>76</td><td>40</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1300.75</td><td>-1.375</td></tr>
+<tr><td>Soft Metal Cutlery<span>Wear: 0/38</span></td><td>144</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1320.0</td><td>-1.375</td></tr>
+<tr><td>Hard Metal Cutlery<span>Wear: 0/40</span></td><td>157</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1320.0</td><td>-1.375</td></tr>
+<tr><td>Tankard<span>Wear: 0/38</span></td><td>145</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1320.0</td><td>-1.375</td></tr>
+<tr><td>Spruce Bough<span></span></td><td>211</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1320.0</td><td>-1.375</td></tr>
+<tr><td>Copper Kettle<span>Wear: 0/38</span></td><td>147</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1320.0</td><td>-1.375</td></tr>
+<tr><td>Liver & Onions<span>Made of: Yellow Onion (100%)  /  FEP: psy +1: 5.97, dex +1: 3.73, int +1: 3.73, str +1: 3.36</span></td><td>139</td><td>8</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1343.375</td><td>8.25</td></tr>
+<tr><td>Walnut<span>FEP: str +1: 1.39, psy +1: 0.14</span></td><td>215</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1343.375</td><td>8.25</td></tr>
+<tr><td>Chicken Egg<span></span></td><td>134</td><td>54</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1343.375</td><td>8.25</td></tr>
+<tr><td>50 seeds of Grape<span></span></td><td>82</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1343.375</td><td>8.25</td></tr>
+<tr><td>Plate Mail<span>Wear: 0/2097</span></td><td>209</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>95</td><td>1351.625</td><td>50.875</td></tr>
+<tr><td>Smithy's Hammer<span></span></td><td>300</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>1351.625</td><td>636.625</td></tr>
+<tr><td>Brick<span></span></td><td>157</td><td>50</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1351.625</td><td>636.625</td></tr>
+<tr><td>10.00 l of Sheepsmilk<span>Bucket Q96</span></td><td>159</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1351.625</td><td>636.625</td></tr>
+<tr><td>Chicken Egg<span></span></td><td>152</td><td>38</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1351.625</td><td>636.625</td></tr>
+<tr><td>Spruce Bough<span></span></td><td>215</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1351.625</td><td>655.875</td></tr>
+<tr><td>Suckling's Maw<span></span></td><td>145</td><td>13</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1351.625</td><td>655.875</td></tr>
+<tr><td>10.00 l of Cowsmilk<span>Bucket Q14</span></td><td>124</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1351.625</td><td>655.875</td></tr>
+<tr><td>Walnut<span>FEP: str +1: 1.49, psy +1: 0.15</span></td><td>248</td><td>18</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1351.625</td><td>655.875</td></tr>
+<tr><td>Walnut<span>FEP: str +1: 1.45, psy +1: 0.15</span></td><td>234</td><td>22</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1351.625</td><td>655.875</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>175</td><td>31</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>1351.625</td><td>708.125</td></tr>
+<tr><td>Walnut<span>FEP: str +1: 1.47, psy +1: 0.15</span></td><td>239</td><td>23</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1351.625</td><td>708.125</td></tr>
+<tr><td>Carrot<span>FEP: per +1: 6.86</span></td><td>470</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1351.625</td><td>708.125</td></tr>
+<tr><td>Mulberry<span>FEP: cha +1: 1.17</span></td><td>220</td><td>13</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1351.625</td><td>708.125</td></tr>
+<tr><td>Cutthroat Cuirass<span>Wear: 0/2282</span></td><td>285</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>1351.625</td><td>708.125</td></tr>
+<tr><td>Woodsman's Axe<span></span></td><td>303</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>40</td><td>1351.625</td><td>727.375</td></tr>
+<tr><td>Mulberry<span>FEP: cha +1: 1.13</span></td><td>206</td><td>14</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1351.625</td><td>727.375</td></tr>
+<tr><td>Metal Saw<span></span></td><td>292</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>1351.625</td><td>727.375</td></tr>
+<tr><td>Brick<span></span></td><td>152</td><td>50</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1351.625</td><td>727.375</td></tr>
+<tr><td>Peppermill<span>Wear: 0/60</span></td><td>357</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>13</td><td>1351.625</td><td>746.625</td></tr>
+<tr><td>Boreworm Mask<span>Wear: 0/438</span></td><td>175</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>1351.625</td><td>746.625</td></tr>
+<tr><td>Mulberry<span>FEP: cha +1: 1.16</span></td><td>216</td><td>11</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1351.625</td><td>746.625</td></tr>
+<tr><td>Golden Tooth<span></span></td><td>304</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>8</td><td>1351.625</td><td>746.625</td></tr>
+<tr><td>Hard Metal Cutlery<span>Wear: 0/60</span></td><td>355</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1351.625</td><td>765.875</td></tr>
+<tr><td>Walnut<span>FEP: str +1: 1.4, psy +1: 0.14</span></td><td>217</td><td>24</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1351.625</td><td>765.875</td></tr>
+<tr><td>Hard Metal Cutlery<span>Wear: 4/52</span></td><td>275</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1351.625</td><td>765.875</td></tr>
+<tr><td>Spruce Bough<span></span></td><td>202</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1351.625</td><td>765.875</td></tr>
+<tr><td>Metal Sauci?re<span>Wear: 0/57</span></td><td>324</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1351.625</td><td>765.875</td></tr>
+<tr><td>Copper Kettle<span>Wear: 0/61</span></td><td>378</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>18</td><td>1351.625</td><td>818.125</td></tr>
+<tr><td>Heartwood Leaves<span></span></td><td>25</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>1351.625</td><td>818.125</td></tr>
+<tr><td>Metal Axe<span></span></td><td>284</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>1351.625</td><td>818.125</td></tr>
+<tr><td>Hard Metal Rivets<span></span></td><td>376</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>1351.625</td><td>837.375</td></tr>
+<tr><td>Block of Walnutwood<span></span></td><td>219</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1351.625</td><td>837.375</td></tr>
+<tr><td>Metal Axe<span></span></td><td>351</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>70</td><td>1351.625</td><td>837.375</td></tr>
+<tr><td>Silk Filament<span></span></td><td>80</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1351.625</td><td>928.125</td></tr>
+<tr><td>Silk Thread<span></span></td><td>90</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1351.625</td><td>928.125</td></tr>
+<tr><td>Silk Thread<span></span></td><td>242</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>7</td><td>1351.625</td><td>928.125</td></tr>
+<tr><td>50 seeds of Flax<span></span></td><td>292</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>8</td><td>1351.625</td><td>985.875</td></tr>
+<tr><td>50 seeds of Carrot<span></span></td><td>371</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>40</td><td>1351.625</td><td>985.875</td></tr>
+<tr><td>50 seeds of Barley<span></span></td><td>210</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1351.625</td><td>985.875</td></tr>
+<tr><td>50 seeds of Wheat<span></span></td><td>225</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1351.625</td><td>985.875</td></tr>
+<tr><td>Chicken Egg<span></span></td><td>147</td><td>55</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>1351.625</td><td>1095.875</td></tr>
+<tr><td>Leather<span></span></td><td>97</td><td>4</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>1351.625</td><td>1095.875</td></tr>
+<tr><td>Leather Ball<span></span></td><td>170</td><td>43</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1351.625</td><td>1095.875</td></tr>
+<tr><td>Oscypki<span>FEP: psy +2: 33.15, agi +2: 66.3, con +2: 33.15</span></td><td>109</td><td>44</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>13</td><td>1351.625</td><td>1148.125</td></tr>
+<tr><td>Midnight Blue Cheese<span>FEP: str +2: 168.61</span></td><td>113</td><td>23</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>17</td><td>1351.625</td><td>1148.125</td></tr>
+<tr><td>Feldspar<span></span></td><td>144</td><td>34</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>4</td><td>1351.625</td><td>1167.375</td></tr>
+<tr><td>Bronze Steed<span></span></td><td>132</td><td>17</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1351.625</td><td>1186.625</td></tr>
+<tr><td>Pit Clay<span></span></td><td>24</td><td>23</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1351.625</td><td>1186.625</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>196</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>1351.625</td><td>1205.875</td></tr>
+<tr><td>Troll's Third Eye<span>FEP: per +1: 209.46, int +1: 69.82, psy +1: 55.86</span></td><td>78</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>600</td><td>1351.625</td><td>1205.875</td></tr>
+<tr><td>Branch<span></span></td><td>253</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1351.625</td><td>1205.875</td></tr>
+<tr><td>Bone Material<span></span></td><td>304</td><td>33</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>1351.625</td><td>1258.125</td></tr>
+<tr><td>Seer's Stones<span></span></td><td>63</td><td>14</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>1439.625</td><td>1296.625</td></tr>
+<tr><td>Straw Doll<span></span></td><td>145</td><td>18</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1439.625</td><td>1296.625</td></tr>
+<tr><td>Poppy Flower<span></span></td><td>131</td><td>34</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1439.625</td><td>1296.625</td></tr>
+<tr><td>Grand Belt<span></span></td><td>55</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>8</td><td>1439.625</td><td>1277.375</td></tr>
+<tr><td>Saddlebags<span></span></td><td>67</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1439.625</td><td>1277.375</td></tr>
+<tr><td>Leather Backpack<span></span></td><td>115</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1439.625</td><td>1277.375</td></tr>
+<tr><td>Hunter's Belt<span></span></td><td>6</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1439.625</td><td>1277.375</td></tr>
+<tr><td>Beeswax<span></span></td><td>128</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1439.625</td><td>1258.125</td></tr>
+<tr><td>Beeswax<span></span></td><td>156</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1439.625</td><td>1258.125</td></tr>
+<tr><td>Hunter's Quiver<span></span></td><td>114</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1439.625</td><td>1258.125</td></tr>
+<tr><td>Crabshell<span></span></td><td>6</td><td>2</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1439.625</td><td>1258.125</td></tr>
+<tr><td>Crabshell<span></span></td><td>15</td><td>6</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>1439.625</td><td>1258.125</td></tr>
+<tr><td>Heartwood Leaves<span></span></td><td>17</td><td>9</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>6</td><td>1439.625</td><td>1205.875</td></tr>
+<tr><td>Heartwood Leaves<span></span></td><td>33</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>1439.625</td><td>1205.875</td></tr>
+<tr><td>Pit Clay<span></span></td><td>20</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>14</td><td>1439.625</td><td>1205.875</td></tr>
+<tr><td>Salt Crystals<span></span></td><td>17</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>12</td><td>1439.625</td><td>1185.25</td></tr>
+<tr><td>Salt Crystals<span></span></td><td>39</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>1439.625</td><td>1185.25</td></tr>
+<tr><td>Linen Cloth<span></span></td><td>166</td><td>5</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1439.625</td><td>1185.25</td></tr>
+<tr><td>Flax Fibres<span></span></td><td>310</td><td>63</td><td>Cast Iron Coins<span> Iron Quill</span></td><td>60</td><td>10</td><td>1439.625</td><td>1185.25</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>6</td><td>Any Brick<span></span></td><td>Any</td><td>2</td><td>1439.625</td><td>947.375</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>60</td><td>Tarsticks<span></span></td><td>Any</td><td>1</td><td>1439.625</td><td>947.375</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>20</td><td>Rope<span></span></td><td>Any</td><td>1</td><td>1439.625</td><td>947.375</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>7</td><td>Blueberries<span></span></td><td>Any</td><td>4</td><td>1439.625</td><td>928.125</td></tr>
+<tr><td>Bone Glue<span></span></td><td>59</td><td>50</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>1439.625</td><td>856.625</td></tr>
+<tr><td>Brick<span></span></td><td>9</td><td>61</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1439.625</td><td>856.625</td></tr>
+<tr><td>Rope<span></span></td><td>10</td><td>31</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>1439.625</td><td>856.625</td></tr>
+<tr><td>9 coins of Silver<span>Silver Quill</span></td><td></td><td>61</td><td>Rope<span></span></td><td>Any</td><td>10</td><td>1446.5</td><td>413.875</td></tr>
+<tr><td>9 coins of Silver<span>Silver Quill</span></td><td></td><td>60</td><td>Rope<span></span></td><td>Any</td><td>10</td><td>1446.5</td><td>413.875</td></tr>
+<tr><td>Rope<span></span></td><td>190</td><td>30</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1446.5</td><td>413.875</td></tr>
+<tr><td>Rope<span></span></td><td>190</td><td>30</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1446.5</td><td>413.875</td></tr>
+<tr><td>Rope<span></span></td><td>190</td><td>30</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1446.5</td><td>413.875</td></tr>
+<tr><td>Meatpie<span>Made of: Pork (100%)  /  Made of: Wheat Flour (100%)  /  FEP: str +1: 5.48, con +1: 17.53, str +2: 43.83, agi +1: 32.87</span></td><td>192</td><td>43</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>2084.5</td><td>0.0</td></tr>
+<tr><td>Meatpie<span>Made of: Pork (100%)  /  Made of: Wheat Flour (100%)  /  FEP: str +1: 5.53, con +1: 17.71, str +2: 44.27, agi +1: 33.2</span></td><td>195</td><td>63</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>2084.5</td><td>0.0</td></tr>
+<tr><td>Meatpie<span>Made of: Pork (100%)  /  Made of: Wheat Flour (100%)  /  FEP: str +1: 5.44, con +1: 17.4, str +2: 43.49, agi +1: 32.62</span></td><td>189</td><td>63</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>2084.5</td><td>0.0</td></tr>
+<tr><td>Meatpie<span>Made of: Pork (100%)  /  Made of: Wheat Flour (100%)  /  FEP: str +1: 5.43, con +1: 17.39, str +2: 43.48, agi +1: 32.61</span></td><td>189</td><td>63</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>2084.5</td><td>0.0</td></tr>
+<tr><td>Walrus & Carpenter<span>FEP: dex +1: 24.48, con +1: 16.32, psy +2: 8.16</span></td><td>166</td><td>39</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>2103.75</td><td>0.0</td></tr>
+<tr><td>Meatpie<span>Made of: Pork (100%)  /  Made of: Wheat Flour (100%)  /  FEP: str +1: 5.46, con +1: 17.46, str +2: 43.66, agi +1: 32.75</span></td><td>190</td><td>63</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>2103.75</td><td>0.0</td></tr>
+<tr><td>Moodog<span>FEP: con +2: 10.78, agi +1: 10.78, str +1: 10.78</span></td><td>129</td><td>54</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2123.0</td><td>0.0</td></tr>
+<tr><td>Moodog<span>FEP: con +2: 11.51, agi +1: 11.51, str +1: 11.51</span></td><td>147</td><td>26</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2123.0</td><td>0.0</td></tr>
+<tr><td>Moodog<span>FEP: con +2: 12.02, agi +1: 12.02, str +1: 12.02</span></td><td>160</td><td>17</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2123.0</td><td>0.0</td></tr>
+<tr><td>Strawberry Cake<span>Made of: Sheepsmilk (100%)  /  Made of: Wheat Flour (100%)  /  FEP: wil +2: 9.77, per +1: 19.54, cha +1: 11.4</span></td><td>165</td><td>30</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2142.25</td><td>0.0</td></tr>
+<tr><td>Feldspar<span></span></td><td>200</td><td>40</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>2429.625</td><td>-28.875</td></tr>
+<tr><td>Fair Brilliant Onyx<span></span></td><td>13</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>40</td><td>2429.625</td><td>-28.875</td></tr>
+<tr><td>Board of Walnutwood<span></span></td><td>214</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>2429.625</td><td>-9.625</td></tr>
+<tr><td>Feldspar<span></span></td><td>217</td><td>63</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>75</td><td>2429.625</td><td>-9.625</td></tr>
+<tr><td>Large Brilliant Moonstone<span></span></td><td>23</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>75</td><td>2429.625</td><td>-9.625</td></tr>
+<tr><td>Large Brilliant Opal<span></span></td><td>11</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>2429.625</td><td>-81.125</td></tr>
+<tr><td>Grand Brilliant Diamond<span></span></td><td>19</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>600</td><td>2429.625</td><td>-81.125</td></tr>
+<tr><td>Feldspar<span></span></td><td>206</td><td>43</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>60</td><td>2429.625</td><td>-100.375</td></tr>
+<tr><td>Fair Brilliant Sapphire<span></span></td><td>10</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>40</td><td>2429.625</td><td>-100.375</td></tr>
+<tr><td>Fair Brilliant Opal<span></span></td><td>10</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>2429.625</td><td>-100.375</td></tr>
+<tr><td>Fair Brilliant Jade<span></span></td><td>11</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>75</td><td>2429.625</td><td>-100.375</td></tr>
+<tr><td>Feldspar<span></span></td><td>191</td><td>26</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>2429.625</td><td>-100.375</td></tr>
+<tr><td>Cave Clay<span></span></td><td>22</td><td>21</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2429.625</td><td>-119.625</td></tr>
+<tr><td>Linen Shirt<span>Gildings (4): Reinforced Hem, Fine Feather Brooch, Metal Buttons, Extra Stitches</span></td><td>103</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>2429.625</td><td>-119.625</td></tr>
+<tr><td>Cave Clay<span></span></td><td>30</td><td>12</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>2429.625</td><td>-138.875</td></tr>
+<tr><td>Salt Crystals<span></span></td><td>10</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>9</td><td>2429.625</td><td>-138.875</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>245</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>2429.625</td><td>-229.625</td></tr>
+<tr><td>Pumpkin Pie<span>Made of: Wheat Flour (100%)  /  FEP: str +1: 9.36, con +1: 22.47, agi +1: 16.85</span></td><td>219</td><td>41</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>2429.625</td><td>-248.875</td></tr>
+<tr><td>Pumpkin Pie<span>Made of: Wheat Flour (100%)  /  FEP: str +1: 9.49, con +1: 22.78, agi +1: 17.09</span></td><td>225</td><td>63</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>2429.625</td><td>-248.875</td></tr>
+<tr><td>Seedcrisp Flatbread<span>Made of: Wheat Flour (100%)  /  FEP: wil +2: 7.0, str +1: 4.38, con +1: 4.38, per +1: 5.25</span></td><td>191</td><td>28</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>2429.625</td><td>-301.125</td></tr>
+<tr><td>Seedcrisp Flatbread<span>Made of: Wheat Flour (100%)  /  FEP: wil +2: 7.14, str +1: 4.46, con +1: 4.46, per +1: 5.36</span></td><td>199</td><td>60</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>2429.625</td><td>-301.125</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>225</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2429.625</td><td>-320.375</td></tr>
+<tr><td>Rope<span></span></td><td>116</td><td>25</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>2429.625</td><td>-320.375</td></tr>
+<tr><td>Ring of Brodgar<span>Made of: Wheat Flour (100%)  /  FEP: agi +1: 20.06, psy +1: 12.54, con +1: 15.04</span></td><td>174</td><td>1</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>2429.625</td><td>-320.375</td></tr>
+<tr><td>Bar of Tin<span></span></td><td>64</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2429.625</td><td>-411.125</td></tr>
+<tr><td>Beeswax<span></span></td><td>141</td><td>21</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2429.625</td><td>-411.125</td></tr>
+<tr><td>50 seeds of Carrot<span></span></td><td>315</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>2429.625</td><td>-430.375</td></tr>
+<tr><td>2 coins of Silver<span>Silver Quill</span></td><td></td><td>25</td><td>Clay<span></span></td><td>55</td><td>1</td><td>2429.625</td><td>-430.375</td></tr>
+<tr><td>50 seeds of Barley<span></span></td><td>213</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>2429.625</td><td>-430.375</td></tr>
+<tr><td>Blacksmith's Bauble<span></span></td><td>127</td><td>9</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>2429.625</td><td>-449.625</td></tr>
+<tr><td>Heartwood Leaves<span></span></td><td>11</td><td>11</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>7</td><td>2429.625</td><td>-449.625</td></tr>
+<tr><td>Carrot<span>FEP: per +1: 6.2</span></td><td>385</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2429.625</td><td>-449.625</td></tr>
+<tr><td>Cigar<span></span></td><td>276</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>2429.625</td><td>-559.625</td></tr>
+<tr><td>Spruce Bough<span></span></td><td>194</td><td>27</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2429.625</td><td>-559.625</td></tr>
+<tr><td>Cheese Tray<span></span></td><td>238</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2429.625</td><td>-559.625</td></tr>
+<tr><td>Cave Clay<span></span></td><td>19</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2429.625</td><td>-559.625</td></tr>
+<tr><td>Branch<span></span></td><td>139</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2429.625</td><td>-669.625</td></tr>
+<tr><td>Beetroot<span>FEP: per +1: 2.35, cha +1: 1.41</span></td><td>221</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>2429.625</td><td>-688.875</td></tr>
+<tr><td>50 seeds of Carrot<span></span></td><td>273</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>2429.625</td><td>-688.875</td></tr>
+<tr><td>Yellow Onion<span></span></td><td>139</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2429.625</td><td>-688.875</td></tr>
+<tr><td>50 seeds of Poppy<span></span></td><td>104</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>2429.625</td><td>-741.125</td></tr>
+<tr><td>50 seeds of Wheat<span></span></td><td>220</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>2429.625</td><td>-741.125</td></tr>
+<tr><td>Oscypki<span>FEP: psy +2: 33.42, agi +2: 66.83, con +2: 33.42</span></td><td>111</td><td>24</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>2429.625</td><td>-760.375</td></tr>
+<tr><td>Oscypki<span>FEP: psy +2: 33.44, agi +2: 66.87, con +2: 33.44</span></td><td>111</td><td>47</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>2429.625</td><td>-760.375</td></tr>
+<tr><td>Oscypki<span>FEP: psy +2: 33.81, agi +2: 67.63, con +2: 33.81</span></td><td>114</td><td>63</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>2429.625</td><td>-760.375</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>213</td><td>21</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>2429.625</td><td>-851.125</td></tr>
+<tr><td>50 seeds of Wheat<span></span></td><td>275</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2429.625</td><td>-870.375</td></tr>
+<tr><td>50 seeds of Carrot<span></span></td><td>307</td><td>12</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2429.625</td><td>-870.375</td></tr>
+<tr><td>Leather<span></span></td><td>123</td><td>32</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>2429.625</td><td>-977.625</td></tr>
+<tr><td>Bat Wing<span>Wear: 26/105  /  Gildings (1): Fancy Buckle</span></td><td>42</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2429.625</td><td>-996.875</td></tr>
+<tr><td>Linen Pants<span>Gildings (1): Leather Patch</span></td><td>122</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>2429.625</td><td>-1068.375</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>281</td><td>39</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>12</td><td>2429.625</td><td>-1087.625</td></tr>
+<tr><td>Merchant's Robe<span>Gildings (0): Gildable</span></td><td>276</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>100</td><td>2429.625</td><td>-1087.625</td></tr>
+<tr><td>Troll Skull<span></span></td><td>91</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>300</td><td>2429.625</td><td>-1087.625</td></tr>
+<tr><td>Hirdsman's Sword<span></span></td><td>399</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>450</td><td>2429.625</td><td>-1087.625</td></tr>
+<tr><td>Dragon Helm<span>Wear: 311/5033</span></td><td>251</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>150</td><td>2429.625</td><td>-1087.625</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>299</td><td>26</td><td>Fine Clay<span></span></td><td>50</td><td>1</td><td>2299.0</td><td>-1166.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>301</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>100</td><td>2299.0</td><td>-1166.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>281</td><td>13</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>2299.0</td><td>-1166.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>270</td><td>42</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>2299.0</td><td>-1166.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>271</td><td>28</td><td>Fine Clay<span></span></td><td>45</td><td>1</td><td>2299.0</td><td>-1166.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>261</td><td>45</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>2279.75</td><td>-1166.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>259</td><td>39</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>2279.75</td><td>-1166.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>233</td><td>17</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>8</td><td>2227.5</td><td>-1166.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>302</td><td>63</td><td>Fine Clay<span></span></td><td>55</td><td>1</td><td>2227.5</td><td>-1166.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>355</td><td>8</td><td>Fine Clay<span></span></td><td>60</td><td>1</td><td>2227.5</td><td>-1166.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>233</td><td>17</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>8</td><td>2227.5</td><td>-1166.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>302</td><td>63</td><td>Fine Clay<span></span></td><td>55</td><td>1</td><td>2227.5</td><td>-1166.0</td></tr>
+<tr><td>Bar of Copper<span></span></td><td>131</td><td>14</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>2208.25</td><td>-1166.0</td></tr>
+<tr><td>Bar of Tin<span></span></td><td>131</td><td>24</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>8</td><td>2208.25</td><td>-1166.0</td></tr>
+<tr><td>Mulch<span></span></td><td>348</td><td>30</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>2158.75</td><td>-1166.0</td></tr>
+<tr><td>Coal<span></span></td><td>236</td><td>19</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2158.75</td><td>-1166.0</td></tr>
+<tr><td>50 seeds of Hemp<span></span></td><td>166</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2087.25</td><td>-1166.0</td></tr>
+<tr><td>50 seeds of Barley<span></span></td><td>269</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2087.25</td><td>-1166.0</td></tr>
+<tr><td>Heartwood Leaves<span></span></td><td>10</td><td>35</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2037.75</td><td>-1166.0</td></tr>
+<tr><td>Mother of Pearl<span></span></td><td>30</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>2037.75</td><td>-1166.0</td></tr>
+<tr><td>Silk Cloth<span></span></td><td>249</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>60</td><td>1985.5</td><td>-1166.0</td></tr>
+<tr><td>Chicken Egg<span></span></td><td>87</td><td>63</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1966.25</td><td>-1166.0</td></tr>
+<tr><td>Chicken Egg<span></span></td><td>108</td><td>63</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1966.25</td><td>-1166.0</td></tr>
+<tr><td>Ball Clay<span></span></td><td>51</td><td>50</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1846.625</td><td>-1293.05859375</td></tr>
+<tr><td>Ball Clay<span></span></td><td>52</td><td>38</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1846.625</td><td>-1293.05859375</td></tr>
+<tr><td>9 coins of Silver<span>Silver Quill</span></td><td></td><td>51</td><td>Clay<span></span></td><td>50</td><td>10</td><td>1846.625</td><td>-1293.05859375</td></tr>
+<tr><td>9 coins of Silver<span>Silver Quill</span></td><td></td><td>57</td><td>Clay<span></span></td><td>50</td><td>10</td><td>1846.625</td><td>-1293.05859375</td></tr>
+<tr><td>9 coins of Silver<span>Silver Quill</span></td><td></td><td>60</td><td>Clay<span></span></td><td>50</td><td>10</td><td>1923.625</td><td>-1291.9521484375</td></tr>
+<tr><td>9 coins of Silver<span>Silver Quill</span></td><td></td><td>52</td><td>Clay<span></span></td><td>50</td><td>10</td><td>1923.625</td><td>-1291.9521484375</td></tr>
+<tr><td>Custom Image Sketch<span></span></td><td></td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1966.25</td><td>-957.0</td></tr>
+<tr><td>Custom Image Sketch<span></span></td><td></td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>18</td><td>1985.5</td><td>-957.0</td></tr>
+<tr><td>Custom Image Sketch<span></span></td><td></td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>2057.0</td><td>-957.0</td></tr>
+<tr><td>Troll Skull<span></span></td><td>75</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>600</td><td>2087.25</td><td>-957.0</td></tr>
+<tr><td>Metal Saw<span></span></td><td>199</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>8</td><td>2087.25</td><td>-957.0</td></tr>
+<tr><td>Metal Axe<span></span></td><td>203</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>2087.25</td><td>-957.0</td></tr>
+<tr><td>Strawhat<span>Gildings (1): Leather Patch</span></td><td>111</td><td>3</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>5</td><td>2106.5</td><td>-957.0</td></tr>
+<tr><td>1000 seeds of Flax<span>Bucket Q230</span></td><td>403</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1200</td><td>2106.5</td><td>-957.0</td></tr>
+<tr><td>Board of Walnutwood<span></span></td><td>295</td><td>11</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>2158.75</td><td>-957.0</td></tr>
+<tr><td>Board of Pine<span></span></td><td>305</td><td>13</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2158.75</td><td>-957.0</td></tr>
+<tr><td>Board of Spruce<span></span></td><td>327</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>2158.75</td><td>-957.0</td></tr>
+<tr><td>Board of Walnutwood<span></span></td><td>295</td><td>11</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>2158.75</td><td>-957.0</td></tr>
+<tr><td>Board of Pine<span></span></td><td>305</td><td>13</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2158.75</td><td>-957.0</td></tr>
+<tr><td>Board of Spruce<span></span></td><td>327</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>2158.75</td><td>-957.0</td></tr>
+<tr><td>Board of Walnutwood<span></span></td><td>295</td><td>9</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>2178.0</td><td>-957.0</td></tr>
+<tr><td>Board of Pine<span></span></td><td>305</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2178.0</td><td>-957.0</td></tr>
+<tr><td>Board of Spruce<span></span></td><td>327</td><td>11</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>2178.0</td><td>-957.0</td></tr>
+<tr><td>Fresh Mammoth Hide<span></span></td><td>80</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2279.75</td><td>-957.0</td></tr>
+<tr><td>Mammoth Hide<span></span></td><td>80</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2279.75</td><td>-957.0</td></tr>
+<tr><td>Leather<span></span></td><td>99</td><td>40</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2279.75</td><td>-957.0</td></tr>
+<tr><td>Fresh Mammoth Hide<span></span></td><td>80</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2279.75</td><td>-957.0</td></tr>
+<tr><td>Mammoth Hide<span></span></td><td>80</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2279.75</td><td>-957.0</td></tr>
+<tr><td>Leather<span></span></td><td>99</td><td>40</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2279.75</td><td>-957.0</td></tr>
+<tr><td>Iron Ochre<span></span></td><td>14</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2299.0</td><td>-957.0</td></tr>
+<tr><td>Foul Smoke<span></span></td><td>31</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>9</td><td>2299.0</td><td>-957.0</td></tr>
+<tr><td>Cat Gold<span></span></td><td>40</td><td>3</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>2131.25</td><td>-869.0</td></tr>
+<tr><td>Feldspar<span></span></td><td>147</td><td>25</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>6</td><td>2131.25</td><td>-869.0</td></tr>
+<tr><td>Feldspar<span></span></td><td>162</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>2131.25</td><td>-869.0</td></tr>
+<tr><td>Bar of Cast Iron<span></span></td><td>40</td><td>43</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>3</td><td>2131.25</td><td>-869.0</td></tr>
+<tr><td>Beeswax<span></span></td><td>10</td><td>36</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>3</td><td>2131.25</td><td>-869.0</td></tr>
+<tr><td>Thane's Ring<span>Gildings (0): Gildable</span></td><td>271</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>100</td><td>2112.0</td><td>-869.0</td></tr>
+<tr><td>Cured Hemp Bud<span></span></td><td>180</td><td>9</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2112.0</td><td>-869.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>280</td><td>10</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>12</td><td>2092.75</td><td>-869.0</td></tr>
+<tr><td>Plumb-Bob<span></span></td><td>465</td><td>34</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>2072.125</td><td>-869.0</td></tr>
+<tr><td>Thane's Ring<span>Gildings (1): Tiny Brilliant Moonstone, Gildable</span></td><td>280</td><td>9</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>100</td><td>2072.125</td><td>-869.0</td></tr>
+<tr><td>Occult Ring<span>Gildings (1): Tiny Brilliant Turquoise, Gildable</span></td><td>275</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>100</td><td>2072.125</td><td>-869.0</td></tr>
+<tr><td>Merchant's Ring<span>Gildings (1): Tiny Brilliant Topaz, Gildable</span></td><td>282</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>100</td><td>2072.125</td><td>-869.0</td></tr>
+<tr><td>Metal Sauci?re<span>Wear: 0/66</span></td><td>437</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>2033.625</td><td>-869.0</td></tr>
+<tr><td>Tankard<span>Wear: 0/60</span></td><td>362</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>2033.625</td><td>-869.0</td></tr>
+<tr><td>Golden Table Bell<span>Wear: 0/72</span></td><td>524</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>190</td><td>2033.625</td><td>-869.0</td></tr>
+<tr><td>Soft Metal Cutlery<span>Wear: 0/67</span></td><td>447</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>40</td><td>2033.625</td><td>-869.0</td></tr>
+<tr><td>Cast Iron Trivet<span>Wear: 0/61</span></td><td>377</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>45</td><td>2033.625</td><td>-869.0</td></tr>
+<tr><td>Hard Metal Cutlery<span>Wear: 0/67</span></td><td>446</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>1999.25</td><td>-869.0</td></tr>
+<tr><td>Cake Knife<span>Wear: 0/64</span></td><td>408</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>125</td><td>1999.25</td><td>-869.0</td></tr>
+<tr><td>Gold Plate<span>Wear: 0/71</span></td><td>508</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>190</td><td>1999.25</td><td>-869.0</td></tr>
+<tr><td>Copper Kettle<span>Wear: 0/63</span></td><td>397</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>45</td><td>1999.25</td><td>-869.0</td></tr>
+<tr><td>Silver Cutlery<span>Wear: 0/61</span></td><td>369</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>125</td><td>1999.25</td><td>-869.0</td></tr>
+<tr><td>Coal<span></span></td><td>220</td><td>35</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1980.0</td><td>-869.0</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>228</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>150</td><td>1980.0</td><td>-869.0</td></tr>
+<tr><td>Copper Scales<span></span></td><td>181</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1980.0</td><td>-869.0</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>244</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>350</td><td>1980.0</td><td>-869.0</td></tr>
+<tr><td>Druid's Helm<span>Wear: 0/1813</span></td><td>402</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>80</td><td>1960.75</td><td>-869.0</td></tr>
+<tr><td>Thane's Helm<span>Wear: 0/3491</span></td><td>387</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>140</td><td>1960.75</td><td>-869.0</td></tr>
+<tr><td>Hirdsman's Sword<span></span></td><td>400</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>340</td><td>1960.75</td><td>-869.0</td></tr>
+<tr><td>Hunter's Quiver<span></span></td><td>64</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>1923.625</td><td>-831.875</td></tr>
+<tr><td>Hunter's Bow<span></span></td><td>357</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>100</td><td>1923.625</td><td>-831.875</td></tr>
+<tr><td>Board of Mulberrywood<span></span></td><td>282</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1923.625</td><td>-831.875</td></tr>
+<tr><td>Board of Mulberrywood<span></span></td><td>282</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1923.625</td><td>-831.875</td></tr>
+<tr><td>0.05 kg of Opium<span></span></td><td>284</td><td>13</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>45</td><td>1923.625</td><td>-812.625</td></tr>
+<tr><td>Teabush Seedpod<span></span></td><td>212</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1923.625</td><td>-812.625</td></tr>
+<tr><td>Metal Shovel<span></span></td><td>440</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1923.625</td><td>-812.625</td></tr>
+<tr><td>Spruce Bough<span></span></td><td>280</td><td>9</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>7</td><td>1923.625</td><td>-812.625</td></tr>
+<tr><td>Irrlight<span></span></td><td>90</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>1923.625</td><td>-812.625</td></tr>
+<tr><td>Maple Leaf<span></span></td><td>220</td><td>15</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>4</td><td>1923.625</td><td>-793.375</td></tr>
+<tr><td>Laurel Leaves<span></span></td><td>263</td><td>34</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>5</td><td>1923.625</td><td>-793.375</td></tr>
+<tr><td>Block of Spruce<span></span></td><td>271</td><td>19</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1923.625</td><td>-793.375</td></tr>
+<tr><td>Block of Spruce<span></span></td><td>271</td><td>12</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1923.625</td><td>-774.125</td></tr>
+<tr><td>Boar Spear<span></span></td><td>401</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>45</td><td>1923.625</td><td>-774.125</td></tr>
+<tr><td>Mulberry<span>FEP: cha +1: 1.19</span></td><td>228</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>1923.625</td><td>-774.125</td></tr>
+<tr><td>Walnut<span>FEP: str +1: 1.55, psy +1: 0.16</span></td><td>268</td><td>26</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>1923.625</td><td>-774.125</td></tr>
+<tr><td>Spruce Cone<span></span></td><td>253</td><td>22</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>1923.625</td><td>-774.125</td></tr>
+<tr><td>Board of Mulberrywood<span></span></td><td>289</td><td>10</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1923.625</td><td>-721.875</td></tr>
+<tr><td>Folded Roasting Spit<span></span></td><td>395</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>120</td><td>1923.625</td><td>-721.875</td></tr>
+<tr><td>Frying Pan<span></span></td><td>449</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>60</td><td>1923.625</td><td>-721.875</td></tr>
+<tr><td>Woodsman's Axe<span></span></td><td>418</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>240</td><td>1923.625</td><td>-721.875</td></tr>
+<tr><td>Opium Dragon<span></span></td><td>246</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>80</td><td>1923.625</td><td>-702.625</td></tr>
+<tr><td>Metal Axe<span></span></td><td>451</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>960</td><td>1923.625</td><td>-702.625</td></tr>
+<tr><td>Pickaxe<span></span></td><td>547</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>200</td><td>1923.625</td><td>-702.625</td></tr>
+<tr><td>Metal Saw<span></span></td><td>429</td><td>14</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>890</td><td>1923.625</td><td>-702.625</td></tr>
+<tr><td>Scythe<span></span></td><td>291</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1923.625</td><td>-702.625</td></tr>
+<tr><td>Silkspun Seam<span></span></td><td>215</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1923.625</td><td>-683.375</td></tr>
+<tr><td>Feather Stuffing<span></span></td><td>182</td><td>37</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1923.625</td><td>-683.375</td></tr>
+<tr><td>Quilted Wadding<span></span></td><td>411</td><td>46</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1923.625</td><td>-683.375</td></tr>
+<tr><td>Cornbraid<span></span></td><td>353</td><td>22</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1923.625</td><td>-683.375</td></tr>
+<tr><td>50 seeds of Grape<span></span></td><td>73</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>7</td><td>1923.625</td><td>-650.375</td></tr>
+<tr><td>Flax Fibres<span></span></td><td>291</td><td>31</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1923.625</td><td>-578.875</td></tr>
+<tr><td>Bark Bread<span>Made of: Wheat Flour (100%)  /  FEP: con +1: 16.16, wil +1: 20.19, per +1: 12.12</span></td><td>163</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1923.625</td><td>-559.625</td></tr>
+<tr><td>Block of Walnutwood<span></span></td><td>200</td><td>28</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1923.625</td><td>-521.125</td></tr>
+<tr><td>Heartwood Leaves<span></span></td><td>22</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1923.625</td><td>-468.875</td></tr>
+<tr><td>Silver River Cutlery<span>Wear: 0/40</span></td><td>167</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>75</td><td>1923.625</td><td>-468.875</td></tr>
+<tr><td>Flax Fibres<span></span></td><td>358</td><td>63</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>1923.625</td><td>-468.875</td></tr>
+<tr><td>Box of Matches<span></span></td><td>164</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>1923.625</td><td>-468.875</td></tr>
+<tr><td>Golden Table Bell<span>Wear: 1/56</span></td><td>339</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>125</td><td>1923.625</td><td>-468.875</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>60</td><td>Wool<span></span></td><td>50</td><td>3</td><td>1923.625</td><td>-449.625</td></tr>
+<tr><td>Giant Puffball<span>FEP: per +2: 1.51</span></td><td>22</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1923.625</td><td>-449.625</td></tr>
+<tr><td>2 coins of Silver<span>Silver Quill</span></td><td></td><td>63</td><td>Raw Mammoth<span></span></td><td>60</td><td>1</td><td>1923.625</td><td>-449.625</td></tr>
+<tr><td>Silver Cutlery<span>Wear: 0/43</span></td><td>206</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1923.625</td><td>-449.625</td></tr>
+<tr><td>Notes of a Foul Symphony<span></span></td><td>4</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>1923.625</td><td>-449.625</td></tr>
+<tr><td>Walnut<span>FEP: str +1: 1.19, psy +1: 0.12</span></td><td>157</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>9</td><td>1923.625</td><td>-430.375</td></tr>
+<tr><td>Straw Doll<span></span></td><td>214</td><td>12</td><td>Silver Coins<span>Silver Quill</span></td><td>10</td><td>10</td><td>1923.625</td><td>-430.375</td></tr>
+<tr><td>Clothier's Thimble<span>Gildings (0): Gildable</span></td><td>38</td><td>2</td><td>Cast Iron Coins<span> Iron Quill</span></td><td>60</td><td>1000</td><td>1923.625</td><td>-430.375</td></tr>
+<tr><td>25 seeds of Carrot<span></span></td><td>270</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>55</td><td>1923.625</td><td>-358.875</td></tr>
+<tr><td>Branch<span></span></td><td>218</td><td>27</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1923.625</td><td>-358.875</td></tr>
+<tr><td>Leather<span></span></td><td>149</td><td>19</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>1923.625</td><td>-339.625</td></tr>
+<tr><td>15 seeds of Lettuce<span></span></td><td>116</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>45</td><td>1923.625</td><td>-339.625</td></tr>
+<tr><td>Bouquet of Flowers<span></span></td><td>255</td><td>48</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>4</td><td>1923.625</td><td>-320.375</td></tr>
+<tr><td>Bouquet of Flowers<span></span></td><td>255</td><td>48</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1923.625</td><td>-320.375</td></tr>
+<tr><td>2 coins of Gold<span>Golden Quill</span></td><td></td><td>8</td><td>Adder Hide<span></span></td><td>25</td><td>3</td><td>1923.625</td><td>-301.125</td></tr>
+<tr><td>Notes of a Foul Symphony<span></span></td><td>26</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>1923.625</td><td>-301.125</td></tr>
+<tr><td>Dead Hen<span></span></td><td>169</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>1923.625</td><td>-248.875</td></tr>
+<tr><td>Dead Rooster<span></span></td><td>178</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>35</td><td>1923.625</td><td>-248.875</td></tr>
+<tr><td>50 seeds of Grape<span></span></td><td>88</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1923.625</td><td>-248.875</td></tr>
+<tr><td>Dead Rooster<span></span></td><td>156</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1923.625</td><td>-248.875</td></tr>
+<tr><td>Chicken Egg<span></span></td><td>107</td><td>31</td><td>Toad<span></span></td><td>25</td><td>1</td><td>1923.625</td><td>-248.875</td></tr>
+<tr><td>5 seeds of Barley<span></span></td><td>133</td><td>25</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1923.625</td><td>-191.125</td></tr>
+<tr><td>5 seeds of Poppy<span></span></td><td>95</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1923.625</td><td>-138.875</td></tr>
+<tr><td>Beetroot<span>FEP: per +1: 1.9, cha +1: 1.14</span></td><td>144</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1923.625</td><td>-138.875</td></tr>
+<tr><td>Mammoth Hide<span></span></td><td>271</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>35</td><td>1923.625</td><td>-119.625</td></tr>
+<tr><td>Mammoth Hide<span></span></td><td>263</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>1923.625</td><td>-119.625</td></tr>
+<tr><td>50 seeds of Poppy<span></span></td><td>109</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1846.625</td><td>-119.625</td></tr>
+<tr><td>Mr.King*aivel^_^'s skull<span></span></td><td>10</td><td>13</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>1846.625</td><td>-119.625</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>62</td><td>Hardened Leather<span></span></td><td>Any</td><td>5</td><td>1838.375</td><td>-96.25</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>62</td><td>Hardened Leather<span></span></td><td>Any</td><td>5</td><td>1838.375</td><td>-96.25</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>61</td><td>Hardened Leather<span></span></td><td>Any</td><td>5</td><td>1838.375</td><td>-96.25</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>61</td><td>Hardened Leather<span></span></td><td>Any</td><td>5</td><td>1838.375</td><td>-96.25</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>62</td><td>Hardened Leather<span></span></td><td>Any</td><td>5</td><td>1838.375</td><td>-96.25</td></tr>
+<tr><td>Wine Glass<span>Wear: 14/21</span></td><td>44</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1846.625</td><td>-191.125</td></tr>
+<tr><td>Chestnut<span>FEP: str +1: 0.49</span></td><td>106</td><td>13</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1846.625</td><td>-191.125</td></tr>
+<tr><td>Antler Steak Cutlery<span>Wear: 0/40</span></td><td>163</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1846.625</td><td>-191.125</td></tr>
+<tr><td>Pepper Shaker<span>Wear: 0/21</span></td><td>46</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1846.625</td><td>-210.375</td></tr>
+<tr><td>Peppermill<span>Wear: 1/21</span></td><td>45</td><td>39</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1846.625</td><td>-210.375</td></tr>
+<tr><td>Grapes<span>FEP: cha +1: 2.7</span></td><td>73</td><td>21</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1846.625</td><td>-229.625</td></tr>
+<tr><td>Brick<span></span></td><td>157</td><td>25</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>1846.625</td><td>-229.625</td></tr>
+<tr><td>Frog's Crown<span></span></td><td>10</td><td>4</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1846.625</td><td>-229.625</td></tr>
+<tr><td>0.05 kg of Black pepper<span></span></td><td>150</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>1846.625</td><td>-229.625</td></tr>
+<tr><td>Bar of Cast Iron<span></span></td><td>66</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1846.625</td><td>-248.875</td></tr>
+<tr><td>Oscypki<span>FEP: psy +2: 30.68, agi +2: 61.36, con +2: 30.68</span></td><td>94</td><td>24</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>1846.625</td><td>-248.875</td></tr>
+<tr><td>Cat Gold<span></span></td><td>171</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>1846.625</td><td>-248.875</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>179</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>1846.625</td><td>-301.125</td></tr>
+<tr><td>Walnut<span>FEP: str +1: 1.33, psy +1: 0.13</span></td><td>198</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1846.625</td><td>-301.125</td></tr>
+<tr><td>Ball Clay<span></span></td><td>52</td><td>38</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>1846.625</td><td>-301.125</td></tr>
+<tr><td>Grapes<span>FEP: cha +1: 3.24</span></td><td>105</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1846.625</td><td>-301.125</td></tr>
+<tr><td>Brick<span></span></td><td>157</td><td>50</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>1846.625</td><td>-301.125</td></tr>
+<tr><td>Salt Crystals<span></span></td><td>15</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1846.625</td><td>-320.375</td></tr>
+<tr><td>4 coins of Silver<span>Silver Quill</span></td><td></td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1846.625</td><td>-320.375</td></tr>
+<tr><td>River Pearl<span></span></td><td>12</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>35</td><td>1846.625</td><td>-339.625</td></tr>
+<tr><td>Dried Camomile<span></span></td><td>65</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>1846.625</td><td>-339.625</td></tr>
+<tr><td>Woodsman's Axe<span></span></td><td>239</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>1846.625</td><td>-358.875</td></tr>
+<tr><td>Frying Pan<span></span></td><td>260</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>1846.625</td><td>-358.875</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>111</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>1846.625</td><td>-358.875</td></tr>
+<tr><td>0.10 kg of Opium<span></span></td><td>156</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1846.625</td><td>-358.875</td></tr>
+<tr><td>Spruce Bough<span></span></td><td>195</td><td>10</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1846.625</td><td>-411.125</td></tr>
+<tr><td>Sheepskin<span></span></td><td>164</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1846.625</td><td>-411.125</td></tr>
+<tr><td>Spruce Bough<span></span></td><td>163</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>35</td><td>1846.625</td><td>-430.375</td></tr>
+<tr><td>25 seeds of Flax<span></span></td><td>223</td><td>18</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>40</td><td>1846.625</td><td>-430.375</td></tr>
+<tr><td>Black Coal<span></span></td><td>161</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1846.625</td><td>-430.375</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>182</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>80</td><td>1846.625</td><td>-449.625</td></tr>
+<tr><td>Bone Material<span></span></td><td>349</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1846.625</td><td>-521.125</td></tr>
+<tr><td>Bone Material<span></span></td><td>360</td><td>21</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>18</td><td>1846.625</td><td>-521.125</td></tr>
+<tr><td>Bone Material<span></span></td><td>368</td><td>13</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>1846.625</td><td>-521.125</td></tr>
+<tr><td>Bone Material<span></span></td><td>376</td><td>32</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>22</td><td>1846.625</td><td>-521.125</td></tr>
+<tr><td>Bone Material<span></span></td><td>384</td><td>17</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>1846.625</td><td>-521.125</td></tr>
+<tr><td>Ring of Brodgar<span>Gildings (0): Gildable</span></td><td>141</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>65</td><td>1846.625</td><td>-540.375</td></tr>
+<tr><td>Linen Shirt<span>Gildings (5): Hide Layer, Metal Buttons, Patterned Embroidery, Extra Stitches, Bark Reinforcement</span></td><td>379</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>125</td><td>1846.625</td><td>-540.375</td></tr>
+<tr><td>Linen Pants<span>Gildings (5): Reinforced Hem, Hide Layer, Patterned Embroidery, Extra Stitches, Metal Buttons</span></td><td>338</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>125</td><td>1846.625</td><td>-540.375</td></tr>
+<tr><td>Bone Material<span></span></td><td>324</td><td>25</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>12</td><td>1846.625</td><td>-540.375</td></tr>
+<tr><td>Bone Material<span></span></td><td>335</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>13</td><td>1846.625</td><td>-540.375</td></tr>
+<tr><td>Thane's Ring<span>Gildings (0): Gildable</span></td><td>270</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>125</td><td>1838.375</td><td>-563.75</td></tr>
+<tr><td>Hussar's Wings<span>Wear: 123/721</span></td><td>240</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>100</td><td>1838.375</td><td>-563.75</td></tr>
+<tr><td>Brimstone<span></span></td><td>10</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1838.375</td><td>-563.75</td></tr>
+<tr><td>Hirdsman's Sword<span></span></td><td>187</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>1812.25</td><td>-572.0</td></tr>
+<tr><td>Battleaxe of the Twelfth Bay<span></span></td><td>338</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>500</td><td>1812.25</td><td>-572.0</td></tr>
+<tr><td>Dragon Helm<span>Wear: 411/6462</span></td><td>323</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>220</td><td>1812.25</td><td>-572.0</td></tr>
+<tr><td>Chicken Egg<span></span></td><td>59</td><td>63</td><td>Cast Iron Coins<span> Iron Quill</span></td><td>Any</td><td>25</td><td>1773.75</td><td>-572.0</td></tr>
+<tr><td>Chicken Egg<span></span></td><td>56</td><td>63</td><td>Cast Iron Coins<span> Iron Quill</span></td><td>Any</td><td>25</td><td>1773.75</td><td>-572.0</td></tr>
+<tr><td>20 seeds of Carrot<span></span></td><td>464</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>1743.5</td><td>-572.0</td></tr>
+<tr><td>Maple Samara<span></span></td><td>252</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>100</td><td>1743.5</td><td>-572.0</td></tr>
+<tr><td>Laurel Seeds<span></span></td><td>255</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>200</td><td>1743.5</td><td>-572.0</td></tr>
+<tr><td>Metal Axe<span></span></td><td>390</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>250</td><td>1724.25</td><td>-572.0</td></tr>
+<tr><td>Druid's Cloak<span>Gildings (5): Patterned Embroidery, Heartwood Leaves, Feather Trinket, Cornbraid, Quilted Wadding</span></td><td>151</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>250</td><td>1705.0</td><td>-572.0</td></tr>
+<tr><td>Bone Clay<span></span></td><td>206</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>250</td><td>1685.75</td><td>-572.0</td></tr>
+<tr><td>Bone Clay<span></span></td><td>194</td><td>12</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>200</td><td>1685.75</td><td>-572.0</td></tr>
+<tr><td>Bone Clay<span></span></td><td>188</td><td>9</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>150</td><td>1685.75</td><td>-572.0</td></tr>
+<tr><td>Bone Clay<span></span></td><td>133</td><td>17</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>1685.75</td><td>-572.0</td></tr>
+<tr><td>Bone Clay<span></span></td><td>152</td><td>10</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>40</td><td>1685.75</td><td>-572.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>385</td><td>10</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>1666.5</td><td>-572.0</td></tr>
+<tr><td>Coal<span></span></td><td>291</td><td>33</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>1666.5</td><td>-572.0</td></tr>
+<tr><td>Mulch<span></span></td><td>385</td><td>34</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>1666.5</td><td>-572.0</td></tr>
+<tr><td>Board of King's Oak<span></span></td><td>338</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>1666.5</td><td>-572.0</td></tr>
+<tr><td>Walrus Boots<span>Gildings (2): Reinforced Hem, Metal Buttons</span></td><td>249</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>1619.75</td><td>-572.0</td></tr>
+<tr><td>Leather Coat<span>Gildings (4): Metal Buttons, Patterned Embroidery, Extra Stitches, Reinforced Hem</span></td><td>273</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>150</td><td>1619.75</td><td>-572.0</td></tr>
+<tr><td>Linen Shirt<span>Gildings (4): Hide Layer, Leather Patch, Rough Guard Patch, Extra Stitches, Gildable</span></td><td>215</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>120</td><td>1600.5</td><td>-572.0</td></tr>
+<tr><td>Heraldic Cape<span>Gildings (4): Hide Layer, Rough Guard Patch, Extra Stitches, Leather Patch</span></td><td>372</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>180</td><td>1600.5</td><td>-572.0</td></tr>
+<tr><td>Linen Pants<span>Gildings (4): Hide Layer, Rough Guard Patch, Extra Stitches, Leather Patch</span></td><td>357</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>140</td><td>1600.5</td><td>-572.0</td></tr>
+<tr><td>Branch<span></span></td><td>361</td><td>42</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1581.25</td><td>-572.0</td></tr>
+<tr><td>Spruce Bough<span></span></td><td>257</td><td>14</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>1581.25</td><td>-572.0</td></tr>
+<tr><td>Treebark<span></span></td><td>220</td><td>53</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1581.25</td><td>-572.0</td></tr>
+<tr><td>Merchant's Robe<span>Gildings (2): Cornbraid, Feather Trinket</span></td><td>245</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>200</td><td>1562.0</td><td>-572.0</td></tr>
+<tr><td>Druid's Cloak<span>Gildings (4): Heartwood Leaves, Feather Trinket, Cornbraid, Chef's Pin</span></td><td>224</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>150</td><td>1562.0</td><td>-572.0</td></tr>
+<tr><td>Druid's Cloak<span>Gildings (5): Precious Details, Shipwreck Buttons, Cornbraid, Heartwood Leaves, Feather Trinket</span></td><td>132</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>150</td><td>1562.0</td><td>-572.0</td></tr>
+<tr><td>Druid's Cloak<span>Gildings (5): Shipwreck Buttons, Heartwood Leaves, Feather Trinket, Cornbraid, Chef's Pin</span></td><td>223</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>200</td><td>1562.0</td><td>-572.0</td></tr>
+<tr><td>Heraldic Cape<span>Gildings (2): Cornbraid, Feather Trinket</span></td><td>336</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>80</td><td>1509.75</td><td>-572.0</td></tr>
+<tr><td>Leather Boots<span>Wear: 0/346  /  Gildings (2): Feather Trinket, Cornbraid</span></td><td>230</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>80</td><td>1509.75</td><td>-572.0</td></tr>
+<tr><td>Wool Shirt<span>Gildings (3): Heartwood Leaves, Feather Trinket, Cornbraid</span></td><td>254</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>120</td><td>1509.75</td><td>-572.0</td></tr>
+<tr><td>Wool Pants<span>Gildings (3): Heartwood Leaves, Cornbraid, Feather Trinket</span></td><td>253</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>120</td><td>1509.75</td><td>-572.0</td></tr>
+<tr><td>Strawhat<span>Gildings (3): Heartwood Leaves, Cornbraid, Feather Trinket, Gildable</span></td><td>300</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>120</td><td>1509.75</td><td>-572.0</td></tr>
+<tr><td>Linen Shirt<span>Gildings (6): Shipwreck Buttons, Greased Joints, Patterned Embroidery, Quilted Wadding, Extra Stitches, Copper Scales</span></td><td>335</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>120</td><td>1490.5</td><td>-572.0</td></tr>
+<tr><td>Linen Shirt<span>Gildings (5): Hide Layer, Greased Joints, Patterned Embroidery, Quilted Wadding, Extra Stitches</span></td><td>347</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>80</td><td>1490.5</td><td>-572.0</td></tr>
+<tr><td>Linen Pants<span>Gildings (5): Greased Joints, Patterned Embroidery, Quilted Wadding, Extra Stitches, Copper Scales</span></td><td>331</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>80</td><td>1490.5</td><td>-572.0</td></tr>
+<tr><td>Linen Shirt<span>Gildings (6): Rough Guard Patch, Hide Layer, Greased Joints, Extra Stitches, Patterned Embroidery, Quilted Wadding</span></td><td>340</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>120</td><td>1490.5</td><td>-572.0</td></tr>
+<tr><td>Wolverine Fur Boots<span>Gildings (2): Woodsman's Token, Hard Metal Rivets</span></td><td>165</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>80</td><td>1471.25</td><td>-572.0</td></tr>
+<tr><td>Heraldic Cape<span>Gildings (2): Chitin Sequins, Hard Metal Rivets</span></td><td>277</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>80</td><td>1471.25</td><td>-572.0</td></tr>
+<tr><td>Linen Pants<span>Gildings (2): Woodsman's Token, Hard Metal Rivets</span></td><td>357</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>80</td><td>1471.25</td><td>-572.0</td></tr>
+<tr><td>Leather Merchant's Hat<span>Gildings (3): Chitin Sequins, Hard Metal Rivets, Woodsman's Token</span></td><td>229</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>200</td><td>1471.25</td><td>-572.0</td></tr>
+<tr><td>Hunter's Shirt<span>Gildings (3): Woodsman's Token, Chitin Sequins, Hard Metal Rivets</span></td><td>155</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>160</td><td>1471.25</td><td>-572.0</td></tr>
+<tr><td>Bear Cape<span>Gildings (4): Bear Tooth, Blacksmith's Bauble, Copper Scales, Plumb-Bob</span></td><td>363</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>200</td><td>1447.875</td><td>-563.75</td></tr>
+<tr><td>Merchant's Ring<span>Gildings (2): Large Brilliant Emerald, Fair Brilliant Jade</span></td><td>311</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>250</td><td>1447.875</td><td>-563.75</td></tr>
+<tr><td>Cutthroat Cuirass<span>Wear: 0/2853</span></td><td>356</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>200</td><td>1447.875</td><td>-563.75</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>37</td><td>Cat Gold<span></span></td><td>50</td><td>4</td><td>1439.625</td><td>-540.375</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>45</td><td>Cat Gold<span></span></td><td>50</td><td>4</td><td>1439.625</td><td>-540.375</td></tr>
+<tr><td>50 seeds of Carrot<span></span></td><td>489</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>1439.625</td><td>-521.125</td></tr>
+<tr><td>Clothier's Thimble<span>Gildings (0): Gildable</span></td><td>310</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>40</td><td>1439.625</td><td>-449.625</td></tr>
+<tr><td>Ring of Brodgar<span>Gildings (0): Gildable</span></td><td>198</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>150</td><td>1439.625</td><td>-449.625</td></tr>
+<tr><td>Clay Pipe<span></span></td><td>51</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1439.625</td><td>-358.875</td></tr>
+<tr><td>10.00 l of Beer<span>Bucket Q34</span></td><td>115</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1439.625</td><td>-339.625</td></tr>
+<tr><td>10.00 l of Beer<span>Bucket Q34</span></td><td>115</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1439.625</td><td>-339.625</td></tr>
+<tr><td>10.00 l of Beer<span>Bucket Q42</span></td><td>107</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1439.625</td><td>-339.625</td></tr>
+<tr><td>Pickaxe<span></span></td><td>210</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>1439.625</td><td>-320.375</td></tr>
+<tr><td>Silk Cloth<span></span></td><td>195</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>1439.625</td><td>-320.375</td></tr>
+<tr><td>Everglowing Ember<span></span></td><td>15</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>1439.625</td><td>-320.375</td></tr>
+<tr><td>Silk Cloth<span></span></td><td>198</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>1439.625</td><td>-320.375</td></tr>
+<tr><td>Lute<span></span></td><td>8</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>100</td><td>1439.625</td><td>-301.125</td></tr>
+<tr><td>Pickaxe<span></span></td><td>274</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>40</td><td>1439.625</td><td>-301.125</td></tr>
+<tr><td>10 coins of Gold<span>Golden Quill</span></td><td></td><td>10</td><td>Silk Cloth<span></span></td><td>Any</td><td>1</td><td>1439.625</td><td>-248.875</td></tr>
+<tr><td>5 coins of Gold<span>Golden Quill</span></td><td></td><td>20</td><td>Bar of Steel<span></span></td><td>Any</td><td>1</td><td>1439.625</td><td>-248.875</td></tr>
+<tr><td>6 coins of Gold<span>Golden Quill</span></td><td></td><td>20</td><td>Bone Material<span></span></td><td>260</td><td>1</td><td>1439.625</td><td>-248.875</td></tr>
+<tr><td>32 coins of Gold<span>Golden Quill</span></td><td></td><td>1</td><td>Peppercorn<span></span></td><td>100</td><td>6</td><td>1439.625</td><td>-248.875</td></tr>
+<tr><td>32 coins of Gold<span>Golden Quill</span></td><td></td><td>1</td><td>Hop Cones<span></span></td><td>80</td><td>1</td><td>1439.625</td><td>-248.875</td></tr>
+<tr><td>Troll Skull<span></span></td><td>150</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>700</td><td>1439.625</td><td>-229.625</td></tr>
+<tr><td>Metal Saw<span></span></td><td>415</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>350</td><td>1439.625</td><td>-229.625</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>195</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>95</td><td>1439.625</td><td>-229.625</td></tr>
+<tr><td>10.00 l of Cowsmilk<span>Bucket Q4</span></td><td>150</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>1439.625</td><td>-210.375</td></tr>
+<tr><td>10.00 l of Wine<span>Bucket Q111</span></td><td>158</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1439.625</td><td>-210.375</td></tr>
+<tr><td>10.00 l of Tea<span>Bucket Q2</span></td><td>86</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>1439.625</td><td>-210.375</td></tr>
+<tr><td>9.80 l of Beer<span>Bucket Q53</span></td><td>105</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1439.625</td><td>-210.375</td></tr>
+<tr><td>10.00 l of Wei?bier<span>Bucket Q111</span></td><td>141</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1439.625</td><td>-210.375</td></tr>
+<tr><td>Smithy's Hammer<span></span></td><td>250</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>75</td><td>1439.625</td><td>-138.875</td></tr>
+<tr><td>Beetroot<span>FEP: per +1: 1.96, cha +1: 1.18</span></td><td>154</td><td>13</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>1351.625</td><td>-229.625</td></tr>
+<tr><td>25 seeds of Flax<span></span></td><td>102</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1351.625</td><td>-229.625</td></tr>
+<tr><td>Bonesaw<span></span></td><td>246</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>150</td><td>1351.625</td><td>-301.125</td></tr>
+<tr><td>Wax Candle<span></span></td><td>137</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1351.625</td><td>-411.125</td></tr>
+<tr><td>Raw Horse<span></span></td><td>27</td><td>61</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1351.625</td><td>-411.125</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>101</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1351.625</td><td>-411.125</td></tr>
+<tr><td>Raw Horse<span></span></td><td>29</td><td>4</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>1351.625</td><td>-430.375</td></tr>
+<tr><td>Bar of Soap<span></span></td><td>176</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>1351.625</td><td>-449.625</td></tr>
+<tr><td>Blacksmith's Bauble<span></span></td><td>275</td><td>51</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1351.625</td><td>-449.625</td></tr>
+<tr><td>Silk Thread<span></span></td><td>302</td><td>25</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1351.625</td><td>-521.125</td></tr>
+<tr><td>Coal<span></span></td><td>263</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1351.625</td><td>-540.375</td></tr>
+<tr><td>Mulch<span></span></td><td>200</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1300.75</td><td>-572.0</td></tr>
+<tr><td>Branch<span></span></td><td>303</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>1281.5</td><td>-572.0</td></tr>
+<tr><td>Flax Fibres<span></span></td><td>315</td><td>14</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1281.5</td><td>-572.0</td></tr>
+<tr><td>Leather<span></span></td><td>154</td><td>31</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1262.25</td><td>-572.0</td></tr>
+<tr><td>Troll's Third Eye<span>FEP: per +1: 283.62, int +1: 94.54, psy +1: 75.63</span></td><td>143</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1200</td><td>1262.25</td><td>-572.0</td></tr>
+<tr><td>Bonesaw<span></span></td><td>312</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>160</td><td>1262.25</td><td>-572.0</td></tr>
+<tr><td>Chicken Egg<span></span></td><td>97</td><td>11</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1232.0</td><td>-572.0</td></tr>
+<tr><td>Peppermill<span>Wear: 1/21</span></td><td>45</td><td>39</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1232.0</td><td>-572.0</td></tr>
+<tr><td>Beetroot<span>FEP: per +1: 2.47, cha +1: 1.48</span></td><td>245</td><td>25</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1232.0</td><td>-572.0</td></tr>
+<tr><td>50 seeds of Flax<span></span></td><td>182</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1232.0</td><td>-572.0</td></tr>
+<tr><td>Onion Braid<span></span></td><td>200</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1232.0</td><td>-572.0</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>55</td><td>15</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>45</td><td>1212.75</td><td>-572.0</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>153</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>95</td><td>1212.75</td><td>-572.0</td></tr>
+<tr><td>Olive<span>FEP: str +1: 0.38, agi +1: 0.38, dex +1: 0.38</span></td><td>145</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1212.75</td><td>-572.0</td></tr>
+<tr><td>Raw Mammoth<span></span></td><td>168</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>1193.5</td><td>-572.0</td></tr>
+<tr><td>Pearl Necklace<span></span></td><td>159</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>400</td><td>1193.5</td><td>-572.0</td></tr>
+<tr><td>50 seeds of Carrot<span></span></td><td>256</td><td>17</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1193.5</td><td>-572.0</td></tr>
+<tr><td>Zamorano<span>FEP: str +2: 9.4, agi +2: 9.4, psy +2: 9.4</span></td><td>98</td><td>44</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1111.0</td><td>-572.0</td></tr>
+<tr><td>Musky Milben<span>FEP: str +2: 32.85, int +1: 32.85</span></td><td>107</td><td>40</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1111.0</td><td>-572.0</td></tr>
+<tr><td>Musky Milben<span>FEP: str +2: 32.68, int +1: 32.68</span></td><td>106</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1111.0</td><td>-572.0</td></tr>
+<tr><td>4 coins of Gold<span>Golden Quill</span></td><td></td><td>20</td><td>Fine Clay<span></span></td><td>30</td><td>1</td><td>1072.5</td><td>-572.0</td></tr>
+<tr><td>8 coins of Gold<span>Golden Quill</span></td><td></td><td>27</td><td>Bone Material<span></span></td><td>280</td><td>1</td><td>1072.5</td><td>-572.0</td></tr>
+<tr><td>8 coins of Gold<span>Golden Quill</span></td><td></td><td>42</td><td>Bone Material<span></span></td><td>280</td><td>1</td><td>1072.5</td><td>-572.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>63</td><td>Wax<span></span></td><td>10</td><td>1</td><td>1042.25</td><td>-572.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>63</td><td>Bone Glue<span></span></td><td>Any</td><td>1</td><td>1042.25</td><td>-572.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>63</td><td>Toad<span></span></td><td>40</td><td>1</td><td>1042.25</td><td>-572.0</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>56</td><td>Edelwei?<span></span></td><td>10</td><td>1</td><td>1042.25</td><td>-572.0</td></tr>
+<tr><td>Leather Ball<span></span></td><td>117</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1023.0</td><td>-572.0</td></tr>
+<tr><td>10.00 l of Vinegar<span>Bucket Q29</span></td><td>90</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>1003.75</td><td>-572.0</td></tr>
+<tr><td>Bone Clay<span></span></td><td>142</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>100</td><td>1003.75</td><td>-572.0</td></tr>
+<tr><td>Bone Clay<span></span></td><td>151</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>150</td><td>1003.75</td><td>-572.0</td></tr>
+<tr><td>Mulch<span></span></td><td>363</td><td>47</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>40</td><td>984.5</td><td>-572.0</td></tr>
+<tr><td>Slag<span></span></td><td>330</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>300</td><td>984.5</td><td>-572.0</td></tr>
+<tr><td>Olive<span>FEP: str +1: 0.49, agi +1: 0.49, dex +1: 0.49</span></td><td>240</td><td>20</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>45</td><td>984.5</td><td>-572.0</td></tr>
+<tr><td>Olive<span>FEP: str +1: 0.5, agi +1: 0.5, dex +1: 0.5</span></td><td>251</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>85</td><td>984.5</td><td>-572.0</td></tr>
+<tr><td>Hunter's Bow<span></span></td><td>335</td><td>10</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>250</td><td>965.25</td><td>-572.0</td></tr>
+<tr><td>Mulch<span></span></td><td>325</td><td>19</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>8</td><td>965.25</td><td>-572.0</td></tr>
+<tr><td>Feldspar<span></span></td><td>202</td><td>22</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>70</td><td>965.25</td><td>-572.0</td></tr>
+<tr><td>0.06 kg of Opium<span></span></td><td>373</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>965.25</td><td>-572.0</td></tr>
+<tr><td>Slag<span></span></td><td>272</td><td>29</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>965.25</td><td>-572.0</td></tr>
+<tr><td>Zander<span></span></td><td>18</td><td>29</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>941.875</td><td>-563.75</td></tr>
+<tr><td>Catfish<span></span></td><td>16</td><td>30</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>941.875</td><td>-563.75</td></tr>
+<tr><td>Plaice<span></span></td><td>35</td><td>42</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>941.875</td><td>-563.75</td></tr>
+<tr><td>Catfish<span></span></td><td>16</td><td>28</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>941.875</td><td>-563.75</td></tr>
+<tr><td>2 coins of Gold<span>Golden Quill</span></td><td></td><td>9</td><td>Fine Clay<span></span></td><td>10</td><td>1</td><td>941.875</td><td>-563.75</td></tr>
+<tr><td>Sprucecap<span>Gildings (4): Rough Guard Patch, Finebone Trinkets, Leather Patch, Chitin Sequins</span></td><td>117</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>933.625</td><td>-540.375</td></tr>
+<tr><td>Bunny Slippers<span>Gildings (4): Spun Gluethread, Rough Guard Patch, Chitin Sequins, Extra Stitches</span></td><td>168</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>933.625</td><td>-540.375</td></tr>
+<tr><td>Bat Wing<span>Wear: 0/310  /  Gildings (3): Snakeskin Stripes, Bone Pins, Leather Patch</span></td><td>124</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>933.625</td><td>-540.375</td></tr>
+<tr><td>Adder Crown<span>Gildings (4): Fine Feather Brooch, Silkspun Seam, Bone Pins, Extra Stitches</span></td><td>93</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>40</td><td>933.625</td><td>-540.375</td></tr>
+<tr><td>Bear Coat<span>Gildings (5): Rough Guard Patch, Reinforced Hem, Blacksmith's Bauble, Copper Scales, Fancy Buckle</span></td><td>170</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>100</td><td>933.625</td><td>-540.375</td></tr>
+<tr><td>Molehide Pants<span>Gildings (3): Plumb-Bob, Copper Scales, Fine Feather Brooch</span></td><td>137</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>933.625</td><td>-521.125</td></tr>
+<tr><td>Moose Hide Jacket<span>Gildings (3): Leather Patch, Hide Layer, Plumb-Bob</span></td><td>153</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>933.625</td><td>-521.125</td></tr>
+<tr><td>Linen Shirt<span>Gildings (3): Extra Stitches, Quilted Wadding, Hide Layer</span></td><td>288</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>933.625</td><td>-521.125</td></tr>
+<tr><td>Hemp Pants<span>Gildings (3): Quilted Wadding, Extra Stitches, Metal Buttons</span></td><td>226</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>933.625</td><td>-521.125</td></tr>
+<tr><td>Woodsman's Tunic<span>Gildings (3): Copper Scales, Blacksmith's Bauble, Woodsman's Token</span></td><td>135</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>933.625</td><td>-521.125</td></tr>
+<tr><td>Wool Pants<span>Gildings (4): Extra Stitches, Heartwood Leaves, Cornbraid, Feather Trinket</span></td><td>166</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>933.625</td><td>-468.875</td></tr>
+<tr><td>Wool Shirt<span>Gildings (4): Chitin Sequins, Cornbraid, Feather Trinket, Heartwood Leaves</span></td><td>210</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>933.625</td><td>-468.875</td></tr>
+<tr><td>Bear Cape<span>Gildings (3): Blacksmith's Bauble, Copper Scales, Reinforced Hem</span></td><td>148</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>933.625</td><td>-468.875</td></tr>
+<tr><td>Lawspeaker's Hat<span>Gildings (3): Extra Stitches, Quilted Wadding, Hard Metal Rivets</span></td><td>192</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>933.625</td><td>-468.875</td></tr>
+<tr><td>Kozhukh<span>Gildings (3): Chitin Sequins, Extra Stitches, Plumb-Bob</span></td><td>161</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>933.625</td><td>-468.875</td></tr>
+<tr><td>Leather Boots<span>Wear: 0/252  /  Gildings (3): Rough Guard Patch, Spun Gluethread, Extra Stitches</span></td><td>168</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>933.625</td><td>-449.625</td></tr>
+<tr><td>Walrus Boots<span>Gildings (4): Rough Guard Patch, Reinforced Hem, Copper Scales, Blacksmith's Bauble</span></td><td>173</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>933.625</td><td>-449.625</td></tr>
+<tr><td>Fox Hat<span>Gildings (3): Extra Stitches, Rough Guard Patch, Spun Gluethread</span></td><td>187</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>933.625</td><td>-449.625</td></tr>
+<tr><td>Leather Coat<span>Gildings (7): Metal Buttons, Patterned Embroidery, Spun Gluethread, Finebone Trinkets, Bound Wool Stuffing, Extra Stitches, Rough Guard Patch</span></td><td>192</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>140</td><td>933.6
+<tr><td>Leather Merchant's Hat<span>Gildings (3): Fine Feather Brooch, Extra Stitches, Quilted Wadding</span></td><td>182</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>933.625</td><td>-449.625</td></tr>
+<tr><td>Cigar<span></span></td><td>178</td><td>9</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>933.625</td><td>-430.375</td></tr>
+<tr><td>Strawhat<span>Gildings (3): Heartwood Leaves, Cornbraid, Feather Trinket</span></td><td>291</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>933.625</td><td>-430.375</td></tr>
+<tr><td>Heraldic Cape<span>Gildings (5): Greased Joints, Quilted Wadding, Patterned Embroidery, Extra Stitches, Cornbraid</span></td><td>287</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>80</td><td>933.625</td><td>-430.375</td></tr>
+<tr><td>2.00 l of Wine<span>Wine Bottle Q80  /  Wear: 0/28</span></td><td>95</td><td>36</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>933.625</td><td>-430.375</td></tr>
+<tr><td>Poppy Pod<span>FEP: psy +1: 3.91</span></td><td>153</td><td>21</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>933.625</td><td>-411.125</td></tr>
+<tr><td>Peapod<span>FEP: str +1: 0.29, per +1: 2.59</span></td><td>83</td><td>35</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>933.625</td><td>-411.125</td></tr>
+<tr><td>Hop Cones<span></span></td><td>60</td><td>25</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>933.625</td><td>-411.125</td></tr>
+<tr><td>0.10 kg of Opium<span></span></td><td>195</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>933.625</td><td>-411.125</td></tr>
+<tr><td>Rootfill<span></span></td><td>80</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1400</td><td>933.625</td><td>-411.125</td></tr>
+<tr><td>Spectacles<span></span></td><td>79</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>7</td><td>933.625</td><td>-358.875</td></tr>
+<tr><td>Hazelnut<span>FEP: per +1: 1.01</span></td><td>163</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>933.625</td><td>-339.625</td></tr>
+<tr><td>Mulch<span></span></td><td>117</td><td>41</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>933.625</td><td>-320.375</td></tr>
+<tr><td>Mulberry<span>FEP: cha +1: 0.84</span></td><td>114</td><td>21</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>933.625</td><td>-320.375</td></tr>
+<tr><td>25 seeds of Grape<span></span></td><td>57</td><td>14</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>933.625</td><td>-301.125</td></tr>
+<tr><td>A Beautiful Dream<span></span></td><td>140</td><td>42</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>933.625</td><td>-301.125</td></tr>
+<tr><td>Mulberry<span>FEP: cha +1: 0.86</span></td><td>117</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>933.625</td><td>-301.125</td></tr>
+<tr><td>25 seeds of Grape<span></span></td><td>58</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>933.625</td><td>-229.625</td></tr>
+<tr><td>Metal Axe<span></span></td><td>217</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>933.625</td><td>-191.125</td></tr>
+<tr><td>Animal Fat<span></span></td><td>200</td><td>1</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>3</td><td>933.625</td><td>-191.125</td></tr>
+<tr><td>A Beautiful Dream<span></span></td><td>276</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>933.625</td><td>-191.125</td></tr>
+<tr><td>Swan Feather<span></span></td><td>32</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>933.625</td><td>-191.125</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>167</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>85</td><td>933.625</td><td>-191.125</td></tr>
+<tr><td>Scythe<span></span></td><td>146</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>933.625</td><td>-138.875</td></tr>
+<tr><td>Metal Shovel<span></span></td><td>148</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>933.625</td><td>-138.875</td></tr>
+<tr><td>Bear Hide<span></span></td><td>66</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>933.625</td><td>-138.875</td></tr>
+<tr><td>Bone Material<span></span></td><td>60</td><td>2</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>5</td><td>933.625</td><td>-138.875</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>135</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>933.625</td><td>-138.875</td></tr>
+<tr><td>Metal Saw<span></span></td><td>110</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>933.625</td><td>-119.625</td></tr>
+<tr><td>Mulch<span></span></td><td>257</td><td>3</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>4</td><td>933.625</td><td>-119.625</td></tr>
+<tr><td>Animal Fat<span></span></td><td>66</td><td>1</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>933.625</td><td>-119.625</td></tr>
+<tr><td>A Beautiful Dream<span></span></td><td>290</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>933.625</td><td>-119.625</td></tr>
+<tr><td>Silk Napkin<span>Wear: 10/12</span></td><td>96</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>933.625</td><td>-119.625</td></tr>
+<tr><td>Hartshorn Salve<span></span></td><td>106</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>856.625</td><td>-119.625</td></tr>
+<tr><td>Camomile Compress<span></span></td><td>89</td><td>58</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>8</td><td>856.625</td><td>-119.625</td></tr>
+<tr><td>Stitch Patch<span></span></td><td>147</td><td>10</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>12</td><td>856.625</td><td>-119.625</td></tr>
+<tr><td>Bone Material<span></span></td><td>212</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>856.625</td><td>-119.625</td></tr>
+<tr><td>Ring of Brodgar<span>Made of: Barley Flour (100%)  /  FEP: agi +1: 21.16, psy +1: 9.52, str +1: 3.7</span></td><td>124</td><td>38</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>856.625</td><td>-138.875</td></tr>
+<tr><td>Raisin Butter-Cake<span>Made of: Barley Flour (100%)  /  FEP: cha +1: 21.9, con +1: 8.51</span></td><td>120</td><td>63</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>856.625</td><td>-138.875</td></tr>
+<tr><td>Red Deer Antlers<span></span></td><td>288</td><td>21</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>12</td><td>856.625</td><td>-191.125</td></tr>
+<tr><td>Block of Spruce<span></span></td><td>259</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>7</td><td>856.625</td><td>-301.125</td></tr>
+<tr><td>Glimmermoss<span></span></td><td>12</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>856.625</td><td>-339.625</td></tr>
+<tr><td>Tiny Smooth Turquoise<span></span></td><td>13</td><td>13</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>7</td><td>856.625</td><td>-358.875</td></tr>
+<tr><td>Toad Butter<span>Made of: Barley Flour (100%)  /  Made of: Parasol Mushroom (13%)  /  Made of: Yellow Onion (24%)  /  Made of: Chantrelles (10%)</span></td><td>68</td><td>20</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>856.625</td><td>-411.125</td></tr>
+<tr><td>Yarrow<span></span></td><td>97</td><td>21</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>856.625</td><td>-411.125</td></tr>
+<tr><td>Gauze<span></span></td><td>80</td><td>12</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>856.625</td><td>-411.125</td></tr>
+<tr><td>Hartshorn Salve<span></span></td><td>100</td><td>11</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>7</td><td>856.625</td><td>-411.125</td></tr>
+<tr><td>Mud Ointment<span></span></td><td>54</td><td>42</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>856.625</td><td>-411.125</td></tr>
+<tr><td>Metal Axe<span></span></td><td>298</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>856.625</td><td>-430.375</td></tr>
+<tr><td>Bone Material<span></span></td><td>185</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>856.625</td><td>-430.375</td></tr>
+<tr><td>Bonesaw<span></span></td><td>169</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>856.625</td><td>-430.375</td></tr>
+<tr><td>Irrlight<span></span></td><td>72</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>856.625</td><td>-430.375</td></tr>
+<tr><td>Coal<span></span></td><td>159</td><td>35</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>856.625</td><td>-468.875</td></tr>
+<tr><td>Strawberries<span>FEP: int +2: 3.32</span></td><td>49</td><td>46</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>856.625</td><td>-468.875</td></tr>
+<tr><td>Metal Saw<span></span></td><td>278</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>35</td><td>856.625</td><td>-521.125</td></tr>
+<tr><td>Block of Walnutwood<span></span></td><td>237</td><td>23</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>856.625</td><td>-559.625</td></tr>
+<tr><td>Block of Walnutwood<span></span></td><td>221</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>856.625</td><td>-559.625</td></tr>
+<tr><td>The Perfect Hole<span></span></td><td>114</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>856.625</td><td>-578.875</td></tr>
+<tr><td>Oscypki<span>FEP: psy +2: 31.42, agi +2: 62.84, con +2: 31.42</span></td><td>98</td><td>59</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>8</td><td>856.625</td><td>-578.875</td></tr>
+<tr><td>Bar of Cast Iron<span></span></td><td>102</td><td>56</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>856.625</td><td>-631.125</td></tr>
+<tr><td>Flax Fibres<span></span></td><td>323</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>856.625</td><td>-631.125</td></tr>
+<tr><td>Bar of Cast Iron<span></span></td><td>121</td><td>63</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>856.625</td><td>-631.125</td></tr>
+<tr><td>Bar of Cast Iron<span></span></td><td>100</td><td>36</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>856.625</td><td>-631.125</td></tr>
+<tr><td>2 coins of Silver<span>Silver Quill</span></td><td></td><td>5</td><td>Soil<span></span></td><td>260</td><td>1</td><td>856.625</td><td>-650.375</td></tr>
+<tr><td>Barkboat<span></span></td><td>217</td><td>17</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>856.625</td><td>-669.625</td></tr>
+<tr><td>Irrlight<span></span></td><td>119</td><td>13</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>856.625</td><td>-669.625</td></tr>
+<tr><td>Petraglyph<span></span></td><td>72</td><td>26</td><td>Gold Coins<span>Golden Quill</span></td><td>10</td><td>2</td><td>856.625</td><td>-669.625</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>32</td><td>Heartwood Leaves<span></span></td><td>10</td><td>3</td><td>856.625</td><td>-669.625</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>50</td><td>Scent Gland<span></span></td><td>32</td><td>2</td><td>856.625</td><td>-688.875</td></tr>
+<tr><td>Quilted Wadding<span></span></td><td>320</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>856.625</td><td>-688.875</td></tr>
+<tr><td>Cornbraid<span></span></td><td>259</td><td>19</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>856.625</td><td>-688.875</td></tr>
+<tr><td>Plumb-Bob<span></span></td><td>333</td><td>30</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>856.625</td><td>-688.875</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>17</td><td>Cave Coral<span></span></td><td>10</td><td>2</td><td>856.625</td><td>-741.125</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>26</td><td>Bone Glue<span></span></td><td>50</td><td>2</td><td>856.625</td><td>-741.125</td></tr>
+<tr><td>Branch<span></span></td><td>318</td><td>17</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>856.625</td><td>-741.125</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>20</td><td>Limestone<span></span></td><td>100</td><td>4</td><td>856.625</td><td>-760.375</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>189</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>150</td><td>856.625</td><td>-760.375</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>187</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>120</td><td>856.625</td><td>-760.375</td></tr>
+<tr><td>Glimmermoss<span></span></td><td>15</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>856.625</td><td>-779.625</td></tr>
+<tr><td>Spruce Bough<span></span></td><td>158</td><td>24</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>856.625</td><td>-779.625</td></tr>
+<tr><td>Beaver Tail<span></span></td><td>102</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>856.625</td><td>-798.875</td></tr>
+<tr><td>Cave Clay<span></span></td><td>13</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>856.625</td><td>-798.875</td></tr>
+<tr><td>2 coins of Gold<span>Golden Quill</span></td><td></td><td>6</td><td>Board<span></span></td><td>280</td><td>1</td><td>856.625</td><td>-851.125</td></tr>
+<tr><td>A Beautiful Dream<span></span></td><td>118</td><td>40</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>856.625</td><td>-851.125</td></tr>
+<tr><td>Pit Clay<span></span></td><td>30</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>12</td><td>856.625</td><td>-851.125</td></tr>
+<tr><td>Bar of Cast Iron<span></span></td><td>82</td><td>30</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>856.625</td><td>-851.125</td></tr>
+<tr><td>Linen Cloth<span></span></td><td>133</td><td>62</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>856.625</td><td>-851.125</td></tr>
+<tr><td>Stalagoomba<span></span></td><td>10</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>856.625</td><td>-870.375</td></tr>
+<tr><td>10.00 l of Vinegar<span>Bucket Q10</span></td><td>92</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>856.625</td><td>-870.375</td></tr>
+<tr><td>Red Deer Hide<span></span></td><td>139</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>856.625</td><td>-870.375</td></tr>
+<tr><td>Boar Hide<span></span></td><td>98</td><td>5</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>5</td><td>856.625</td><td>-870.375</td></tr>
+<tr><td>Board of Mulberrywood<span></span></td><td>257</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>856.625</td><td>-908.875</td></tr>
+<tr><td>Straw<span></span></td><td>115</td><td>37</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>3</td><td>856.625</td><td>-961.125</td></tr>
+<tr><td>Flax Fibres<span></span></td><td>120</td><td>33</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>856.625</td><td>-961.125</td></tr>
+<tr><td>Plum<span>FEP: cha +1: 1.25, psy +1: 0.0</span></td><td>97</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>856.625</td><td>-961.125</td></tr>
+<tr><td>50 seeds of Flax<span></span></td><td>169</td><td>60</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>856.625</td><td>-980.375</td></tr>
+<tr><td>Mulberry<span>FEP: cha +1: 0.78</span></td><td>97</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>856.625</td><td>-1018.875</td></tr>
+<tr><td>Quilted Wadding<span></span></td><td>192</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>856.625</td><td>-1018.875</td></tr>
+<tr><td>Cutthroat Knuckles<span></span></td><td>47</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>856.625</td><td>-1071.125</td></tr>
+<tr><td>Creamy Cock<span>Made of: Cowsmilk (100%)  /  FEP: agi +1: 22.26, dex +1: 29.67, per +2: 14.84, psy +1: 11.13, con +1: 15.58</span></td><td>88</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>856.625</td><td>-1090.375</td></tr>
+<tr><td>Yellow Onion<span></span></td><td>116</td><td>41</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>856.625</td><td>-1128.875</td></tr>
+<tr><td>Heartwood Leaves<span></span></td><td>33</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>856.625</td><td>-1128.875</td></tr>
+<tr><td>Dried Pepper Drupe<span></span></td><td>116</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>856.625</td><td>-1128.875</td></tr>
+<tr><td>Flax Fibres<span></span></td><td>60</td><td>54</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>856.625</td><td>-1128.875</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>15</td><td>Frog's Crown<span></span></td><td>30</td><td>1</td><td>19.25</td><td>-88.0</td></tr>
+<tr><td>Onion Braid<span></span></td><td>173</td><td>16</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>19.25</td><td>-88.0</td></tr>
+<tr><td>Straw Doll<span></span></td><td>194</td><td>19</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>19.25</td><td>-88.0</td></tr>
+<tr><td>Strawberries<span>FEP: int +2: 4.57</span></td><td>93</td><td>9</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>38.5</td><td>-88.0</td></tr>
+<tr><td>Beeswax<span></span></td><td>236</td><td>35</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>38.5</td><td>-88.0</td></tr>
+<tr><td>10.00 l of Water<span>Bucket Q4</span></td><td>94</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>90.75</td><td>-88.0</td></tr>
+<tr><td>55 coins of Gold<span>Golden Quill</span></td><td></td><td>6</td><td>Fine Clay<span></span></td><td>60</td><td>1</td><td>200.75</td><td>-88.0</td></tr>
+<tr><td>Oscypki<span>FEP: psy +2: 33.25, agi +2: 66.5, con +2: 33.25</span></td><td>110</td><td>63</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>13</td><td>220.0</td><td>-88.0</td></tr>
+<tr><td>Mulch<span></span></td><td>309</td><td>59</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>220.0</td><td>-88.0</td></tr>
+<tr><td>Oscypki<span>FEP: psy +2: 33.72, agi +2: 67.44, con +2: 33.72</span></td><td>113</td><td>61</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>13</td><td>220.0</td><td>-88.0</td></tr>
+<tr><td>15 coins of Gold<span>Golden Quill</span></td><td></td><td>12</td><td>Silk Cloth<span></span></td><td>10</td><td>1</td><td>220.0</td><td>-88.0</td></tr>
+<tr><td>Bar of Tin<span></span></td><td>25</td><td>18</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>239.25</td><td>-88.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>14</td><td>Chives<span></span></td><td>25</td><td>2</td><td>258.5</td><td>-88.0</td></tr>
+<tr><td>Sunlit Stilton<span>FEP: cha +2: 267.97, con +2: 89.32</span></td><td>127</td><td>48</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>258.5</td><td>-88.0</td></tr>
+<tr><td>Sunlit Stilton<span>FEP: cha +2: 259.74, con +2: 86.58</span></td><td>119</td><td>39</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>258.5</td><td>-88.0</td></tr>
+<tr><td>Heartwood Leaves<span></span></td><td>10</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>310.75</td><td>-88.0</td></tr>
+<tr><td>Flax Fibres<span></span></td><td>374</td><td>44</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>330.0</td><td>-88.0</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>211</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>330.0</td><td>-88.0</td></tr>
+<tr><td>Board of Olivewood<span></span></td><td>261</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>330.0</td><td>-88.0</td></tr>
+<tr><td>Walnut<span>FEP: str +1: 1.31, psy +1: 0.13</span></td><td>191</td><td>10</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>349.25</td><td>-88.0</td></tr>
+<tr><td>Olive<span>FEP: str +1: 0.45, agi +1: 0.45, dex +1: 0.45</span></td><td>202</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>349.25</td><td>-88.0</td></tr>
+<tr><td>Coal<span></span></td><td>198</td><td>17</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>368.5</td><td>-88.0</td></tr>
+<tr><td>Metal Axe<span></span></td><td>299</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>40</td><td>368.5</td><td>-88.0</td></tr>
+<tr><td>Pickaxe<span></span></td><td>441</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>120</td><td>368.5</td><td>-88.0</td></tr>
+<tr><td>2.00 l of Water<span>Waterflask Q67</span></td><td>122</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>459.25</td><td>-88.0</td></tr>
+<tr><td>0.60 l of Water<span>Wooden Cup Q10  /  Wear: 0/10</span></td><td>122</td><td>63</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>459.25</td><td>-88.0</td></tr>
+<tr><td>Butter<span>Made of: Sheepsmilk (100%)</span></td><td>54</td><td>47</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>3</td><td>459.25</td><td>-88.0</td></tr>
+<tr><td>10.00 l of Water<span>Bucket Q15</span></td><td>122</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>459.25</td><td>-88.0</td></tr>
+<tr><td>Cured Hemp Bud<span></span></td><td>118</td><td>58</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>459.25</td><td>-88.0</td></tr>
+<tr><td>Clover<span></span></td><td>75</td><td>24</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>3</td><td>478.5</td><td>-88.0</td></tr>
+<tr><td>50 seeds of Poppy<span></span></td><td>43</td><td>55</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>478.5</td><td>-88.0</td></tr>
+<tr><td>50 seeds of Flax<span></span></td><td>72</td><td>53</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>478.5</td><td>-88.0</td></tr>
+<tr><td>Cheese Tray<span></span></td><td>130</td><td>28</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>530.75</td><td>-88.0</td></tr>
+<tr><td>Glass Beads<span></span></td><td>131</td><td>37</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>530.75</td><td>-88.0</td></tr>
+<tr><td>Notes of a Foul Symphony<span></span></td><td>18</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>530.75</td><td>-88.0</td></tr>
+<tr><td>50 seeds of Carrot<span></span></td><td>414</td><td>20</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>550.0</td><td>-88.0</td></tr>
+<tr><td>Carrot<span>FEP: per +1: 6.43</span></td><td>414</td><td>56</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>550.0</td><td>-88.0</td></tr>
+<tr><td>Cornbraid<span></span></td><td>184</td><td>49</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>550.0</td><td>-88.0</td></tr>
+<tr><td>Strawhat<span>Gildings (1): Cornbraid</span></td><td>191</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>550.0</td><td>-88.0</td></tr>
+<tr><td>Pit Clay<span></span></td><td>2</td><td>1</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>16</td><td>668.25</td><td>-88.0</td></tr>
+<tr><td>5 seeds of Grape<span></span></td><td>89</td><td>58</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>668.25</td><td>-88.0</td></tr>
+<tr><td>Honeybun<span>FEP: agi +1: 11.8</span></td><td>86</td><td>15</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>668.25</td><td>-88.0</td></tr>
+<tr><td>Nutjerky<span>Made of: Rabbit (100%)  /  FEP: str +1: 3.26, cha +1: 1.63, wil +1: 1.39, agi +1: 0.57</span></td><td>26</td><td>13</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>668.25</td><td>-88.0</td></tr>
+<tr><td>Silk Cloth<span></span></td><td>111</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>28</td><td>668.25</td><td>-88.0</td></tr>
+<tr><td>Seedcrisp Flatbread<span>Made of: Wheat Flour (100%)  /  FEP: wil +2: 5.37, str +1: 3.36, con +1: 3.36, per +1: 4.03</span></td><td>112</td><td>16</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>687.5</td><td>-88.0</td></tr>
+<tr><td>Plate Mail<span>Wear: 50/998</span></td><td>99</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>36</td><td>687.5</td><td>-88.0</td></tr>
+<tr><td>Egg Cake<span>Made of: Sheepsmilk (100%)  /  Made of: Wheat Flour (100%)  /  FEP: int +1: 7.35, agi +1: 4.59, cha +1: 6.43, con +1: 5.51</span></td><td>93</td><td>15</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>687.5</td><td>-88.0</td></tr>
+<tr><td>Strawberry Cake<span>Made of: Sheepsmilk (100%)  /  Made of: Wheat Flour (100%)  /  FEP: wil +2: 7.12, per +1: 14.25, cha +1: 8.31</span></td><td>88</td><td>16</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>687.5</td><td>-88.0</td></tr>
+<tr><td>Ring of Brodgar<span>Made of: Wheat Flour (100%)  /  FEP: agi +1: 14.38, psy +1: 8.99, con +1: 10.79</span></td><td>89</td><td>13</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>687.5</td><td>-88.0</td></tr>
+<tr><td>Bar of Steel<span></span></td><td>123</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>16</td><td>706.75</td><td>-88.0</td></tr>
+<tr><td>Bar of Cast Iron<span></span></td><td>192</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>706.75</td><td>-88.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>182</td><td>10</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>706.75</td><td>-88.0</td></tr>
+<tr><td>Tuber Mash<span>Made of: Carrot (100%)  /  FEP: cha +1: 17.22, int +1: 12.91, per +1: 8.61, dex +1: 7.53</span></td><td>185</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>706.75</td><td>-88.0</td></tr>
+<tr><td>10.00 l of Swill<span>Bucket Q12</span></td><td>460</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>706.75</td><td>-88.0</td></tr>
+<tr><td>Camomile<span>FEP: wil +2: 2.01</span></td><td>18</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>8</td><td>726.0</td><td>-88.0</td></tr>
+<tr><td>Perched Perch<span>Made of: Yellow Onion (100%)  /  FEP: agi +1: 10.48, int +1: 17.47, dex +1: 17.47, str +1: 5.9</span></td><td>190</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>726.0</td><td>-88.0</td></tr>
+<tr><td>Smithy's Hammer<span></span></td><td>260</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>726.0</td><td>-88.0</td></tr>
+<tr><td>Golden Cat<span></span></td><td>243</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>726.0</td><td>-88.0</td></tr>
+<tr><td>Pit Clay<span></span></td><td>20</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>9</td><td>726.0</td><td>-88.0</td></tr>
+<tr><td>Cutthroat Knuckles<span></span></td><td>199</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>745.25</td><td>-88.0</td></tr>
+<tr><td>Spring Stew<span>FEP: per +1: 12.4, cha +1: 12.4</span></td><td>170</td><td>13</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>745.25</td><td>-88.0</td></tr>
+<tr><td>Bronze Sword<span></span></td><td>231</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>745.25</td><td>-88.0</td></tr>
+<tr><td>Heartwood Leaves<span></span></td><td>10</td><td>10</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>745.25</td><td>-88.0</td></tr>
+<tr><td>0.01 kg of Black pepper<span></span></td><td>132</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>745.25</td><td>-88.0</td></tr>
+<tr><td>Plumb-Bob<span></span></td><td>223</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>764.5</td><td>-88.0</td></tr>
+<tr><td>Brick<span></span></td><td>153</td><td>25</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>764.5</td><td>-88.0</td></tr>
+<tr><td>Metal Saw<span></span></td><td>240</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>764.5</td><td>-88.0</td></tr>
+<tr><td>Bear Salami<span>FEP: str +1: 13.78, cha +1: 10.34</span></td><td>118</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>764.5</td><td>-88.0</td></tr>
+<tr><td>Cutthroat Cuirass<span>Wear: 0/1499</span></td><td>187</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>764.5</td><td>-88.0</td></tr>
+<tr><td>Metal Buttons<span></span></td><td>245</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>783.75</td><td>-88.0</td></tr>
+<tr><td>Meatpie<span>Made of: Wheat Flour (100%)  /  Made of: Bear (100%)  /  FEP: str +1: 3.2, con +1: 12.79, agi +1: 9.59, str +2: 19.18</span></td><td>102</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>783.75</td><td>-88.0</td></tr>
+<tr><td>Copper Scales<span></span></td><td>230</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>783.75</td><td>-88.0</td></tr>
+<tr><td>10.00 l of Honey<span>Bucket Q16</span></td><td>194</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>9</td><td>783.75</td><td>-88.0</td></tr>
+<tr><td>Leather Armor<span>Wear: 0/568</span></td><td>189</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>803.0</td><td>-88.0</td></tr>
+<tr><td>0.50 kg of Purple Pigment<span></span></td><td>86</td><td>5</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>3</td><td>803.0</td><td>-88.0</td></tr>
+<tr><td>0.50 kg of Pipestuff<span></span></td><td>141</td><td>39</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>803.0</td><td>-88.0</td></tr>
+<tr><td>Copper Kettle<span>Wear: 0/39</span></td><td>154</td><td>17</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>822.25</td><td>-88.0</td></tr>
+<tr><td>Bear Tooth<span></span></td><td>60</td><td>15</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>822.25</td><td>-88.0</td></tr>
+<tr><td>Wax Candle<span></span></td><td>174</td><td>15</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>822.25</td><td>-88.0</td></tr>
+<tr><td>Heartwood Leaves<span></span></td><td>10</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>848.375</td><td>-96.25</td></tr>
+<tr><td>Blueberries<span>FEP: int +1: 1.2</span></td><td>14</td><td>47</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>848.375</td><td>-96.25</td></tr>
+<tr><td>Butter-steamed Cavebulb<span>FEP: psy +2: 14.26, psy +1: 21.39</span></td><td>127</td><td>63</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>941.875</td><td>-96.25</td></tr>
+<tr><td>Midnight Blue Cheese<span>FEP: str +2: 200.74</span></td><td>161</td><td>63</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>941.875</td><td>-96.25</td></tr>
+<tr><td>Raisin Butter-Cake<span>Made of: Wheat Flour (100%)  /  FEP: cha +1: 23.61, per +1: 17.71</span></td><td>177</td><td>63</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>968.0</td><td>-88.0</td></tr>
+<tr><td>Raisin Butter-Cake<span>Made of: Wheat Flour (100%)  /  FEP: cha +1: 22.96, per +1: 17.22</span></td><td>168</td><td>25</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>968.0</td><td>-88.0</td></tr>
+<tr><td>Carrot Cake<span>Made of: Wheat Flour (100%)  /  FEP: per +1: 22.44, agi +1: 16.83</span></td><td>160</td><td>63</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>968.0</td><td>-88.0</td></tr>
+<tr><td>Carrot Cake<span>Made of: Wheat Flour (100%)  /  FEP: per +1: 21.39, agi +1: 16.04</span></td><td>145</td><td>56</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>968.0</td><td>-88.0</td></tr>
+<tr><td>Carrot Cake<span>Made of: Wheat Flour (100%)  /  FEP: per +1: 21.61, agi +1: 16.2</span></td><td>148</td><td>50</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>968.0</td><td>-88.0</td></tr>
+<tr><td>Cow Chorizo<span>FEP: con +1: 21.45, str +1: 12.87, wil +1: 8.58</span></td><td>184</td><td>63</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>987.25</td><td>-88.0</td></tr>
+<tr><td>Cow Chorizo<span>FEP: con +1: 19.54, str +1: 11.72, wil +1: 7.81</span></td><td>152</td><td>63</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>987.25</td><td>-88.0</td></tr>
+<tr><td>Steak & Tubers<span>Made of: Yellow Onion (100%)  /  Made of: Beef (100%)  /  Made of: Beetroot (100%)  /  FEP: str +1: 17.58, con +2: 9.83, cha +1: 13.97</span></td><td>241</td><td>63</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>987.25</td><td>-8</td></tr>
+<tr><td>Blueberry Pie<span>Made of: Wheat Flour (100%)  /  FEP: int +1: 12.92, per +1: 12.11, agi +1: 9.69</span></td><td>163</td><td>63</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>3</td><td>987.25</td><td>-88.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>1</td><td>Blueberries<span></span></td><td>10</td><td>6</td><td>1006.5</td><td>-88.0</td></tr>
+<tr><td>2 coins of Silver<span>Silver Quill</span></td><td></td><td>13</td><td>Raw Fox<span></span></td><td>30</td><td>5</td><td>1006.5</td><td>-88.0</td></tr>
+<tr><td>2 coins of Silver<span>Silver Quill</span></td><td></td><td>31</td><td>Raw Badger<span></span></td><td>30</td><td>5</td><td>1006.5</td><td>-88.0</td></tr>
+<tr><td>2 coins of Silver<span>Silver Quill</span></td><td></td><td>30</td><td>Raw Hedgehog<span></span></td><td>10</td><td>3</td><td>1006.5</td><td>-88.0</td></tr>
+<tr><td>Yellow Onion<span></span></td><td>273</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>40</td><td>1036.75</td><td>-88.0</td></tr>
+<tr><td>Carrot<span>FEP: per +1: 6.31</span></td><td>398</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>1036.75</td><td>-88.0</td></tr>
+<tr><td>Dead Rooster<span></span></td><td>147</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>1056.0</td><td>-88.0</td></tr>
+<tr><td>Spruce Bough<span></span></td><td>175</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1075.25</td><td>-88.0</td></tr>
+<tr><td>Flax Fibres<span></span></td><td>371</td><td>10</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1075.25</td><td>-88.0</td></tr>
+<tr><td>Cave Clay<span></span></td><td>26</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1171.5</td><td>-88.0</td></tr>
+<tr><td>Raw Venison<span></span></td><td>75</td><td>29</td><td>Cast Iron Coins<span> Iron Quill</span></td><td>Any</td><td>30</td><td>1190.75</td><td>-88.0</td></tr>
+<tr><td>Raw Mammoth<span></span></td><td>358</td><td>22</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>3</td><td>1229.25</td><td>-88.0</td></tr>
+<tr><td>Bar of Cast Iron<span></span></td><td>81</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1229.25</td><td>-88.0</td></tr>
+<tr><td>Leather Pants<span>Wear: 0/604</span></td><td>241</td><td>1</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>20</td><td>1229.25</td><td>-88.0</td></tr>
+<tr><td>Bone Material<span></span></td><td>180</td><td>25</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>1229.25</td><td>-88.0</td></tr>
+<tr><td>50 seeds of Flax<span></span></td><td>381</td><td>9</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>1248.5</td><td>-88.0</td></tr>
+<tr><td>Carrot<span>FEP: per +1: 6.65</span></td><td>442</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1248.5</td><td>-88.0</td></tr>
+<tr><td>Ball Clay<span></span></td><td>55</td><td>63</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>1278.75</td><td>-86.625</td></tr>
+<tr><td>Ball Clay<span></span></td><td>55</td><td>63</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>1278.75</td><td>-86.625</td></tr>
+<tr><td>Ball Clay<span></span></td><td>55</td><td>63</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>1278.75</td><td>-86.625</td></tr>
+<tr><td>Ball Clay<span></span></td><td>55</td><td>63</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>1278.75</td><td>-86.625</td></tr>
+<tr><td>Ball Clay<span></span></td><td>55</td><td>28</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>1278.75</td><td>-86.625</td></tr>
+<tr><td>Bone Material<span></span></td><td>445</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>140</td><td>1298.0</td><td>-86.625</td></tr>
+<tr><td>Bone Material<span></span></td><td>374</td><td>11</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>35</td><td>1317.25</td><td>-86.625</td></tr>
+<tr><td>Bone Material<span></span></td><td>363</td><td>11</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>1317.25</td><td>-86.625</td></tr>
+<tr><td>Bone Material<span></span></td><td>349</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>1317.25</td><td>-86.625</td></tr>
+<tr><td>Bone Material<span></span></td><td>250</td><td>11</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>8</td><td>1317.25</td><td>-86.625</td></tr>
+<tr><td>Bone Material<span></span></td><td>203</td><td>47</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>1317.25</td><td>-86.625</td></tr>
+<tr><td>50 coins of Gold<span>Golden Quill</span></td><td></td><td>63</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>220</td><td>1447.875</td><td>-96.25</td></tr>
+<tr><td>100 coins of Silver<span>Silver Quill</span></td><td></td><td>36</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>1447.875</td><td>-96.25</td></tr>
+<tr><td>90 coins of Silver<span>Silver Quill</span></td><td></td><td>63</td><td>Bar of Silver<span></span></td><td>Any</td><td>1</td><td>1447.875</td><td>-96.25</td></tr>
+<tr><td>9 coins of Gold<span>Golden Quill</span></td><td></td><td>63</td><td>Gold Nugget<span></span></td><td>Any</td><td>1</td><td>1447.875</td><td>-96.25</td></tr>
+<tr><td>90 coins of Gold<span>Golden Quill</span></td><td></td><td>63</td><td>Bar of Gold<span></span></td><td>Any</td><td>1</td><td>1447.875</td><td>-96.25</td></tr>
+<tr><td>10 coins of Gold<span>Golden Quill</span></td><td></td><td>41</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>44</td><td>1474.0</td><td>-88.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>60</td><td>Ant<span></span></td><td>20</td><td>3</td><td>1474.0</td><td>-88.0</td></tr>
+<tr><td>3 coins of Gold<span>Golden Quill</span></td><td></td><td>59</td><td>Royal Ant<span></span></td><td>10</td><td>1</td><td>1474.0</td><td>-88.0</td></tr>
+<tr><td>30 coins of Gold<span>Golden Quill</span></td><td></td><td>40</td><td>Bat Guano<span></span></td><td>Any</td><td>1</td><td>1474.0</td><td>-88.0</td></tr>
+<tr><td>30 coins of Gold<span>Golden Quill</span></td><td></td><td>24</td><td>River Pearl<span></span></td><td>10</td><td>1</td><td>1474.0</td><td>-88.0</td></tr>
+<tr><td>4 coins of Gold<span>Golden Quill</span></td><td></td><td>59</td><td>Bar of Cast Iron<span></span></td><td>60</td><td>3</td><td>1493.25</td><td>-88.0</td></tr>
+<tr><td>4 coins of Gold<span>Golden Quill</span></td><td></td><td>42</td><td>Bar of Cast Iron<span></span></td><td>60</td><td>3</td><td>1493.25</td><td>-88.0</td></tr>
+<tr><td>2 coins of Gold<span>Golden Quill</span></td><td></td><td>62</td><td>Scent Gland<span></span></td><td>80</td><td>1</td><td>1493.25</td><td>-88.0</td></tr>
+<tr><td>50 coins of Gold<span>Golden Quill</span></td><td></td><td>63</td><td>Fine Clay<span></span></td><td>60</td><td>1</td><td>1493.25</td><td>-88.0</td></tr>
+<tr><td>85 coins of Gold<span>Golden Quill</span></td><td></td><td>61</td><td>Fine Clay<span></span></td><td>70</td><td>1</td><td>1493.25</td><td>-88.0</td></tr>
+<tr><td>4 coins of Gold<span>Golden Quill</span></td><td></td><td>42</td><td>Bar of Cast Iron<span></span></td><td>60</td><td>3</td><td>1512.5</td><td>-88.0</td></tr>
+<tr><td>4 coins of Gold<span>Golden Quill</span></td><td></td><td>60</td><td>Bar of Cast Iron<span></span></td><td>60</td><td>3</td><td>1512.5</td><td>-88.0</td></tr>
+<tr><td>4 coins of Gold<span>Golden Quill</span></td><td></td><td>63</td><td>Bar of Cast Iron<span></span></td><td>60</td><td>3</td><td>1512.5</td><td>-88.0</td></tr>
+<tr><td>4 coins of Gold<span>Golden Quill</span></td><td></td><td>63</td><td>Bar of Cast Iron<span></span></td><td>60</td><td>3</td><td>1512.5</td><td>-88.0</td></tr>
+<tr><td>4 coins of Gold<span>Golden Quill</span></td><td></td><td>45</td><td>Bar of Cast Iron<span></span></td><td>60</td><td>3</td><td>1512.5</td><td>-88.0</td></tr>
+<tr><td>Dragon Helm<span>Wear: 0/8210</span></td><td>410</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>325</td><td>1537.25</td><td>-88.0</td></tr>
+<tr><td>Plate Gauntlets<span>Wear: 0/1208</span></td><td>402</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>150</td><td>1537.25</td><td>-88.0</td></tr>
+<tr><td>Plate Greaves<span>Wear: 0/3621</span></td><td>362</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>220</td><td>1537.25</td><td>-88.0</td></tr>
+<tr><td>Plate Mail<span>Wear: 0/3621</span></td><td>362</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>250</td><td>1537.25</td><td>-88.0</td></tr>
+<tr><td>Hirdsman's Sword<span></span></td><td>467</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>600</td><td>1537.25</td><td>-88.0</td></tr>
+<tr><td>Woodsman's Axe<span></span></td><td>355</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>150</td><td>1556.5</td><td>-88.0</td></tr>
+<tr><td>Metal Axe<span></span></td><td>428</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>500</td><td>1556.5</td><td>-88.0</td></tr>
+<tr><td>Metal Axe<span></span></td><td>385</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>150</td><td>1556.5</td><td>-88.0</td></tr>
+<tr><td>Metal Axe<span></span></td><td>324</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>50</td><td>1556.5</td><td>-88.0</td></tr>
+<tr><td>Battleaxe of the Twelfth Bay<span></span></td><td>381</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>500</td><td>1556.5</td><td>-88.0</td></tr>
+<tr><td>Metal Saw<span></span></td><td>456</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>900</td><td>1575.75</td><td>-88.0</td></tr>
+<tr><td>Metal Saw<span></span></td><td>359</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>150</td><td>1575.75</td><td>-88.0</td></tr>
+<tr><td>Metal Saw<span></span></td><td>319</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>70</td><td>1575.75</td><td>-88.0</td></tr>
+<tr><td>Pickaxe<span></span></td><td>368</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>120</td><td>1575.75</td><td>-88.0</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>230</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>350</td><td>1575.75</td><td>-88.0</td></tr>
+<tr><td>Monocle<span></span></td><td>399</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>70</td><td>1595.0</td><td>-88.0</td></tr>
+<tr><td>Traveller's Sack<span></span></td><td>118</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>1595.0</td><td>-88.0</td></tr>
+<tr><td>Frying Pan<span></span></td><td>385</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>45</td><td>1595.0</td><td>-88.0</td></tr>
+<tr><td>Scythe<span></span></td><td>402</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>1595.0</td><td>-88.0</td></tr>
+<tr><td>Metal Shovel<span></span></td><td>403</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>1595.0</td><td>-88.0</td></tr>
+<tr><td>Merchant's Ring<span>Gildings (0): Gildable</span></td><td>378</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>60</td><td>1614.25</td><td>-88.0</td></tr>
+<tr><td>Clothier's Thimble<span>Gildings (0): Gildable</span></td><td>341</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>55</td><td>1614.25</td><td>-88.0</td></tr>
+<tr><td>Forge Ring<span>Gildings (0): Gildable</span></td><td>378</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>80</td><td>1614.25</td><td>-88.0</td></tr>
+<tr><td>Occult Ring<span>Gildings (0): Gildable</span></td><td>392</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>80</td><td>1614.25</td><td>-88.0</td></tr>
+<tr><td>Thane's Ring<span>Gildings (0): Gildable</span></td><td>425</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>300</td><td>1614.25</td><td>-88.0</td></tr>
+<tr><td>Hide Strap<span></span></td><td>375</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>1633.5</td><td>-88.0</td></tr>
+<tr><td>Merchant's Robe<span>Gildings (0): Gildable</span></td><td>370</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>300</td><td>1633.5</td><td>-88.0</td></tr>
+<tr><td>Hussar's Wings<span>Wear: 0/1258</span></td><td>419</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>200</td><td>1633.5</td><td>-88.0</td></tr>
+<tr><td>Ring of Brodgar<span>Gildings (0): Gildable</span></td><td>337</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>300</td><td>1633.5</td><td>-88.0</td></tr>
+<tr><td>Pearl Necklace<span></span></td><td>232</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>650</td><td>1633.5</td><td>-88.0</td></tr>
+<tr><td>Tankard<span>Wear: 0/58</span></td><td>330</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>1652.75</td><td>-88.0</td></tr>
+<tr><td>Hard Metal Cutlery<span>Wear: 0/62</span></td><td>383</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>1652.75</td><td>-88.0</td></tr>
+<tr><td>Metal Plate<span>Wear: 0/62</span></td><td>383</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>1652.75</td><td>-88.0</td></tr>
+<tr><td>Metal Sauci?re<span>Wear: 0/68</span></td><td>457</td><td>10</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>45</td><td>1652.75</td><td>-88.0</td></tr>
+<tr><td>Cast Iron Trivet<span>Wear: 0/55</span></td><td>307</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>1652.75</td><td>-88.0</td></tr>
+<tr><td>Soft Metal Cutlery<span>Wear: 0/62</span></td><td>384</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>1672.0</td><td>-88.0</td></tr>
+<tr><td>Peppermill<span>Wear: 0/68</span></td><td>465</td><td>9</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>45</td><td>1672.0</td><td>-88.0</td></tr>
+<tr><td>Silver Cutlery<span>Wear: 0/66</span></td><td>439</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>65</td><td>1672.0</td><td>-88.0</td></tr>
+<tr><td>Gold Plate<span>Wear: 0/66</span></td><td>439</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>220</td><td>1672.0</td><td>-88.0</td></tr>
+<tr><td>Golden Table Bell<span>Wear: 0/65</span></td><td>423</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>200</td><td>1672.0</td><td>-88.0</td></tr>
+<tr><td>Goldbeater's Skin<span></span></td><td>168</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>1691.25</td><td>-88.0</td></tr>
+<tr><td>Cake Knife<span>Wear: 0/60</span></td><td>356</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>45</td><td>1691.25</td><td>-88.0</td></tr>
+<tr><td>Copper Kettle<span>Wear: 0/60</span></td><td>354</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>45</td><td>1691.25</td><td>-88.0</td></tr>
+<tr><td>Silver River Cutlery<span>Wear: 0/62</span></td><td>383</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>250</td><td>1691.25</td><td>-88.0</td></tr>
+<tr><td>Silver River Goblet<span>Wear: 0/62</span></td><td>384</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>250</td><td>1691.25</td><td>-88.0</td></tr>
+<tr><td>Slag<span></span></td><td>259</td><td>31</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>7</td><td>1710.5</td><td>-88.0</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>194</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>100</td><td>1710.5</td><td>-88.0</td></tr>
+<tr><td>Smithy's Hammer<span></span></td><td>405</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>340</td><td>1710.5</td><td>-88.0</td></tr>
+<tr><td>Smithy's Hammer<span></span></td><td>386</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>225</td><td>1710.5</td><td>-88.0</td></tr>
+<tr><td>Smithy's Hammer<span></span></td><td>332</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>125</td><td>1710.5</td><td>-88.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>506</td><td>12</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>800</td><td>1729.75</td><td>-88.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>420</td><td>10</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>300</td><td>1729.75</td><td>-88.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>391</td><td>19</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>200</td><td>1729.75</td><td>-88.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>356</td><td>12</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>125</td><td>1729.75</td><td>-88.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>280</td><td>38</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1729.75</td><td>-88.0</td></tr>
+<tr><td>Great Wax Seal<span></span></td><td>152</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>3</td><td>1749.0</td><td>-88.0</td></tr>
+<tr><td>Silver Rose<span></span></td><td>378</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>1749.0</td><td>-88.0</td></tr>
+<tr><td>Plate Greaves<span>Wear: 633/3206</span></td><td>320</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>125</td><td>1749.0</td><td>-88.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>44</td><td>Chicken Egg<span></span></td><td>Any</td><td>2</td><td>1773.75</td><td>-88.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>63</td><td>Chicken Egg<span></span></td><td>Any</td><td>2</td><td>1773.75</td><td>-88.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>63</td><td>Chicken Egg<span></span></td><td>Any</td><td>2</td><td>1773.75</td><td>-88.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>45</td><td>Chicken Egg<span></span></td><td>Any</td><td>2</td><td>1773.75</td><td>-88.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>24</td><td>Chicken Egg<span></span></td><td>Any</td><td>2</td><td>1773.75</td><td>-88.0</td></tr>
+<tr><td>6 coins of Silver<span>Silver Quill</span></td><td></td><td>63</td><td>Silk Thread<span></span></td><td>70</td><td>1</td><td>1793.0</td><td>-88.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>63</td><td>Raw Venison<span></span></td><td>60</td><td>3</td><td>1793.0</td><td>-88.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>63</td><td>Raw Bear<span></span></td><td>60</td><td>3</td><td>1793.0</td><td>-88.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>63</td><td>Raw Bear<span></span></td><td>60</td><td>3</td><td>1793.0</td><td>-88.0</td></tr>
+<tr><td>Coin of Silver<span>Silver Quill</span></td><td></td><td>63</td><td>Raw Bear<span></span></td><td>60</td><td>3</td><td>1793.0</td><td>-88.0</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>51</td><td>Suckling's Maw<span></span></td><td>30</td><td>1</td><td>1812.25</td><td>-88.0</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>61</td><td>Cat Gold<span></span></td><td>120</td><td>3</td><td>1812.25</td><td>-88.0</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>61</td><td>Cat Gold<span></span></td><td>80</td><td>4</td><td>1812.25</td><td>-88.0</td></tr>
+<tr><td>Creamy Cock<span>Made of: Cowsmilk (100%)  /  FEP: agi +1: 26.38, dex +1: 35.17, per +2: 17.58, psy +1: 13.19, con +1: 18.46</span></td><td>123</td><td>22</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1977.25</td><td>-88.0</td></tr>
+<tr><td>Midnight Blue Cheese<span>FEP: str +2: 178.21</span></td><td>127</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>1977.25</td><td>-88.0</td></tr>
+<tr><td>Cabrales<span>FEP: dex +2: 17.93, con +1: 17.93, int +1: 17.93</span></td><td>128</td><td>32</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>1977.25</td><td>-88.0</td></tr>
+<tr><td>Creamy Cock<span>Made of: Cowsmilk (100%)  /  FEP: agi +1: 26.38, dex +1: 35.17, per +2: 17.58, psy +1: 13.19, con +1: 18.46</span></td><td>123</td><td>22</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>1977.25</td><td>-88.0</td></tr>
+<tr><td>Midnight Blue Cheese<span>FEP: str +2: 178.21</span></td><td>127</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>1977.25</td><td>-88.0</td></tr>
+<tr><td>Cabrales<span>FEP: dex +2: 17.93, con +1: 17.93, int +1: 17.93</span></td><td>128</td><td>32</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>6</td><td>1977.25</td><td>-88.0</td></tr>
+<tr><td>Metal Saw<span></span></td><td>282</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>1996.5</td><td>-88.0</td></tr>
+<tr><td>Board of Walnutwood<span></span></td><td>315</td><td>13</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>1996.5</td><td>-88.0</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>208</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>200</td><td>1996.5</td><td>-88.0</td></tr>
+<tr><td>Treeplanter's Pot<span></span></td><td>218</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>250</td><td>1996.5</td><td>-88.0</td></tr>
+<tr><td>Woodsman's Axe<span></span></td><td>416</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>240</td><td>1996.5</td><td>-88.0</td></tr>
+<tr><td>Mammoth Hide<span></span></td><td>319</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>90</td><td>2103.75</td><td>-88.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>197</td><td>39</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>25</td><td>2103.75</td><td>-88.0</td></tr>
+<tr><td>Pumpkin Pie<span>Made of: Wheat Flour (100%)  /  FEP: str +1: 8.52, con +1: 20.45, agi +1: 15.34</span></td><td>181</td><td>41</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2200.0</td><td>-88.0</td></tr>
+<tr><td>Heartwood Leaves<span></span></td><td>5</td><td>29</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>74</td><td>2249.5</td><td>-88.0</td></tr>
+<tr><td>Wool Cloth<span></span></td><td>90</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2249.5</td><td>-88.0</td></tr>
+<tr><td>10.00 l of Swill<span>Bucket Q25</span></td><td>272</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>2249.5</td><td>-88.0</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>208</td><td>13</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>2249.5</td><td>-88.0</td></tr>
+<tr><td>Onion Braid<span></span></td><td>171</td><td>1</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>2268.75</td><td>-88.0</td></tr>
+<tr><td>Straw Doll<span></span></td><td>304</td><td>25</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>2</td><td>2268.75</td><td>-88.0</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>234</td><td>8</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>2307.25</td><td>-88.0</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>234</td><td>5</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>2341.625</td><td>-119.625</td></tr>
+<tr><td>40 coins of Gold<span>Golden Quill</span></td><td></td><td>48</td><td>Feldspar<span></span></td><td>210</td><td>1</td><td>2341.625</td><td>-119.625</td></tr>
+<tr><td>River Pearl<span></span></td><td>10</td><td>26</td><td>Feldspar<span></span></td><td>200</td><td>1</td><td>2341.625</td><td>-119.625</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>234</td><td>27</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>2341.625</td><td>-138.875</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>234</td><td>26</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>2341.625</td><td>-138.875</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>234</td><td>29</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>2341.625</td><td>-138.875</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>234</td><td>23</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>2341.625</td><td>-191.125</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>234</td><td>30</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>2341.625</td><td>-191.125</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>234</td><td>25</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>2341.625</td><td>-191.125</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>234</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>4</td><td>2341.625</td><td>-191.125</td></tr>
+<tr><td>Oak Spire<span></span></td><td>117</td><td>6</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2341.625</td><td>-229.625</td></tr>
+<tr><td>Crab Claw<span></span></td><td>10</td><td>37</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>2341.625</td><td>-248.875</td></tr>
+<tr><td>Intestines<span></span></td><td>60</td><td>62</td><td>Cast Iron Coins<span> Iron Quill</span></td><td>Any</td><td>5</td><td>2341.625</td><td>-301.125</td></tr>
+<tr><td>Intestines<span></span></td><td>60</td><td>62</td><td>Entrails<span></span></td><td>Any</td><td>1</td><td>2341.625</td><td>-301.125</td></tr>
+<tr><td>2 coins of Gold<span>Golden Quill</span></td><td></td><td>31</td><td>Feldspar<span></span></td><td>160</td><td>1</td><td>2341.625</td><td>-339.625</td></tr>
+<tr><td>Meatpie<span>Made of: Horse (100%)  /  Made of: Wheat Flour (100%)  /  FEP: str +1: 16.73, con +1: 8.37, agi +1: 24.26</span></td><td>174</td><td>10</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2341.625</td><td>-339.625</td></tr>
+<tr><td>Meatpie<span>Made of: Horse (100%)  /  Made of: Wheat Flour (100%)  /  FEP: str +1: 16.9, con +1: 8.45, agi +1: 24.51</span></td><td>178</td><td>12</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2341.625</td><td>-339.625</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>32</td><td>Petrified Seashell<span></span></td><td>10</td><td>4</td><td>2341.625</td><td>-358.875</td></tr>
+<tr><td>Coin of Gold<span>Golden Quill</span></td><td></td><td>32</td><td>Petrified Seashell<span></span></td><td>10</td><td>4</td><td>2341.625</td><td>-358.875</td></tr>
+<tr><td>Slag<span></span></td><td>71</td><td>3</td><td>Cast Iron Coins<span> Iron Quill</span></td><td>Any</td><td>2</td><td>2341.625</td><td>-358.875</td></tr>
+<tr><td>Slag<span></span></td><td>70</td><td>60</td><td>Cast Iron Coins<span> Iron Quill</span></td><td>Any</td><td>2</td><td>2341.625</td><td>-358.875</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>227</td><td>31</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2341.625</td><td>-411.125</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>227</td><td>30</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2341.625</td><td>-411.125</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>219</td><td>31</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2341.625</td><td>-411.125</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>227</td><td>31</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2341.625</td><td>-411.125</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>228</td><td>15</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2341.625</td><td>-411.125</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>228</td><td>27</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2341.625</td><td>-430.375</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>227</td><td>28</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2341.625</td><td>-430.375</td></tr>
+<tr><td>Block of Olivewood<span></span></td><td>227</td><td>31</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2341.625</td><td>-430.375</td></tr>
+<tr><td>Metal Axe<span></span></td><td>229</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>60</td><td>2341.625</td><td>-521.125</td></tr>
+<tr><td>Spectacles<span></span></td><td>40</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>8</td><td>2341.625</td><td>-521.125</td></tr>
+<tr><td>Asp<span></span></td><td>16</td><td>2</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>1</td><td>2341.625</td><td>-521.125</td></tr>
+<tr><td>Bone Material<span></span></td><td>217</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>2341.625</td><td>-540.375</td></tr>
+<tr><td>Boar Tusk<span></span></td><td>111</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2341.625</td><td>-540.375</td></tr>
+<tr><td>Winged Helmet<span>Wear: 0/1183</span></td><td>236</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>15</td><td>2341.625</td><td>-631.125</td></tr>
+<tr><td>Bronze Plate<span>Wear: 0/1887</span></td><td>209</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>10</td><td>2341.625</td><td>-631.125</td></tr>
+<tr><td>Stone Arrow<span></span></td><td>194</td><td>16</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1</td><td>2341.625</td><td>-631.125</td></tr>
+<tr><td>Cigars Cohiba Siglo XXI 9Pcs 245q+<span></span></td><td>151</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>20</td><td>2341.625</td><td>-631.125</td></tr>
+<tr><td>Hirdsman's Sword<span></span></td><td>305</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>135</td><td>2341.625</td><td>-631.125</td></tr>
+<tr><td>Coal<span></span></td><td>240</td><td>19</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>5</td><td>2341.625</td><td>-650.375</td></tr>
+<tr><td>Anvil 380q + Smithy's Hammer 380q<span></span></td><td>152</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>1500</td><td>2341.625</td><td>-650.375</td></tr>
+<tr><td>Metal Axe<span></span></td><td>279</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>30</td><td>2341.625</td><td>-650.375</td></tr>
+<tr><td>Bar of Wrought Iron<span></span></td><td>165</td><td>12</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>2</td><td>2341.625</td><td>-650.375</td></tr>
+<tr><td>Heartwood Leaves<span></span></td><td>26</td><td>19</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>12</td><td>2341.625</td><td>-702.625</td></tr>
+<tr><td>Heartwood Leaves<span></span></td><td>19</td><td>11</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>8</td><td>2341.625</td><td>-702.625</td></tr>
+<tr><td>25 seeds of Pumpkin<span></span></td><td>116</td><td>4</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>49</td><td>2341.625</td><td>-774.125</td></tr>
+<tr><td>25 seeds of Flax<span></span></td><td>232</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>59</td><td>2341.625</td><td>-774.125</td></tr>
+<tr><td>25 seeds of Carrot<span></span></td><td>266</td><td>2</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>59</td><td>2341.625</td><td>-774.125</td></tr>
+<tr><td>25 seeds of Lettuce<span></span></td><td>118</td><td>1</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>59</td><td>2341.625</td><td>-793.375</td></tr>
+<tr><td>25 seeds of Barley<span></span></td><td>208</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>49</td><td>2341.625</td><td>-793.375</td></tr>
+<tr><td>Flax Fibres<span></span></td><td>209</td><td>7</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>9</td><td>2341.625</td><td>-831.875</td></tr>
+<tr><td>Olive<span>FEP: str +1: 0.36, agi +1: 0.36, dex +1: 0.36</span></td><td>131</td><td>1</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>6</td><td>2341.625</td><td>-831.875</td></tr>
+<tr><td>Mulberry<span>FEP: cha +1: 0.92</span></td><td>136</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>19</td><td>2341.625</td><td>-831.875</td></tr>
+<tr><td>Walnut<span>FEP: str +1: 1.11, psy +1: 0.11</span></td><td>138</td><td>1</td><td>Silver Coins<span>Silver Quill</span></td><td>Any</td><td>9</td><td>2341.625</td><td>-831.875</td></tr>
+<tr><td>Walnut<span>FEP: str +1: 1.14, psy +1: 0.11</span></td><td>145</td><td>3</td><td>Gold Coins<span>Golden Quill</span></td><td>Any</td><td>9</td><td>2341.625</td><td>-831.875</td></tr>
+
+		</tbody>
+	</table>
+</div>
+<script src="sorttable.js"></script>
+<script>
+	var map = document.getElementById('mapSVG');
+	var ns = 'http://www.w3.org/2000/svg';
+	var zoomx = 1;
+	var zoomy = 1;
+	var offx = 19;
+	var offy = 164;
+	var standStyle = 'fill:rgba(0,255,0,1);stroke-width:0.0;stroke:rgba(0,0,0,0)';
+	var markerStyle = 'fill:rgba(64,255,128,1);stroke-width:3.5;stroke:rgba(0,0,0,0.7)'
+
+	var modx = 1/11*zoomx;
+	var mody = 1/11*zoomy;
+
+	document.onLoad = mapGen();
+
+	function applyFilters()
+	{
+		table = document.getElementById("data");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+			tr[i].style.display = "";
+		}
+		filter(0,'filterGoods');
+		filterSub(0,'filterInfo', 'span');
+		filter(3,'filterPrice');
+		filterInt(1, 'filterQmin', 'filterQmax');
+		filterInt(2, 'filterLmin', 'filterLmax');
+		filterInt(4, 'filterPQmin', 'filterPQmax');
+		filterInt(5, 'filterPAMTmin', 'filterPAMTmax');
+	}
+
+		function filterSub(n, m, tag) {
+		var input, filter, table, tr, sub, i;
+		input = document.getElementById(m);
+		filter = input.value.toUpperCase();
+		table = document.getElementById("data");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+			var td = tr[i].getElementsByTagName("td")[n];
+			if ((td)) sub = td.getElementsByTagName(tag)[0];
+			if (sub) {
+				if (sub.innerHTML.toUpperCase().indexOf(filter) > -1) {} else {
+					tr[i].style.display = "none";
+				}
+			} 
+		}
+	}
+
+	function filter(n, m) {
+		var input, filter, table, tr, td, i;
+		input = document.getElementById(m);
+		filter = input.value.toUpperCase();
+		table = document.getElementById("data");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[n];
+			if (td) {
+				if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {} else {
+					tr[i].style.display = "none";
+				}
+			} 
+		}
+	}
+
+	function filterInt(n, m1, m2) {
+		var input, filter, table, tr, td, i;
+		inputMin = document.getElementById(m1);
+		inputMax = document.getElementById(m2);
+		filterMin = inputMin.value;
+		filterMax = inputMax.value;
+		table = document.getElementById("data");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[n];
+			if (td) {
+				if ((parseInt(td.innerHTML) > parseInt(filterMax)) && (filterMax == parseInt(filterMax)+"")) 
+					tr[i].style.display = "none";
+				if ((parseInt(td.innerHTML) < parseInt(filterMin)) && (filterMin == parseInt(filterMin)+"")) 
+					tr[i].style.display = "none";
+			} 
+		}
+	}
+
+	function mapGen() {
+		var i, j, x, y;
+		var coords = [[0, 0]];
+		var svg = document.getElementById('mapSVG');
+		var table = document.getElementById("data");
+		var tr = table.getElementsByTagName("tr");
+		mapFlush(svg);
+			//loadBG(svg, -63, 108, -61, 110);
+
+			for (i = 1; i < tr.length; i++) {
+				if (tr[i].getElementsByTagName("td")[6] == undefined || tr[i].getElementsByTagName("td")[7] == undefined ) continue;
+				x = parseInt(tr[i].getElementsByTagName("td")[6].innerHTML);
+				y = parseInt(tr[i].getElementsByTagName("td")[7].innerHTML);
+				tr[i].addEventListener("mouseover", highlight);
+				var notInCoords = true;
+				for (j = 0; j < coords.length; j++) {
+					if ((coords[j][0] == x) && (coords[j][1] == y))
+						notInCoords = false;
+				}
+				if (notInCoords) 
+					coords.push([x, y]);
+				if (tr[i].getElementsByTagName("td")[0].getElementsByTagName("span")[0] != undefined)	
+				{	
+					var tempGDetails = tr[i].getElementsByTagName("td")[0].getElementsByTagName("span")[0].innerHTML;
+					tempGDetails = tempGDetails.replace(/ \/ /g, "<br />").replace(/Made of:/g, "");
+					tr[i].getElementsByTagName("td")[0].getElementsByTagName("span")[0].innerHTML = tempGDetails;
+				}
+			}
+			for (i = 0; i < coords.length; i++) {
+				var tempX = coords[i][0]*modx+offx;
+				var tempY = coords[i][1]*mody+offy;
+				mapAddMark(svg, tempX, tempY, 1.5);
+			}
+			
+
+		}
+
+		function mapFlush(svg)
+		{
+			var mapElements = svg.childNodes;
+			for (var i = mapElements.length-1; i > 0; i--) mapElements[i].remove();
+		}
+
+	function loadBG(svg, sx, sy, ex, ey)
+	{
+		var x, y;
+		if (sx > ex) {
+			var a = ex;
+			ex = sx;
+			sx = a;
+		}
+		if (sy > ey) {
+			var a = ey;
+			ey = sy;
+			sy = a;
+		}
+		for (x = sx; x <= ex; x++){
+			for (y = sy; y <= ey; y++){
+				var bgImg = document.createElementNS(ns, 'image');
+				bgImg.setAttribute('href', 'http://www.odditown.com:8080/haven/tiles/live/9/'+x+'_'+y+'.png');
+				bgImg.setAttribute('width', '100px');
+				bgImg.setAttribute('height', '100px');
+				bgImg.setAttribute('x', (x-sx)*100);
+				bgImg.setAttribute('y', (y-sy)*100);
+				bgImg.setAttribute('opacity','1');
+				svg.appendChild(bgImg);		
+			}
+		}
+	}
+	
+	function highlight(){
+		var x = parseFloat(this.getElementsByTagName("td")[6].innerHTML);
+		var y = parseFloat(this.getElementsByTagName("td")[7].innerHTML);
+		if (map	== undefined)
+			var map = document.getElementById('mapSVG');
+		var marker = mapSVG.getElementById('mapMarker');
+		if (marker == undefined){
+			marker = document.createElementNS(ns, 'circle');
+			marker.setAttribute('r', 4);
+			marker.setAttribute('style', markerStyle);
+			marker.setAttribute('id', 'mapMarker');
+			map.appendChild(marker);
+		}
+		marker.setAttribute('cx', x*modx+offx);
+		marker.setAttribute('cy', y*mody+offy);
+	}
+	
+	function mapAddMark (svg, mx, my, r)
+	{
+		var mark = document.createElementNS(ns, 'circle');
+		mark.setAttribute('cx', mx);
+		mark.setAttribute('cy', my);
+		mark.setAttribute('r', r);
+		mark.setAttribute('style', standStyle);
+		svg.appendChild(mark);
+	}
+</script>
+</body>
+</html>
