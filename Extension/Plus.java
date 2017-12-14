@@ -3,6 +3,10 @@ package haven.automation;
 import java.lang.reflect.*;
 import java.util.*; 
 
+import java.io.*;
+import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
+
 import haven.*;
 import haven.resutil.*;
 import haven.res.ui.tt.*;
@@ -16,15 +20,64 @@ import static haven.OCache.posres;
 
 public class Plus implements Runnable {
 	private GameUI gui;
+	public static String FN_htmlfile = ""; 
 	public static double BeaconX = 0;
 	public static double BeaconY = 0;
 	public static ArrayList<Long> BSvisitedId = new ArrayList<Long>();
 	public double standX = 0;
 	public double standY = 0;
+	public Double dist = 14.5; //sets players position in front of barterstand befpre and after parsing its content
 		
 	public Plus(GameUI gui) {
 		this.gui = gui;
 	}
+
+	private void plrMoveTo(Coord2d c){
+		Gob pl = gui.map.player();
+		if (Config.pf) {
+			gui.map.pfLeftClick(c.floor(), null);
+			try {
+				gui.map.pfthread.join();
+			} catch (InterruptedException e) {
+				return;
+			}
+		} else {
+			gui.map.wdgmsg("click", pl.sc, c.floor(posres), 1, 0);
+		}		
+		Long pmtnow = System.currentTimeMillis();
+		while (System.currentTimeMillis() - pmtnow < 3000 && pl.getattr(Moving.class) == null){
+			try {
+				Thread.sleep(50);
+			}
+			catch(InterruptedException e) { Thread.currentThread().interrupt(); }
+		}
+		pmtnow = System.currentTimeMillis();
+		while (System.currentTimeMillis() - pmtnow < 30000 && pl.getattr(Moving.class) != null){
+			try {
+				Thread.sleep(50);
+			}
+			catch(InterruptedException e) { Thread.currentThread().interrupt(); }
+		}
+	}
+
+	private void htmlOut(String S){
+		try {
+			if (FN_htmlfile == "") {
+				FN_htmlfile = new SimpleDateFormat("yyyy.MM.dd_HH-mm-ss").format((new Date()));
+				FN_htmlfile = "marketlog\\"+FN_htmlfile+".html";
+			}
+			OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(FN_htmlfile, true),
+				Charset.forName("UTF-8").newEncoder());
+			PrintWriter pw = new PrintWriter(osw, true);
+			pw.print(S);
+			pw.close();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+
 
 	@Override
 	public void run() {
@@ -43,33 +96,10 @@ public class Plus implements Runnable {
 		}
 		if (barterstandGob == null) return;
 
-		Double dist = 12.0;
-		Gob pl = gui.map.player();
+		
 		Coord2d mc = new Coord2d (barterstandGob.rc.x + Math.cos(barterstandGob.a)*dist, barterstandGob.rc.y + Math.sin(barterstandGob.a)*dist);
-		if (Config.pf) {
-			gui.map.pfLeftClick(mc.floor(), null);
-			try {
-				gui.map.pfthread.join();
-			} catch (InterruptedException e) {
-				return;
-			}
-		} else {
-			gui.map.wdgmsg("click", pl.sc, mc.floor(posres), 1, 0);
-		}		
-		Long now = System.currentTimeMillis();
-		while (System.currentTimeMillis() - now < 20000 && pl.getattr(Moving.class) == null){
-			try {
-				Thread.sleep(50);
-			}
-			catch(InterruptedException e) { Thread.currentThread().interrupt(); }
-		}
-		now = System.currentTimeMillis();
-		while (System.currentTimeMillis() - now < 20000 && pl.getattr(Moving.class) != null){
-			try {
-				Thread.sleep(50);
-			}
-			catch(InterruptedException e) { Thread.currentThread().interrupt(); }
-		}
+		plrMoveTo(mc);
+		
 
 		gui.map.wdgmsg("click", barterstandGob.sc, barterstandGob.rc.floor(posres), 3, 0, 0, (int) barterstandGob.id, barterstandGob.rc.floor(posres), 0, -1);
 		if ((BeaconX == 0) || (BeaconY == 0))
@@ -80,7 +110,7 @@ public class Plus implements Runnable {
 		standX = barterstandGob.rc.x - BeaconX;
 		standY = barterstandGob.rc.y - BeaconY;
 		
-		now = System.currentTimeMillis();
+		Long now = System.currentTimeMillis();
 		Shopbox probeSB = null;
 		Shopbox SB = null;
 		Boolean loaded = false;
@@ -117,7 +147,8 @@ public class Plus implements Runnable {
 						BSvisitedId.add(barterstandGob.id);
 					else
 						if ((probeSB != null) && (loaded != false)) {
-						java.lang.System.out.print("\n");
+						ArrayList<String> ShopboxData = new ArrayList<String>();
+						ArrayList<String> ShopboxDataHTML = new ArrayList<String>();
 						try {
 							for (Widget w = gui.lchild; w != null; w = w.prev) 
 								if (w instanceof Window)
@@ -125,7 +156,6 @@ public class Plus implements Runnable {
 										if (sw instanceof Shopbox) {
 											SB = (Shopbox) sw;
 
-												String strout = "";
 												String num = "";
 												String q = "";
 												String name = "";
@@ -439,34 +469,44 @@ public class Plus implements Runnable {
 										} 
 
 										String spt = "|";
+										String sptHTML = "</td><td>";
 										if ((name != "") && (pname != "")) {
-											strout += name + spt + misc + spt + q + spt + num + spt + pname + spt + pmisc + spt + pq + spt + pnum + spt + standX + spt + standY;
-											System.out.print("\n"+strout);
+											String strout = name + spt + misc + spt + q + spt + num + spt + pname + spt + pmisc + spt + pq + spt + pnum + spt + standX + spt + standY;
+											ShopboxData.add("\n"+strout);
+											String stroutHTML = "<tr><td>" + name + "<span>" + misc + "</span>" + sptHTML + q + sptHTML + num + sptHTML + pname + "<span>" + pmisc + "</span>" + sptHTML + pq + sptHTML + pnum + sptHTML + standX + sptHTML + standY + "</td></tr>";
+											ShopboxDataHTML.add("\n"+stroutHTML);
 										}
+									}
+									try {
+										for (int SBDi = 0; SBDi < ShopboxData.size(); SBDi++){
+											System.out.print(ShopboxData.get(SBDi));
 										}
+										System.out.print("\n");	
+									}
+									catch (Exception e){
+										gui.error("Data output error: " + e);
+									}
+
+									try {
+										for (int SBDi = 0; SBDi < ShopboxDataHTML.size(); SBDi++){
+											htmlOut(ShopboxDataHTML.get(SBDi));
+										}
+										htmlOut("\n");	
+									}
+									catch (Exception e){
+										gui.error("HTML write error: " + e);
+									}
 									BSvisitedId.add(barterstandGob.id);
 
+									
 									}
 									catch (Loading l) {
 										gui.error("Shopbox read error: " + l);
 									}
 								}
 
-								dist = 16.0;
-								pl = gui.map.player();
 								mc = new Coord2d (barterstandGob.rc.x + Math.cos(barterstandGob.a)*dist, barterstandGob.rc.y + Math.sin(barterstandGob.a)*dist);
-
-								if (Config.pf) {
-									gui.map.pfLeftClick(mc.floor(), null);
-									try {
-										gui.map.pfthread.join();
-									} catch (InterruptedException e) {
-										return;
-									}
-								} else {
-									gui.map.wdgmsg("click", pl.sc, mc.floor(posres), 1, 0);
-								}
-
+								plrMoveTo(mc);
 							}
 						}
 
