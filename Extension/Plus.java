@@ -12,10 +12,6 @@ import haven.resutil.*;
 import haven.res.ui.tt.*;
 import haven.res.ui.barterbox.* ;
 import haven.res.ui.tt.q.qbuff.*;
-//import haven.factories.*;
-//import haven.res.ui.tt.ArmorFactory;
-//import haven.res.ui.tt.WearFactory;
-//import haven.res.ui.tt.defn.DefName;
 import static haven.OCache.posres;
 
 public class Plus implements Runnable {
@@ -26,8 +22,8 @@ public class Plus implements Runnable {
 	public static ArrayList<Long> BSvisitedId = new ArrayList<Long>();
 	public double standX = 0;
 	public double standY = 0;
-	public Double dist = 14.5; //sets players position in front of barterstand befpre and after parsing its content
-		
+	public Double dist = 13.5; //sets players position in front of barterstand befpre and after parsing its content
+
 	public Plus(GameUI gui) {
 		this.gui = gui;
 	}
@@ -97,7 +93,7 @@ public class Plus implements Runnable {
 		if (barterstandGob == null) return;
 
 		
-		Coord2d mc = new Coord2d (barterstandGob.rc.x + Math.cos(barterstandGob.a)*dist, barterstandGob.rc.y + Math.sin(barterstandGob.a)*dist);
+		Coord2d mc = new Coord2d (barterstandGob.rc.x + Math.cos(barterstandGob.a+0.4)*dist, barterstandGob.rc.y + Math.sin(barterstandGob.a+0.4)*dist);
 		plrMoveTo(mc);
 		
 
@@ -143,19 +139,21 @@ public class Plus implements Runnable {
 						catch (InterruptedException e) { Thread.currentThread().interrupt(); }
 					}
 
+					long read_time = System.currentTimeMillis();
 					if (emptyBoxes >= 5)
 						BSvisitedId.add(barterstandGob.id);
 					else
 						if ((probeSB != null) && (loaded != false)) {
-						ArrayList<String> ShopboxData = new ArrayList<String>();
-						ArrayList<String> ShopboxDataHTML = new ArrayList<String>();
-						try {
-							for (Widget w = gui.lchild; w != null; w = w.prev) 
-								if (w instanceof Window)
-									for (Widget sw = w.lchild; sw != null; sw = sw.prev) 
-										if (sw instanceof Shopbox) {
-											SB = (Shopbox) sw;
+							ArrayList<String> ShopboxData = new ArrayList<String>();
+							ArrayList<String> ShopboxDataHTML = new ArrayList<String>();
+							try {
+								for (Widget w = gui.lchild; w != null; w = w.prev) 
+									if (w instanceof Window)
+										for (Widget sw = w.lchild; sw != null; sw = sw.prev) 
+											if (sw instanceof Shopbox) {
+												SB = (Shopbox) sw;
 
+												
 												String num = "";
 												String q = "";
 												String name = "";
@@ -167,6 +165,8 @@ public class Plus implements Runnable {
 												HashMap DGildBonuses = new HashMap<String, Integer>();
 												HashMap DAGBonuses = new HashMap<String, Integer>();
 
+												ArrayList<String> DIngredients = new ArrayList<String>();
+
 												if ((SB.num != null)) {
 													num = SB.num.text.split(" ")[0];
 												}
@@ -175,6 +175,20 @@ public class Plus implements Runnable {
 													for (int j = 0; j<SB_info.length; j++) {
 														if (SB_info[j] instanceof ItemInfo) {
 															ItemInfo str = (ItemInfo) SB_info[j];
+
+															/* OBJECT BUTCHER 
+															try{
+																System.out.print(str.getClass().getName());
+																Field [] coinFields = str.getClass().getFields();
+																for (int k = 0; k < coinFields.length; k++) {
+																	String coinFieldName = "" + coinFields[k].getName();
+																	String coinFieldVal = "" + coinFields[k].get(str);
+																	java.lang.System.out.print("\n"+coinFieldName+": "+coinFieldVal.getClass().getName()+"  "+coinFieldVal);
+																}
+																java.lang.System.out.print("\n");
+															}
+															catch (Exception e) {System.out.println("Butcher:" + e);}
+															*/
 
 															if (str.getClass().getName().contains("Gast")) {
 																ArrayList<String> ALfev = new ArrayList<String>();
@@ -269,8 +283,7 @@ public class Plus implements Runnable {
 																String tempBuffer = name;
 																name = contents;
 																ArrayList<String> ALcontent = new ArrayList<String>();
-																ALcontent.add(tempBuffer);
-																ALcontent.add(" Q"+q);
+																ALcontent.add(tempBuffer + " Q" + q);
 																det.add(ALcontent);
 																q = contentsQ;
 															}
@@ -362,20 +375,85 @@ public class Plus implements Runnable {
 
 															
 															if (str.getClass().getName().contains("Ingredient")) {
-																ArrayList<String> ALing = new ArrayList<String>();
-																ALing.add("");
 																try {
 																	Field ingNameField = str.getClass().getField("name");
 																	Field ingValField = str.getClass().getField("val");
 																	String ingNameVal = "" + ingNameField.get(str);
 																	Double ingValVal = (Double) ingValField.get(str);
-																	ALing.add(ingNameVal + " ("+ Math.round(ingValVal*100) + "%)");
+																	DIngredients.add(ingNameVal + " ("+ Math.round(ingValVal*100) + "%)");
 																}
 																catch (Exception e){
 																	gui.error("!! Ingredient: "+e+" !!");		
 																}
-																det.add(ALing);
 															}
+
+															if (str.getClass().getName().contains("Armpen")) {
+																try {
+																	ArrayList<String> ALArmpen = new ArrayList<String>();
+																	ALArmpen.add("Armor penetration: ");
+																	ALArmpen.add("" + (int)((Double)str.getClass().getField("deg").get(str)*100) + "%");
+																	det.add(ALArmpen);
+																}
+																catch (Exception e){
+																	gui.error("!! Armor penetration: "+e+" !!");		
+																}
+															}
+
+															if (str.getClass().getName().contains("Weight")) {
+																try {
+																	ArrayList<String> ALWeight = new ArrayList<String>(2);
+																	ALWeight.add("Weapon type: ");
+																	ALWeight.add(""+((Resource)str.getClass().getField("attr").get(str)).basename());
+																	det.add(ALWeight);
+																}
+																catch (Exception e){
+																	gui.error("!! Weight: "+e+" !!");		
+																}
+															}
+
+															if (str.getClass().getName().contains("Damage")) {
+																try {
+																	ArrayList<String> ALDamage = new ArrayList<String>(2);
+																	ALDamage.add("Damage: ");
+																	ALDamage.add(""+str.getClass().getField("dmg").get(str));
+																	det.add(ALDamage);
+																}
+																catch (Exception e){
+																	gui.error("!! Base damage: "+e+" !!");		
+																}
+															}
+
+															if (str.getClass().getName().contains("Armor")) {
+																try {
+																	ArrayList<String> ALArmor = new ArrayList<String>(2);
+																	ALArmor.add("Armor class: ");
+																	ALArmor.add(""+str.getClass().getField("hard").get(str)+"/"+str.getClass().getField("soft").get(str));
+																	det.add(ALArmor);
+																}
+																catch (Exception e){
+																	gui.error("!! Armor class: "+e+" !!");		
+																}
+															}
+
+
+															if (str.getClass().getName().contains("Curiosity")) {
+																try {
+																	ArrayList<String> ALCuriosity = new ArrayList<String>(4);
+																	Double d_ct = 1.0 * (Double)str.getClass().getField("time").get(str);
+																	Double d_exp = 1.0 * (int)str.getClass().getField("exp").get(str);
+																	String s_ct = ((d_ct/60 < 10) ? "0" : "") + ((d_ct/60 < 1) ? "0" : "") + (int)(d_ct/60) + ":" + ((d_ct%60 < 10) ? "0" : "") + (int)(d_ct%60);
+																	ALCuriosity.add("As curiosity: ");
+																	ALCuriosity.add("Total LP: "+str.getClass().getField("exp").get(str));
+																	ALCuriosity.add("M weight: "+str.getClass().getField("mw").get(str));
+																	ALCuriosity.add("EXP cost: "+str.getClass().getField("enc").get(str));
+																	ALCuriosity.add("" + (int)(d_exp/d_ct*60) + " LP/h (" + s_ct + ")");
+																	det.add(ALCuriosity);
+																}
+																catch (Exception e){
+																	gui.error("!! Curiosity: "+e+" !!");		
+																}
+															}
+															
 															if (str instanceof Wear) {
 																ArrayList<String> ALWear = new ArrayList<String>();
 																ALWear.add("Wear: ");
@@ -423,6 +501,50 @@ public class Plus implements Runnable {
 													det.add(ALattr); 
 												}
 
+												if (DIngredients.size() > 0){
+													ArrayList<String> ALing = new ArrayList<String>();
+													ALing.add("Made of: ");
+													for (int k1 = 0; k1 < DIngredients.size(); k1++){
+														ALing.add(DIngredients.get(k1));
+													}
+													det.add(ALing);
+												}
+
+												String miscHTML = "";
+												String pmiscHTML = "";
+												String pname = "";
+												String pq = "";
+												String pnum = "";
+												String pmisc = "";
+
+												if (SB.price != null){
+													pname += SB.price.name();  
+
+													pnum += SB.pnum;
+													if (SB.pq == 0) 
+														pq = "Any";
+													else 
+														pq += (int) SB.pq;
+
+													Object[] SB_pinfo = SB.price.info().toArray(); 
+													for (int j = 0; j<SB_pinfo.length; j++) {
+														if (SB_pinfo[j] instanceof ItemInfo) {
+															ItemInfo str = (ItemInfo) SB_pinfo[j];
+															if (str.getClass().getName().contains("Coinage")) {
+																try {
+																	Field coinNameField = str.getClass().getField("nm");
+																	String coinFieldVal = "" + coinNameField.get(str);
+																	pmisc += "" + coinFieldVal;
+																	pmiscHTML += "<span>" + coinFieldVal + "</span>";
+																}
+																catch (Exception e){
+																	gui.error("!! Price coinage: "+e+" !!");		
+																}
+															}
+														}
+													}
+												} 
+
 												try {
 													for (int k1 = 0; k1<det.size(); k1++){
 														for (int k2 = 0; k2 < det.get(k1).size(); k2++){
@@ -436,44 +558,32 @@ public class Plus implements Runnable {
 											gui.error("\n \n !! Misc data build error: "+e+" !! \n \n ");		
 										}
 
-										String pname = "";
-										String pq = "";
-										String pnum = "";
-										String pmisc = "";
-
-										if (SB.price != null){
-											pname += SB.price.name();  
-
-											pnum += SB.pnum;
-											if (SB.pq == 0) 
-												pq = "Any";
-											else 
-												pq += (int) SB.pq;
-
-											Object[] SB_pinfo = SB.price.info().toArray(); 
-											for (int j = 0; j<SB_pinfo.length; j++) {
-												if (SB_pinfo[j] instanceof ItemInfo) {
-													ItemInfo str = (ItemInfo) SB_pinfo[j];
-													if (str.getClass().getName().contains("Coinage")) {
-														try {
-															Field coinNameField = str.getClass().getField("nm");
-															String coinFieldVal = "" + coinNameField.get(str);
-															pmisc += "" + coinFieldVal;
-														}
-														catch (Exception e){
-															gui.error("!! Price coinage: "+e+" !!");		
-														}
+										try {
+											for (int k1 = 0; k1<det.size(); k1++){
+												for (int k2 = 0; k2 < det.get(k1).size(); k2++){
+													if (det.get(k1).size() > 2) { //if list
+														if (k2 == 0) miscHTML += "<h4>" + det.get(k1).get(k2) + "</h4>";  //pseudoheader of list
+														else 	miscHTML += ((k2 == 1) ? "<ul>" : "") + "<li>" + det.get(k1).get(k2) + "</li>" +((k2 == det.get(k1).size()-1) ? "</ul>" : "");
+													}
+													else //if not list
+													{
+														miscHTML += ((k2 == 0) ? "<ul class=\"plain\"><h4>" : "") + "<li>" + det.get(k1).get(k2) + "</li>"+ ((k2 == 0) ? "</h4>" : "") + ((k2 == det.get(k1).size()-1) ? "</ul>" : "");
 													}
 												}
 											}
-										} 
+											miscHTML = "<span>" + miscHTML + "</span>";
+										}
+										catch (Exception e){
+											gui.error("\n \n !! HTML misc data build error: "+e+" !! \n \n ");		
+										}
+
 
 										String spt = "|";
 										String sptHTML = "</td><td>";
 										if ((name != "") && (pname != "")) {
 											String strout = name + spt + misc + spt + q + spt + num + spt + pname + spt + pmisc + spt + pq + spt + pnum + spt + standX + spt + standY;
 											ShopboxData.add("\n"+strout);
-											String stroutHTML = "<tr><td>" + name + "<span>" + misc + "</span>" + sptHTML + q + sptHTML + num + sptHTML + pname + "<span>" + pmisc + "</span>" + sptHTML + pq + sptHTML + pnum + sptHTML + standX + sptHTML + standY + "</td></tr>";
+											String stroutHTML = "<tr><td>" + name + miscHTML + sptHTML + q + sptHTML + num + sptHTML + pname + pmiscHTML + sptHTML + pq + sptHTML + pnum + sptHTML + standX + sptHTML + standY + "</td></tr>";
 											ShopboxDataHTML.add("\n"+stroutHTML);
 										}
 									}
@@ -481,7 +591,7 @@ public class Plus implements Runnable {
 										for (int SBDi = 0; SBDi < ShopboxData.size(); SBDi++){
 											System.out.print(ShopboxData.get(SBDi));
 										}
-										System.out.print("\n");	
+										System.out.print((read_time-System.currentTimeMillis()) + "\n");	 
 									}
 									catch (Exception e){
 										gui.error("Data output error: " + e);
@@ -499,26 +609,13 @@ public class Plus implements Runnable {
 									BSvisitedId.add(barterstandGob.id);
 
 									
-									}
-									catch (Loading l) {
-										gui.error("Shopbox read error: " + l);
-									}
 								}
-
-								mc = new Coord2d (barterstandGob.rc.x + Math.cos(barterstandGob.a)*dist, barterstandGob.rc.y + Math.sin(barterstandGob.a)*dist);
-								plrMoveTo(mc);
+								catch (Loading l) {
+									gui.error("Barterstand read error: " + l);
+								}
 							}
+
+							mc = new Coord2d (barterstandGob.rc.x + Math.cos(barterstandGob.a+0.4)*dist, barterstandGob.rc.y + Math.sin(barterstandGob.a+0.4)*dist);
+							plrMoveTo(mc);
 						}
-
-/* OBJECT BUTCHER 
-												java.lang.System.out.print(str.getClass().getName());
-												Field [] coinFields = str.getClass().getFields();
-												for (int k = 0; k < coinFields.length; k++) {
-													String coinFieldName = "" + coinFields[k].getName();
-													String coinFieldVal = "" + coinFields[k].get(str);
-													java.lang.System.out.print("\n"+coinFieldName+": "+coinFieldVal);													
-													}
-													java.lang.System.out.print("\n");
-													/* OBJECT BUTCHER END */
-
-//TODO: gear stats summary
+					}

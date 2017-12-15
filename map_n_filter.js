@@ -4,7 +4,8 @@ var zoomx = 1;
 var zoomy = 1;
 var offx = 19;
 var offy = 164;
-var standStyle = 'fill:rgba(0,196,0,1);stroke-width:0;stroke:rgba(255,255,255,0.5)';
+//var standStyle = 'fill:rgba(0,0,0,1);stroke-width:0.5;stroke:rgba(0,196,0,1)';
+var standStyle = 'fill:rgba(0,196,0,1);stroke-width:0.0;stroke:rgba(0,0,0,0)';
 var markerStyle = 'fill:rgba(64,255,128,1);stroke-width:3.5;stroke:rgba(0,0,0,0.7)'
 var table = document.getElementById("data");
 var map = document.getElementById('mapSVG');
@@ -109,7 +110,7 @@ function mapGen() {
 	for (i = 0; i < coords.length; i++) {
 		var tempX = coords[i][0]*modx+offx;
 		var tempY = coords[i][1]*mody+offy;
-		mapAddMark(svg, tempX, tempY, 2.5);
+		mapAddMark(svg, tempX, tempY, 2.6);
 			}
 			
 
@@ -174,7 +175,8 @@ function mapGen() {
 		var pdt = row[0].getElementsByTagName("span")[0].innerHTML;
 
 		var prc = row[3].innerHTML.split("<span>")[0];
-		var prd = row[3].getElementsByTagName("span")[0].innerHTML;
+		var prd = "";
+		if (row[3].getElementsByTagName("span").length !== 0) prd = row[3].getElementsByTagName("span")[0].innerHTML;
 		if (prc.toLowerCase().includes("coin")) {
 			prc = row[3].getElementsByTagName("span")[0].innerHTML;
 			prd = "";

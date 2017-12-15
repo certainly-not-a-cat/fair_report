@@ -25,6 +25,7 @@ body {
 	padding: 0px;
 	padding-left: 2px;
 	padding-right: 2px;
+	line-height: 120%;
 }
 #data thead tr{
 	display: block;
@@ -98,7 +99,7 @@ th span {
 	padding: 0px;
 	z-index: 4;	
 	border: none;
-	border-bottom: rgba(0,0,0,1) 0.3px solid;
+	border-bottom: rgba(0,0,0,0.3) 1px solid;
 }
 #filterGoods, #filterPrice, #filterInfo {
 	width: 296px;
@@ -112,13 +113,30 @@ th span {
 
 
 #lot {
-	
 }
 
 #lot * {
 	margin: 0px;
 	padding: 0px;
 }
+
+	#lot ul{
+		margin-bottom: 0.8ex;
+		list-style-type: none;
+		text-indent: 12pt;
+		}
+
+		#lot ul li{
+			line-height: 95%;
+		}
+	
+	#lot ul.plain{
+		text-indent: 0pt;
+	}
+	
+	#lot ul.plain *{
+		display: inline;
+		}
 
 	#lot h1{
 		margin-top: 2ex;
@@ -139,6 +157,13 @@ th span {
 
 	#lot-price{
 		color: rgba(255,80,0,1) !important;
+	}
+
+	#lot-details{
+		margin-top: 2ex;
+		margin-left: 0.5ex;
+		color: rgba(64,64,64,1) !important;
+		font-family: 75%;
 	}
 
 #mapContainer {
