@@ -64,7 +64,7 @@ th span {
 	line-height: 9pt;
 	text-indent: 5pt;
 }*/
-#data td:nth-child(7), #data th:nth-child(7), #data td:nth-child(8), #data th:nth-child(8) {
+#data td:nth-child(7), #data th:nth-child(7), #data td:nth-child(8), #data th:nth-child(8), #data td:nth-child(9), #data th:nth-child(9) {
 	display: none;
 }
 #data td:nth-child(1), #data td:nth-child(4), #data th:nth-child(1), #data th:nth-child(4){
@@ -140,14 +140,14 @@ th span {
 
 	#lot h1{
 		margin-top: 2ex;
-		font-weight: normal;
+		/*font-weight: normal;*/
 		font-size: 120%;
 	}
 	#lot h3{
 		font-weight: normal;
 		font-size: 75%;
 		text-align: left;
-		opacity: 0.75;
+		opacity: 0.66;
 	}
 
 	#lot div{

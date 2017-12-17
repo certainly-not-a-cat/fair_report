@@ -110,7 +110,7 @@ function mapGen() {
 	for (i = 0; i < coords.length; i++) {
 		var tempX = coords[i][0]*modx+offx;
 		var tempY = coords[i][1]*mody+offy;
-		mapAddMark(svg, tempX, tempY, 2.6);
+		mapAddMark(svg, tempX, tempY, 2.5);
 			}
 			
 
@@ -194,12 +194,15 @@ function mapGen() {
 		if (row[5].innerHTML != "1") {
 			prx = " × " + row[5].innerHTML;
 		}
+
+		var tsp = row[8].innerHTML;
 		
 		lot.querySelector("#lot-product").innerHTML = pdc+pdq;
 		lot.querySelector("#lot-left").innerHTML = pdx;
 		lot.querySelector("#lot-details").innerHTML = pdt;
 		lot.querySelector("#lot-price").innerHTML = prc+prq+prx;
 		lot.querySelector("#lot-pricedetails").innerHTML = prd;
+		lot.querySelector("#lot-timestamp").innerHTML = tsp;
 	}
 	
 	function mapAddMark (svg, mx, my, r)
