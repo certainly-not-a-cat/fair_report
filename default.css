@@ -16,7 +16,7 @@ body {
 	margin: 0px;
 	margin-right: 300px;
 	padding: 0px;
-	font-size: 11pt;
+	font-size: 10.5pt;
 
 }
 #data *{
@@ -27,6 +27,22 @@ body {
 	padding-right: 2px;
 	line-height: 120%;
 }
+
+#data div.img-container{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	overflow: hidden;
+	margin-right: 4px;
+	text-align: center;
+}
+
+#data .img-container img{
+	display: inline-block;
+	max-height: 24px;
+	max-width: 24px;
+}
+
 #data thead tr{
 	display: block;
 	position: relative;
@@ -50,9 +66,15 @@ th span {
 	overflow: auto;
 	height: 99%;
 }
-#data tr:hover td{
-	background-color: rgba(255,160,0,0.2);
+
+#data tbody td *{
+	vertical-align: middle !important;
 }
+
+#data tr:hover td{
+	background-color: rgba(255,160,0,0.15);
+}
+
 #data td span {
 	display: none;
 }
@@ -68,7 +90,7 @@ th span {
 	display: none;
 }
 #data td:nth-child(1), #data td:nth-child(4), #data th:nth-child(1), #data th:nth-child(4){
-	width: 14em;
+	width: 15em;
 }
 #data td:nth-child(3), #data td:nth-child(6), #data th:nth-child(3), #data th:nth-child(6),
 #data td:nth-child(2), #data td:nth-child(5), #data th:nth-child(2), #data th:nth-child(5){
@@ -120,6 +142,19 @@ th span {
 	padding: 0px;
 }
 
+	#lot img{
+		display: inline;
+		max-height: 48px;
+		
+	}
+
+	#lot .img-container{
+		width: 64px;
+		max-height: 48px;
+		overflow: hidden;
+		margin-left: 4px;
+	}
+
 	#lot ul{
 		margin-bottom: 0.8ex;
 		list-style-type: none;
@@ -127,7 +162,7 @@ th span {
 		}
 
 		#lot ul li{
-			line-height: 95%;
+			line-height: 94%;
 		}
 	
 	#lot ul.plain{
@@ -141,18 +176,18 @@ th span {
 	#lot h1{
 		margin-top: 2ex;
 		/*font-weight: normal;*/
-		font-size: 120%;
+		font-size: 108%;
 	}
 	#lot h3{
 		font-weight: normal;
-		font-size: 75%;
+		font-size: 70%;
 		text-align: left;
-		opacity: 0.66;
+		opacity: 0.75;
 	}
 
 	#lot div{
 		margin-top: 1ex;
-		font-size: 90%;
+		font-size: 85%;
 	}
 
 	#lot-price{
@@ -163,7 +198,7 @@ th span {
 		margin-top: 2ex;
 		margin-left: 0.5ex;
 		color: rgba(64,64,64,1) !important;
-		font-family: 75%;
+		font-family: 70%;
 	}
 
 #mapContainer {
