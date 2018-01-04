@@ -149,6 +149,7 @@ th span {
 	}
 
 	#lot .img-container{
+		display: none;
 		width: 64px;
 		max-height: 48px;
 		overflow: hidden;

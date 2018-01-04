@@ -88,14 +88,6 @@ function mapGen() {
 	mapFlush(svg);
 	//loadBG(svg, -63, 108, -61, 110);
 	for (i = 1; i < tr.length; i++) {
-		//fix gemstone images
-		var imgsrc = tr[i].getElementsByTagName("td")[0].getElementsByTagName("div")[0].getElementsByTagName("img")[0].src;
-		if( imgsrc.includes("gems/gemstone") ) 
-		{
-			var imgsrc2 = 'http://www.havenandhearth.com/mt/r/gfx/invobjs/gems/any';
-			tr[i].getElementsByTagName("td")[0].getElementsByTagName("div")[0].getElementsByTagName("img")[0].src = imgsrc2;
-		}
-
 		//adding event listener for every data table row
 		if (tr[i].getElementsByTagName("td")[6] == undefined || tr[i].getElementsByTagName("td")[7] == undefined ) continue;
 		x = parseInt(tr[i].getElementsByTagName("td")[6].innerHTML);
@@ -186,7 +178,7 @@ function mapGen() {
 		var prd = "";
 		if (row[3].getElementsByTagName("span").length !== 0) prd = row[3].getElementsByTagName("span")[0].innerHTML;
 		if (prc.toLowerCase().includes("coin")) {
-			prc = "<div class='img-container'>"+row[3].getElementsByTagName("div")[0].innerHTML+"</div>"+row[3].getElementsByTagName("span")[0].innerHTML;
+			prc = row[3].getElementsByTagName("span")[0].innerHTML;
 			prd = "";
 		}
 
