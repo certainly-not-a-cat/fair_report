@@ -20,13 +20,13 @@ function applyFilters()
 	for (i = 0; i < tr.length; i++) {
 		tr[i].style.display = "";
 	}
-	filter(0,'filterGoods');
-	filterSub(0,'filterInfo', 'span');
-	filter(3,'filterPrice');
-	filterInt(1, 'filterQmin', 'filterQmax');
-	filterInt(2, 'filterLmin', 'filterLmax');
-	filterInt(4, 'filterPQmin', 'filterPQmax');
-	filterInt(5, 'filterPAMTmin', 'filterPAMTmax');
+	filter(1,'filterGoods');
+	filterSub(1,'filterInfo', 'span');
+	filter(5,'filterPrice');
+	filterInt(2, 'filterQmin', 'filterQmax');
+	filterInt(3, 'filterLmin', 'filterLmax');
+	filterInt(6, 'filterPQmin', 'filterPQmax');
+	filterInt(7, 'filterPAMTmin', 'filterPAMTmax');
 }
 
 function filterSub(n, m, tag) {
@@ -89,10 +89,11 @@ function mapGen() {
 	//loadBG(svg, -63, 108, -61, 110);
 	for (i = 1; i < tr.length; i++) {
 		//adding event listener for every data table row
-		if (tr[i].getElementsByTagName("td")[6] == undefined || tr[i].getElementsByTagName("td")[7] == undefined ) continue;
-		x = parseInt(tr[i].getElementsByTagName("td")[6].innerHTML);
-		y = parseInt(tr[i].getElementsByTagName("td")[7].innerHTML);
+		if (tr[i].getElementsByTagName("td")[8] == undefined || tr[i].getElementsByTagName("td")[9] == undefined ) continue;
+		x = parseInt(tr[i].getElementsByTagName("td")[8].innerHTML);
+		y = parseInt(tr[i].getElementsByTagName("td")[9].innerHTML);
 		tr[i].addEventListener("mouseover", highlight);
+		//pushing BS coords into array
 		var notInCoords = true;
 		for (j = 0; j < coords.length; j++) {
 			if ((coords[j][0] == x) && (coords[j][1] == y))
@@ -100,117 +101,127 @@ function mapGen() {
 		}
 		if (notInCoords) 
 			coords.push([x, y]);
-		//breaking additional info lines
-		if (tr[i].getElementsByTagName("td")[0].getElementsByTagName("span")[0] != undefined)	
-		{	
-			var tempGDetails = tr[i].getElementsByTagName("td")[0].getElementsByTagName("span")[0].innerHTML;
-			tempGDetails = tempGDetails.replace(/ \/ /g, "<p>");
-			tempGDetails = tempGDetails.replace(/ \+/g, "&nbsp;\+");
-			tr[i].getElementsByTagName("td")[0].getElementsByTagName("span")[0].innerHTML = tempGDetails;
+	}
+
+	//fixing some images
+	for (i = 1; i < tr.length; i++) {
+		var imgCell = tr[i].getElementsByTagName("td")[0];
+		if( (imgCell != undefined) && ( imgCell.querySelector(".img-container") != null) )
+		{
+			var pisrc = imgCell.querySelector(".img-container").querySelector("img").src;
+			var pisrcFix = pisrc.replace("gemstone", "any");
+			imgCell.querySelector(".img-container").querySelector("img").src = pisrcFix;
 		}
 	}
+
 	for (i = 0; i < coords.length; i++) {
 		var tempX = coords[i][0]*modx+offx;
 		var tempY = coords[i][1]*mody+offy;
-		mapAddMark(svg, tempX, tempY, 2.5);
+		mapAddMark(svg, tempX, tempY, 2.4);
 	}
-		}
+}
 
-		function mapFlush(svg)
-		{
-			var mapElements = svg.childNodes;
-			for (var i = mapElements.length-1; i > 0; i--) mapElements[i].remove();
-		}
+function mapFlush(svg)
+{
+	var mapElements = svg.childNodes;
+	for (var i = mapElements.length-1; i > 0; i--) mapElements[i].remove();
+}
 
-	function loadBG(svg, sx, sy, ex, ey)
-	{
-		var x, y;
-		if (sx > ex) {
-			var a = ex;
-			ex = sx;
-			sx = a;
-		}
-		if (sy > ey) {
-			var a = ey;
-			ey = sy;
-			sy = a;
-		}
-		for (x = sx; x <= ex; x++){
-			for (y = sy; y <= ey; y++){
-				var bgImg = document.createElementNS(ns, 'image');
-				bgImg.setAttribute('href', 'http://www.odditown.com:8080/haven/tiles/live/9/'+x+'_'+y+'.png');
-				bgImg.setAttribute('width', '100px');
-				bgImg.setAttribute('height', '100px');
-				bgImg.setAttribute('x', (x-sx)*100);
-				bgImg.setAttribute('y', (y-sy)*100);
-				bgImg.setAttribute('opacity','1');
-				svg.appendChild(bgImg);		
-			}
+function loadBG(svg, sx, sy, ex, ey)
+{
+	var x, y;
+	if (sx > ex) {
+		var a = ex;
+		ex = sx;
+		sx = a;
+	}
+	if (sy > ey) {
+		var a = ey;
+		ey = sy;
+		sy = a;
+	}
+	for (x = sx; x <= ex; x++){
+		for (y = sy; y <= ey; y++){
+			var bgImg = document.createElementNS(ns, 'image');
+			bgImg.setAttribute('href', 'http://www.odditown.com:8080/haven/tiles/live/9/'+x+'_'+y+'.png');
+			bgImg.setAttribute('width', '100px');
+			bgImg.setAttribute('height', '100px');
+			bgImg.setAttribute('x', (x-sx)*100);
+			bgImg.setAttribute('y', (y-sy)*100);
+			bgImg.setAttribute('opacity','1');
+			svg.appendChild(bgImg);		
 		}
 	}
+}
+
+function highlight(){
+	var x = parseFloat(this.getElementsByTagName("td")[8].innerHTML);
+	var y = parseFloat(this.getElementsByTagName("td")[9].innerHTML);
+	if (map	== undefined)
+		var map = document.getElementById('mapSVG');
+	var marker = mapSVG.getElementById('mapMarker');
+	if (marker == undefined){
+		marker = document.createElementNS(ns, 'circle');
+		marker.setAttribute('r', 5);
+		marker.setAttribute('style', markerStyle);
+		marker.setAttribute('id', 'mapMarker');
+		map.appendChild(marker);
+	}
+	marker.setAttribute('cx', x*modx+offx);
+	marker.setAttribute('cy', y*mody+offy);
+	detailsToLot(this);
+}
+
+function detailsToLot(R){
+	var row = R.getElementsByTagName("td");
+	var lot = document.getElementById("lot");
+
+	var pdc = row[1].innerHTML.split("<span>")[0];
+	var pdt = row[1].getElementsByTagName("span")[0].innerHTML;
+
+	var prc = row[5].innerHTML.split("<span>")[0];
+	var prd = "";
+	if (row[5].getElementsByTagName("span").length !== 0) prd = row[5].getElementsByTagName("span")[0].innerHTML;
+	if (prc.toLowerCase().includes("coin")) {
+		prc = row[5].getElementsByTagName("span")[0].innerHTML;
+		prd = "";
+	}
+
+	var pdq = "";
+	if (row[2].innerHTML != "Any" && row[2].innerHTML != "") pdq = " Q"+row[2].innerHTML;
+
+	var prq = "";
+	if (row[6].innerHTML != "Any" && row[6].innerHTML != "") prq = " Q"+row[6].innerHTML;
+
+	var pdx = "" + row[3].innerHTML + " left";
 	
-	function highlight(){
-		var x = parseFloat(this.getElementsByTagName("td")[6].innerHTML);
-		var y = parseFloat(this.getElementsByTagName("td")[7].innerHTML);
-		if (map	== undefined)
-			var map = document.getElementById('mapSVG');
-		var marker = mapSVG.getElementById('mapMarker');
-		if (marker == undefined){
-			marker = document.createElementNS(ns, 'circle');
-			marker.setAttribute('r', 4);
-			marker.setAttribute('style', markerStyle);
-			marker.setAttribute('id', 'mapMarker');
-			map.appendChild(marker);
-		}
-		marker.setAttribute('cx', x*modx+offx);
-		marker.setAttribute('cy', y*mody+offy);
-		detailsToLot(this);
+	var prx = "";
+	if (row[7].innerHTML != "1") {
+		prx = " × " + row[7].innerHTML;
 	}
 
-	function detailsToLot(R){
-		var row = R.getElementsByTagName("td");
-		var lot = document.getElementById("lot");
+	var tsp = row[10].innerHTML;
 
-		var pdc = row[0].innerHTML.split("<span>")[0];
-		var pdt = row[0].getElementsByTagName("span")[0].innerHTML;
-
-		var prc = row[3].innerHTML.split("<span>")[0];
-		var prd = "";
-		if (row[3].getElementsByTagName("span").length !== 0) prd = row[3].getElementsByTagName("span")[0].innerHTML;
-		if (prc.toLowerCase().includes("coin")) {
-			prc = row[3].getElementsByTagName("span")[0].innerHTML;
-			prd = "";
-		}
-
-		var pdq = "";
-		if (row[1].innerHTML != "Any" && row[1].innerHTML != "") pdq = " Q"+row[1].innerHTML;
-
-		var prq = "";
-		if (row[4].innerHTML != "Any" && row[4].innerHTML != "") prq = " Q"+row[4].innerHTML;
-
-		var pdx = "" + row[2].innerHTML + " left";
-		
-		var prx = "";
-		if (row[5].innerHTML != "1") {
-			prx = " × " + row[5].innerHTML;
-		}
-
-		var tsp = row[8].innerHTML;
-		
-		lot.querySelector("#lot-product").innerHTML = pdc+pdq;
-		lot.querySelector("#lot-left").innerHTML = pdx;
-		lot.querySelector("#lot-details").innerHTML = pdt;
-		lot.querySelector("#lot-price").innerHTML = prc+prq+prx;
-		lot.querySelector("#lot-pricedetails").innerHTML = prd;
-		lot.querySelector("#lot-timestamp").innerHTML = tsp;
-	}
+	var pdi = row[0].innerHTML;
+	var pri = row[4].innerHTML;
 	
-	function mapAddMark (svg, mx, my, r)
-	{
-		var mark = document.createElementNS(ns, 'circle');
-		mark.setAttribute('cx', mx);
-		mark.setAttribute('cy', my);
-		mark.setAttribute('r', r);
-		mark.setAttribute('style', standStyle);
-		svg.appendChild(mark);
-	}
+	lot.querySelector("#lot-product-image").innerHTML = pdi;
+	lot.querySelector("#lot-product").innerHTML = pdc+pdq;
+	lot.querySelector("#lot-left").innerHTML = pdx;
+	lot.querySelector("#lot-details").innerHTML = pdt;
+
+	lot.querySelector("#lot-price-image").innerHTML = pri;
+	lot.querySelector("#lot-price").innerHTML = prc+prq+prx;
+	lot.querySelector("#lot-pricedetails").innerHTML = prd;
+	lot.querySelector("#lot-timestamp").innerHTML = tsp;
+}
+
+function mapAddMark (svg, mx, my, r)
+{
+	var mark = document.createElementNS(ns, 'circle');
+	mark.setAttribute('cx', mx);
+	mark.setAttribute('cy', my);
+	mark.setAttribute('r', r);
+	mark.setAttribute('style', standStyle);
+	svg.appendChild(mark);
+}

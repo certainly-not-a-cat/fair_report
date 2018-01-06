@@ -1,5 +1,12 @@
 body {
 	font-family: sans-serif;
+	background-color: #000;
+	color: #DDD;
+}
+
+body *{
+	background: none;
+	color: #DDD;
 }
 
 #data-container {
@@ -53,11 +60,11 @@ body {
 } 
 #data th {
 	cursor: pointer;
-	color: #000 !important;
+	color: rgba(180,80,40,1) !important;
 	text-align: center !important;
 }
 #data th:hover{
-	color: rgba(0,80,160,1) !important;
+	color: rgba(240,100,30,1) !important;
 }
 th span {
 	display: block;
@@ -74,20 +81,15 @@ th span {
 }
 
 #data tr:hover td{
-	background-color: rgba(0,160,255,0.10);
+	background-color: rgba(180,80,40,0.10);
+	opacity: 1.0;
+	color: #FFF;
 }
 
 #data td span {
 	display: none;
 }
-/*
-#data tr:hover td span{
-	display: block;
-	font-size: 80%;
-	opacity: 0.9;
-	line-height: 9pt;
-	text-indent: 5pt;
-}*/
+
 #data td:nth-child(9), #data td:nth-child(10), #data td:nth-child(11),
 #data th:nth-child(1), #data th:nth-child(5), #data th:nth-child(9), #data th:nth-child(10), #data th:nth-child(11)
 {
@@ -115,7 +117,7 @@ th span {
 {
 	text-align: center;
 	width: 24px;
-	opacity: 0.6;
+	opacity: 0.75;
 	//background-color: #887; //DEBUG	
 }
 	
@@ -138,7 +140,7 @@ th span {
 	padding: 0px;
 	z-index: 4;	
 	border: none;
-	border-bottom: rgba(0,0,0,0.3) 1px solid;
+	border-bottom: rgba(180,80,40,0.30) 1px solid;
 }
 #filterGoods, #filterPrice, #filterInfo {
 	width: 296px;
@@ -206,7 +208,7 @@ th span {
 	}
 
 	#lot-price{
-		color: rgba(0,80,160,1) !important;
+		color: rgba(240,100,30,1) !important;
 	}
 
 	#lot-details{
@@ -223,7 +225,7 @@ th span {
 	right: 0px;
 	width: 300px;
 	height: 300px;
-	background: url("mapBG.png") no-repeat;
+	background: url("mapBG_dark.png") no-repeat;
 	z-index: 5;
 }
 #mapSVG {
