@@ -151,6 +151,7 @@ th span {
 }
 
 #lot {
+	font-size: 85%;
 }
 
 #lot * {
@@ -158,6 +159,18 @@ th span {
 	padding: 0px;
 	//border: rgba(0, 0, 0, 0.2) 1px solid !important; //DEBUG 
 }
+
+	#lot-details{
+		max-height: 24vh !important;
+		//background-color: silver; //DEBUG
+		overflow-x: hidden;
+		overflow-y: auto;
+		margin-top: 1.0ex;
+		margin-bottom: 1.0ex;
+		margin-left: 0.5ex;
+		color: #333;
+		font-size: 90%;
+	}
 
 	#lot img{
 		display: inline;
@@ -168,18 +181,17 @@ th span {
 		width: 64px;
 		max-height: 48px;
 		overflow: hidden;
-		margin-top: 16px;
-		margin-left: 4px;
+		margin-top: 8px;
 	}
 
 	#lot ul{
-		margin-bottom: 0.4ex;
+		margin-bottom: 0.2ex;
 		list-style-type: none;
 		text-indent: 8pt;
-		}
+	}
 
 		#lot ul li{
-			line-height: 96%;
+			line-height: 94%;
 		}
 	
 	#lot ul.plain{
@@ -191,30 +203,18 @@ th span {
 	}
 
 	#lot h1{
-		font-size: 107%;
+		font-size: 109%;
 	}
+
 	#lot h3{
-		font-weight: normal;
+		//font-weight: normal;
 		font-size: 70%;
 		text-align: left;
 		opacity: 0.85;
 	}
 
-	#lot div{
-		margin-top: 1ex;
-		font-size: 85%;
-	}
-
 	#lot-price{
 		color: rgba(0,80,160,1) !important;
-	}
-
-	#lot-details{
-		margin-top: 0.5ex;
-		margin-bottom: 1.5ex;
-		margin-left: 0.5ex;
-		color: rgba(64,64,64,1) !important;
-		font-family: 70%;
 	}
 
 #mapContainer {

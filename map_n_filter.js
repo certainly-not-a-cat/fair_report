@@ -117,7 +117,7 @@ function mapGen() {
 	for (i = 0; i < coords.length; i++) {
 		var tempX = coords[i][0]*modx+offx;
 		var tempY = coords[i][1]*mody+offy;
-		mapAddMark(svg, tempX, tempY, 2.4);
+		mapAddMark(svg, tempX, tempY, 1.2);
 	}
 }
 
