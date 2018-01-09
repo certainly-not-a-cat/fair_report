@@ -9,9 +9,21 @@ body *{
 	color: #DDD;
 }
 
+.hidden {
+	display: none;
+}
+
+.visible {
+	display: block;
+}
+
+.zebra {
+  background-color:rgba(128, 128, 128, 0.13);
+}
+
 #data-container {
 	width: 600px;
-	min-height: 400px;
+	height: 400px;
 	height: 97vh;
 }
 
@@ -153,7 +165,7 @@ th span {
 }
 
 #lot {
-	font-size: 85%;
+	font-size: 85%;<tr class="visible hidden zebra">
 }
 
 #lot * {

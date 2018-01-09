@@ -156,6 +156,8 @@ sorttable = {
 	        for (var j=0; j<row_array.length; j++) {
 	          tb.appendChild(row_array[j][1]);
 	        }
+          //calling external function to "zebra" sorted table
+          hlTableRows();
 
 	        delete row_array;
 	      });

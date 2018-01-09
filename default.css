@@ -2,9 +2,21 @@ body {
 	font-family: sans-serif;
 }
 
+.hidden {
+	display: none;
+}
+
+.visible {
+	display: block;
+}
+
+.zebra {
+  background-color:rgba(128, 128, 128, 0.15);
+}
+
 #data-container {
 	width: 600px;
-	min-height: 400px;
+	height: 400px;
 	height: 97vh;
 }
 
@@ -42,7 +54,6 @@ body {
 	//display: none; //DEBUG
 	max-height: 24px;
 	max-width: 24px;
-	opacity: 0.8;
 }
 
 #data thead tr{
@@ -73,21 +84,19 @@ th span {
 	vertical-align: middle !important;
 }
 
+#data tr td{
+	opacity: 0.8;
+}
+
 #data tr:hover td{
-	background-color: rgba(0,160,255,0.10);
+	opacity: 1.0;
+	background-color: rgba(0,80,160,0.2) !important;
 }
 
 #data td span {
 	display: none;
 }
-/*
-#data tr:hover td span{
-	display: block;
-	font-size: 80%;
-	opacity: 0.9;
-	line-height: 9pt;
-	text-indent: 5pt;
-}*/
+
 #data td:nth-child(9), #data td:nth-child(10), #data td:nth-child(11),
 #data th:nth-child(1), #data th:nth-child(5), #data th:nth-child(9), #data th:nth-child(10), #data th:nth-child(11)
 {

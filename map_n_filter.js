@@ -12,13 +12,29 @@ var map = document.getElementById('mapSVG');
 var modx = 1/11*zoomx;
 var mody = 1/11*zoomy;
 
+function hlTableRows() {
+	var tr = table.getElementsByTagName("tr");
+	var vrn = 0;
+	for (var i = 1; i < tr.length; i++)
+	{
+		tr[i].classList.remove("zebra");
+		if( tr[i].classList.contains("visible") || !tr[i].classList.contains("hidden"))
+		{
+			vrn++;
+			if( vrn % 2 == 0 ) tr[i].classList.add("zebra");
+		}
+	}
+}
+
 document.onLoad = mapGen();
 
 function applyFilters()
 {
 	tr = table.getElementsByTagName("tr");
 	for (i = 0; i < tr.length; i++) {
-		tr[i].style.display = "";
+		//tr[i].style.display = "";
+		tr[i].className = tr[i].className.replace(/.*/g, "");
+		tr[i].classList.add("visible");
 	}
 	filter(1,'filterGoods');
 	filterSub(1,'filterInfo', 'span');
@@ -27,6 +43,7 @@ function applyFilters()
 	filterInt(3, 'filterLmin', 'filterLmax');
 	filterInt(6, 'filterPQmin', 'filterPQmax');
 	filterInt(7, 'filterPAMTmin', 'filterPAMTmax');
+	hlTableRows();
 }
 
 function filterSub(n, m, tag) {
@@ -40,7 +57,9 @@ function filterSub(n, m, tag) {
 		if (sub) {
 			var tempsub = sub.innerHTML.replace(/\&nbsp\;\+/g, " \+");
 			if (tempsub.toUpperCase().indexOf(filter) > -1) {} else {
-				tr[i].style.display = "none";
+				//tr[i].style.display = "none";
+				tr[i].classList.remove("visible");
+				tr[i].classList.add("hidden");
 			}
 		} 
 	}
@@ -55,7 +74,9 @@ function filter(n, m) {
 		td = tr[i].getElementsByTagName("td")[n];
 		if (td) {
 			if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {} else {
-				tr[i].style.display = "none";
+				//tr[i].style.display = "none";
+				tr[i].classList.remove("visible");
+				tr[i].classList.add("hidden");
 			}
 		} 
 	}
@@ -73,14 +94,19 @@ function filterInt(n, m1, m2) {
 		td = tr[i].getElementsByTagName("td")[n];
 		if (td) {
 			if ((parseInt(td.innerHTML) > parseInt(filterMax)) && (filterMax == parseInt(filterMax)+"")) 
-				tr[i].style.display = "none";
+				//tr[i].style.display = "none";
+				tr[i].classList.remove("visible");
+				tr[i].classList.add("hidden");
 			if ((parseInt(td.innerHTML) < parseInt(filterMin)) && (filterMin == parseInt(filterMin)+"")) 
-				tr[i].style.display = "none";
+				//tr[i].style.display = "none";
+				tr[i].classList.remove("visible");
+				tr[i].classList.add("hidden");
 		} 
 	}
 }
 
 function mapGen() {
+	hlTableRows();
 	var i, j, x, y;
 	var coords = [];
 	var svg = document.getElementById('mapSVG');
@@ -117,7 +143,7 @@ function mapGen() {
 	for (i = 0; i < coords.length; i++) {
 		var tempX = coords[i][0]*modx+offx;
 		var tempY = coords[i][1]*mody+offy;
-		mapAddMark(svg, tempX, tempY, 1.2);
+		mapAddMark(svg, tempX, tempY, 2.0);
 	}
 }
 
