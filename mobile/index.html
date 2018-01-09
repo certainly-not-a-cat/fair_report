@@ -3,28 +3,35 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Community Fair report</title>
-	<link rel="stylesheet" href="default.css" />
+	<link rel="stylesheet" href="mobile.css" />
 </style>
 </head>
 <body>
 	<div id="rFloater">
 		<div class="filters">
-			<input type="text" id="filterGoods" onkeyup="applyFilters()" placeholder="Search for goods..." />
-			<input type="text" id="filterInfo" onkeyup="applyFilters()" placeholder="Search in details only..." />
+			<input type="text" id="filterGoods" placeholder="Search for goods..." />
+			<input type="text" id="filterInfo" placeholder="Search in details only..." />
 			<br />
-			<input type="text" id="filterQmin" onkeyup="applyFilters()" placeholder="Q min" /> 
-			<input type="text" id="filterQmax" onkeyup="applyFilters()" placeholder="Q max" />
-			<input type="text" id="filterLmin" onkeyup="applyFilters()" placeholder="Left min" />
-			<input type="text" id="filterLmax" onkeyup="applyFilters()" placeholder="Left max" />	
+			<input type="text" id="filterQmin" placeholder="Q min" /> 
+			<input type="text" id="filterQmax" placeholder="Q max" />
+			<input type="text" id="filterLmin" placeholder="Left min" />
+			<input type="text" id="filterLmax" placeholder="Left max" />	
 			<br />
 
 			<br />
-			<input type="text" id="filterPrice" onkeyup="applyFilters()" placeholder="Search for price..." />
+			<input type="text" id="filterPrice" placeholder="Search for price..." />
 			<br />
-			<input type="text" id="filterPQmin" onkeyup="applyFilters()" placeholder="PQ min" />
-			<input type="text" id="filterPQmax" onkeyup="applyFilters()" placeholder="PQ max" />				
-			<input type="text" id="filterPAMTmin" onkeyup="applyFilters()" placeholder="Px min" />
-			<input type="text" id="filterPAMTmax" onkeyup="applyFilters()" placeholder="Px max" />
+			<input type="text" id="filterPQmin" placeholder="PQ min" />
+			<input type="text" id="filterPQmax" placeholder="PQ max" />				
+			<input type="text" id="filterPAMTmin" placeholder="Px min" />
+			<input type="text" id="filterPAMTmax" placeholder="Px max" />
+
+			<div class="button" onclick="applyFilters()">
+				Search
+			</div>
+			<div class="button" onclick="clearFilters()">
+				Reset
+			</div>
 		</div>
 
 		<div id="mapContainer">
@@ -32,18 +39,6 @@
 				xmlns="http://www.w3.org/2000/svg" 
 				xmlns:xlink="http://www.w3.org/1999/xlink"> 
 			</svg>
-		</div>
-
-		<div id="lot">
-			<div id="lot-product-image"></div>
-			<h1 id="lot-product"></h1>
-			<h3 id="lot-left"></h3>
-			<div id="lot-details"></div>
-
-			<div id="lot-price-image"></div>
-			<h1 id="lot-price"></h1>
-			<div id="lot-pricedetails"></div>
-			<h3 id="lot-timestamp"></h3>
 		</div>
 
 	</div>
@@ -1389,7 +1384,7 @@
 </tbody>
 	</table>
 </div>
-<script src="map_n_filter.js"></script>
-<script src="sorttable.js"></script>
+<script src="map_n_filter_mobile.js"></script>
+<script src="sorttable_mobile.js"></script>
 </body>
 </html>
