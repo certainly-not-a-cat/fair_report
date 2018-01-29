@@ -169,12 +169,12 @@ th span {
 	height: 100%;
 }
 .filters {
-	z-index: 3;
+	z-index: 7;
 }
 .filters *{
 	margin: 0px; 
 	padding: 0px;
-	z-index: 4;	
+	z-index: 8;	
 	border: none;
 	border-bottom: rgba(0,0,0,0.2) 1px solid;
 }
@@ -195,11 +195,12 @@ th span {
 	height: 32px;
 	margin: 16px;
 	text-align: center;
-	z-index: 9000; //max
+	z-index: 9;	
+	background: rgba(0,80,160,0.1) !important;	
 }
 
 .filters .button:active{
-	background-color: rgba(0,80,160,0.1) !important;
+	background-color: rgba(0,80,160,0.2) !important;
 }
 
 #mapContainer {
