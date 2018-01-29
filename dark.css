@@ -98,7 +98,7 @@ th span {
 	color: #FFF;
 }
 
-#data td span {
+#data td div {
 	display: none;
 }
 
@@ -210,6 +210,10 @@ th span {
 	
 	#lot ul.plain{
 		text-indent: 0pt;
+	}
+
+	#lot ul.plain li:nth-child(1){
+		font-weight: bold;
 	}
 	
 	#lot ul.plain *{

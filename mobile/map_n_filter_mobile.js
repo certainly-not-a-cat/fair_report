@@ -43,7 +43,7 @@ function applyFilters()
 		tr[i].classList.add("visible");
 	}
 	filter(1,'filterGoods');
-	filterSub(1,'filterInfo', 'span');
+	filterSub(1,'filterInfo', 'div');
 	filter(5,'filterPrice');
 	filterInt(2, 'filterQmin', 'filterQmax');
 	filterInt(3, 'filterLmin', 'filterLmax');

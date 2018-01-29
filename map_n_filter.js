@@ -37,7 +37,7 @@ function applyFilters()
 		tr[i].classList.add("visible");
 	}
 	filter(1,'filterGoods');
-	filterSub(1,'filterInfo', 'span');
+	filterSub(1,'filterInfo', 'div');
 	filter(5,'filterPrice');
 	filterInt(2, 'filterQmin', 'filterQmax');
 	filterInt(3, 'filterLmin', 'filterLmax');
@@ -202,14 +202,15 @@ function detailsToLot(R){
 	var row = R.getElementsByTagName("td");
 	var lot = document.getElementById("lot");
 
-	var pdc = row[1].innerHTML.split("<span>")[0];
-	var pdt = row[1].getElementsByTagName("span")[0].innerHTML;
+	var pdc = row[1].innerHTML.split("<div>")[0];
+	var pdt = row[1].getElementsByTagName("div")[0].innerHTML;
 
-	var prc = row[5].innerHTML.split("<span>")[0];
+	var prc = row[5].innerHTML.split("<div>")[0];
 	var prd = "";
-	if (row[5].getElementsByTagName("span").length !== 0) prd = row[5].getElementsByTagName("span")[0].innerHTML;
-	if (prc.toLowerCase().includes("coin")) {
-		prc = row[5].getElementsByTagName("span")[0].innerHTML;
+	if (row[5].getElementsByTagName("div").length !== 0) prd = row[5].getElementsByTagName("div")[0].innerHTML;
+	if( prc.toLowerCase().indexOf("coin") > -1 ) 
+	{
+		prc = row[5].getElementsByTagName("div")[0].innerHTML;
 		prd = "";
 	}
 

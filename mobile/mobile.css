@@ -72,37 +72,41 @@ th span {
 	line-height: 150%;
 }
 
-#data td span{
+#data td div{
 	font-size: 80%;
 	opacity: 0.9;
 	line-height: 9pt;
 	text-indent: 5pt;
 }
 
-#data td span *{
+#data td div *{
 	margin: 0px;
 	padding: 0px;
 }
 
-#data td span ul{
+#data td div ul{
 	margin-bottom: 0.2ex;
 	list-style-type: none;
 	text-indent: 8pt;
 }
 
-#data td span ul li{
+#data td div ul li{
 	line-height: 94%;
 }
 
-#data td span ul.plain{
+#data td div ul.plain{
 	text-indent: 0pt;
 }
 
-#data td span ul.plain *{
+#data td div ul.plain li:nth-child(1){
+	font-weight: bold;
+}
+
+#data td div ul.plain *{
 	display: inline;
 }
 
-#data td span, #data .img-container {
+#data td div, #data .img-container {
 	display: none;
 }
 
@@ -112,7 +116,7 @@ th span {
 	opacity: 1.0;
 }
 
-#data tr.expanded td span{
+#data tr.expanded td div{
 	display: block;
 }
 
@@ -122,6 +126,7 @@ th span {
 	height: 32px;
 	overflow: hidden;
 	text-align: center;
+	text-indent: 0px;
 }
 
 #data td:nth-child(9), #data td:nth-child(10), #data td:nth-child(11),
@@ -190,6 +195,7 @@ th span {
 	height: 32px;
 	margin: 16px;
 	text-align: center;
+	z-index: 9000; //max
 }
 
 .filters .button:active{
