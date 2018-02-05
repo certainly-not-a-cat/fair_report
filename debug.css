@@ -1,0 +1,40 @@
+#data *
+{
+	border: rgba(0, 0, 0, 0.3) 1px solid !important; //DEBUG 
+}
+
+#data .img-container img
+{
+	display: none; //DEBUG
+}
+
+#data td:nth-child(1), #data td:nth-child(5)
+{
+	background-color: #999; //DEBUG
+}
+
+#data td:nth-child(2), #data td:nth-child(6)
+{
+	background-color: #77B; //DEBUG
+}
+
+#data th:nth-child(2), #data th:nth-child(6)
+{
+	background-color: #995; //DEBUG	
+}
+
+#data td:nth-child(3), #data td:nth-child(4), #data th:nth-child(3), #data th:nth-child(4),
+#data td:nth-child(7), #data td:nth-child(8), #data th:nth-child(7), #data th:nth-child(8)
+{
+	background-color: #887; //DEBUG	
+}
+
+#lot *
+{
+	border: rgba(0, 0, 0, 0.2) 1px solid !important; //DEBUG 
+}
+
+#lot-details
+{
+	background-color: silver; //DEBUG
+}

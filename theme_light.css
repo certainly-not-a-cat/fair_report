@@ -1,0 +1,83 @@
+::-webkit-scrollbar-track
+{
+	background: rgba(128, 128, 128, 0.0);
+	border: rgba(128, 128, 128, 0.15) 1px solid;
+}
+
+::-webkit-scrollbar-track:hover
+{
+	background: rgba(128, 128, 128, 0.05);
+}
+
+::-webkit-scrollbar-thumb 
+{
+	background: rgba(0,80,160,0.2);
+	border: rgba(0,80,160,0.2) 1px solid;
+}
+
+::-webkit-scrollbar-thumb:hover 
+{
+	background: rgba(0,80,160,0.5); 
+}
+
+body 
+{
+	background-color: #FFF;
+	color: #222;
+}
+
+body *
+{
+	color: #222;
+}
+
+.zebra 
+{
+	background-color:rgba(128, 128, 128, 0.15);
+}
+
+#data th 
+{
+	color: #000 !important;
+}
+
+#data th:hover
+{
+	color: rgba(0,80,160,1) !important;
+}
+
+#data tr:hover td
+{
+	background-color: rgba(0,80,160,0.2) !important;
+	color: #000;
+}
+
+.filters *
+{
+	border-bottom: rgba(0,0,0,0.5) 1px solid;
+}
+
+.filters ::placeholder
+{
+	color: rgba(0,0,0,0.5);
+}
+
+.filters :-ms-input-placeholder
+{
+	color: #8AD;
+}
+
+#lot-details
+{
+	color: #222;
+}
+
+#lot-price
+{
+	color: rgba(0,80,160,1) !important;
+}
+
+#mapContainer 
+{
+	background: url("mapBG.png") no-repeat;
+}
