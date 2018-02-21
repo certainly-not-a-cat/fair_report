@@ -118,12 +118,12 @@ body *
 #data tr td
 {
 	height: 24px;
-	opacity: 0.92;
+	/*opacity: 0.92;*/
 }
 
 #data tr:hover td
 {
-	opacity: 1.0;
+	/*opacity: 1.0;*/
 }
 
 #data td div 
