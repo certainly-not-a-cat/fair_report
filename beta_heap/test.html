@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CF</title>
+	
+	<link rel="stylesheet" href="layout.css" />
+	<!-- <link rel="stylesheet" href="debug.css" /> -->
+	<link rel="stylesheet" href="theme_light.css" />
+</head>
+<body>
+	<div id="rFloater">
+		<div class="filters">
+			<input type="text" id="filterGoods" onkeyup="refreshView()" placeholder="Search for merchandise..." />
+			<input type="text" id="filterInfo" onkeyup="refreshView()" placeholder="Search in details only..." />
+			<input type="text" id="filterBonuses" onkeyup="refreshView()" placeholder="Search for item bonuses..." />
+			<br />
+			<input type="text" id="filterQmin" onkeyup="refreshView()" placeholder="Q min" /> 
+			<input type="text" id="filterQmax" onkeyup="refreshView()" placeholder="Q max" />
+			<input type="text" id="filterLmin" onkeyup="refreshView()" placeholder="Left min" />
+			<input type="text" id="filterLmax" onkeyup="refreshView()" placeholder="Left max" />	
+			<br />
+
+			<br />
+			<input type="text" id="filterPrice" onkeyup="refreshView()" placeholder="Search for price..." />
+			<br />
+			<input type="text" id="filterPQmin" onkeyup="refreshView()" placeholder="P. Q min" />
+			<input type="text" id="filterPQmax" onkeyup="refreshView()" placeholder="P. Q max" />				
+			<input type="text" id="filterPAMTmin" onkeyup="refreshView()" placeholder="P. min" />
+			<input type="text" id="filterPAMTmax" onkeyup="refreshView()" placeholder="P. max" />
+		</div>
+
+		<div id="mapContainer">
+			<svg id="mapSVG" 
+				xmlns="http://www.w3.org/2000/svg" 
+				xmlns:xlink="http://www.w3.org/1999/xlink"> 
+			</svg>
+		</div>
+
+		<div id="lot">
+			<div id="lot-product-image" class="image-container">&nbsp;</div>
+			<h1 id="lot-product">&nbsp;</h1>
+			<h3 id="lot-left">&nbsp;</h3>
+			<div id="lot-details">&nbsp;</div>
+
+			<div id="lot-price-image" class="image-container">&nbsp;</div>
+			<h1 id="lot-price">&nbsp;</h1>
+			<div id="lot-pricedetails">&nbsp;</div>
+			<h3 id="lot-timestamp">&nbsp;</h3>
+		</div>
+
+	</div>
+	<div id="data-container">
+		<table id="data" class="sortable">
+			<thead>
+				<th>Merch icon</th>
+				<th>Product</th>
+				<th>Q</th>
+				<th>Stock</th>
+				<th>Price icon</th>
+				<th>Price</th>
+				<th>Q</th>
+				<th>AMT.</th>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+
+	<script type="text/javascript" src="options.js"></script>
+	<script type="text/javascript" src="data.js"></script>
+	<script type="text/javascript" src="map.js"></script>
+	<script type="text/javascript" src="rendertable.js"></script>
+	<script type="text/javascript" src="sorttable.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+/*
+#888 - mono stroke
+#AAA - mono tip
+
+#CDE - fill
+#ACD - stroke
+#06A - accent
+*/
+
+::-webkit-scrollbar-track
+{
+	background: none;
+	border: #CDE 1px solid;
+}
+
+::-webkit-scrollbar-thumb 
+{
+	background: #CDE;
+	border: #ACD 1px solid;
+}
+
+::-webkit-scrollbar-thumb:hover 
+{
+	border: #06A 1px solid;
+	background: #ACD; 
+}
+
+body 
+{
+	background-color: #FFF;
+	color: #222;
+}
+
+body *
+{
+	color: #222;
+}
+
+#data th 
+{
+	color: #000 !important;
+}
+
+#data th:hover
+{
+	color: #06A !important;
+}
+
+#data tr:hover td
+{
+	background-color: #ACD !important;
+	color: #000;
+}
+
+#data tbody tr:nth-child(even)
+{
+	background-color:#eee;
+}
+
+.filters *
+{
+	border-bottom: #888 1px solid;
+}
+
+.filters ::placeholder
+{
+	color: #AAA;
+}
+
+.filters :-ms-input-placeholder
+{
+	color: #AAA;
+}
+
+#lot-details *
+{
+	color: #444;
+}
+
+#lot-details h4
+{
+	color: #000;
+}
+
+#lot-price
+{
+	color: #06A !important;
+}
+
+#mapContainer 
+{
+	background: url("mapBG.png") no-repeat;
+}
+
+	#mapSVG .SVGstand {
+		fill: #06A;
+	}
+	
+	#mapSVG .SVGmarker {
+		fill: #ACD;
+		stroke: #000;
+	}
