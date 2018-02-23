@@ -255,11 +255,12 @@ public class BarterHunter extends Window /*implements GobSelectCallback*/
 		GameUI gui = gameui();
 		Gob pl = gui.map.player();
 		boolean destinationReached = false;
-		long retries = 0;
-		while( !destinationReached && retries < 10 )
+		byte retries = 0;
+		byte maxRetries = 10;
+		while( !destinationReached && retries < maxRetries )
 		{
 			while( pause ) delay(500);
-			if( Config.pf || (retries > 3) )
+			if( Config.pf || (retries > maxRetries/2) )
 			{
 				boolean currentPfStatus = Config.pf;
 				Config.pf = true;
@@ -289,6 +290,7 @@ public class BarterHunter extends Window /*implements GobSelectCallback*/
 			}
 			if (pl.rc.dist(c) <= thresh) destinationReached = true;
 			else retries++;
+			if( retries > maxRetries ) gui.msg("I'm stuck");
 		}
 		return destinationReached;
 	}
@@ -836,7 +838,7 @@ public class BarterHunter extends Window /*implements GobSelectCallback*/
 			catch (Loading l) 
 			{ 
 				closeBS(barterstandGob);
-				gui.error("Barterstand read error: " + l); 
+				// gui.error("Barterstand read error: " + l); 
 				sloLoad = true;
 				return false;
 			}
