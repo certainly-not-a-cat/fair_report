@@ -4,30 +4,33 @@
 	<meta charset="UTF-8">
 	<title>CF</title>
 	
-	<link rel="stylesheet" href="layout.css" />
+	<link rel="stylesheet" href="layout.css" id="styleMain"/>
 	<!-- <link rel="stylesheet" href="debug.css" /> -->
-	<link rel="stylesheet" href="theme_light.css" />
+	<link rel="stylesheet" href="theme_light.css" id="styleLight"/>
+	<!-- <link rel="stylesheet" href="theme_dark.css" /> -->
 </head>
 <body>
 	<div id="rFloater">
-		<div class="filters">
-			<input type="text" id="filterGoods" onkeyup="refreshView()" placeholder="Search for merchandise..." />
-			<input type="text" id="filterInfo" onkeyup="refreshView()" placeholder="Search in details only..." />
-			<input type="text" id="filterBonuses" onkeyup="refreshView()" placeholder="Search for item bonuses..." />
+		<div id="filters">
+			<input type="text" id="filterGoods"		placeholder="Search for merchandise..." />
+			<input type="text" id="filterInfo"		placeholder="Search in details only..." />
+			<input type="text" id="filterBonuses"	placeholder="Search for item bonuses..." />
 			<br />
-			<input type="text" id="filterQmin" onkeyup="refreshView()" placeholder="Q min" /> 
-			<input type="text" id="filterQmax" onkeyup="refreshView()" placeholder="Q max" />
-			<input type="text" id="filterLmin" onkeyup="refreshView()" placeholder="Left min" />
-			<input type="text" id="filterLmax" onkeyup="refreshView()" placeholder="Left max" />	
+			<input type="text" id="filterQmin"		placeholder="Q min" /> 
+			<input type="text" id="filterQmax"		placeholder="Q max" />
+			<input type="text" id="filterLmin"		placeholder="Left min" />
+			<input type="text" id="filterLmax"		placeholder="Left max" />	
 			<br />
 
 			<br />
-			<input type="text" id="filterPrice" onkeyup="refreshView()" placeholder="Search for price..." />
+			<input type="text" id="filterPrice"		placeholder="Search for price..." />
 			<br />
-			<input type="text" id="filterPQmin" onkeyup="refreshView()" placeholder="P. Q min" />
-			<input type="text" id="filterPQmax" onkeyup="refreshView()" placeholder="P. Q max" />				
-			<input type="text" id="filterPAMTmin" onkeyup="refreshView()" placeholder="P. min" />
-			<input type="text" id="filterPAMTmax" onkeyup="refreshView()" placeholder="P. max" />
+			<input type="text" id="filterPQmin"		placeholder="P. Q min" />
+			<input type="text" id="filterPQmax"		placeholder="P. Q max" />				
+			<input type="text" id="filterPAMTmin"	placeholder="P. min" />
+			<input type="text" id="filterPAMTmax"	placeholder="P. max" />
+			<div class="button_halfwide" id="btnSearch">Search...</div>
+			<div class="button_halfwide" id="btnReset">Clear all</div>
 		</div>
 
 		<div id="mapContainer">
@@ -68,8 +71,8 @@
 	</div>
 
 	<script type="text/javascript" src="options.js"></script>
-	<!-- <script type="text/javascript" src="data.js"></script> -->
-	<script type="text/javascript" src="https://drive.google.com/uc?export=download&id=1iCklcpQJMGBIkkGX8iCVjGzvu8ft_q2U"></script>
+	<script type="text/javascript" src="data.js"></script>
+	<!-- <script type="text/javascript" src="https://drive.google.com/uc?export=download&id=1iCklcpQJMGBIkkGX8iCVjGzvu8ft_q2U"></script> -->
 	<script type="text/javascript" src="map.js"></script>
 	<script type="text/javascript" src="rendertable.js"></script>
 	<script type="text/javascript" src="sorttable.js"></script>

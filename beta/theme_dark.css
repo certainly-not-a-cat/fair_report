@@ -59,15 +59,19 @@ body *
 
 .filters *
 {
+	border-bottom: #888 1px solid;
+}
+
+#filters :focus {
 	border-bottom: #AAA 1px solid;
 }
 
-.filters ::placeholder
+#filters input::-webkit-input-placeholder 
 {
 	color: #888;
 }
 
-.filters :-ms-input-placeholder
+#filters input :-ms-input-placeholder  
 {
 	color: #888;
 }

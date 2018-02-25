@@ -57,17 +57,21 @@ body *
 	background-color:#eee;
 }
 
-.filters *
+#filters *
 {
-	border-bottom: #888 1px solid;
+	border-bottom: #AAA 1px solid;
 }
 
-.filters ::placeholder
+#filters :focus {
+	border-bottom: #444 1px solid;
+}
+
+#filters input::-webkit-input-placeholder 
 {
 	color: #AAA;
 }
 
-.filters :-ms-input-placeholder
+#filters :-ms-input-placeholder
 {
 	color: #AAA;
 }

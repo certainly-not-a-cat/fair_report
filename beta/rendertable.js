@@ -1,6 +1,7 @@
 var displayData = [];
 document.onLoad = main();
 
+
 function formatVal(val, format) {
 	if( !format ) return val;
 	switch ( format ) {
@@ -205,8 +206,14 @@ function filterData(array) {
 	var filterPAMTmax = parseInt(document.getElementById("filterPAMTmax").value);
 
 	var filterBonuses = document.getElementById("filterBonuses").value;
-	var filterBonusesAtr = filterBonuses.split(" ")[0];
-	var filterBonusesMod = parseInt(filterBonuses.split(" ")[1]);
+	var enableBonusSearch = false;
+	if( filterBonuses.lastIndexOf(" ") !== -1 )
+	{
+		var filterBonusesAtr = filterBonuses.slice(0, filterBonuses.lastIndexOf(" "));
+		var filterBonusesMod = parseInt(filterBonuses.slice(filterBonuses.lastIndexOf(" ")));
+		if( filterBonusesAtr.length > 2 && !isNaN(filterBonusesMod) )
+			enableBonusSearch = true;
+	}
 
 	for( var i = 0; i < array.length; i++) {
 		array[i][13] = false; //unhide every single row
@@ -248,7 +255,7 @@ function filterData(array) {
 		//filter by price
 		if( filterPrice != "") {
 			var itemPrice = array[i][6] + (array[i][7] ? array[i][7] : "");
-			if( itemPrice.toUpperCase().indexOf(filterPrice) == -1 ) {
+			if( itemPrice.toUpperCase().indexOf(filterPrice.toUpperCase()) == -1 ) {
 				array[i][13] = true;
 				continue;
 			}
@@ -269,33 +276,89 @@ function filterData(array) {
 			}
 
 		//filter by bonuses
-		if( filterBonusesAtr.length > 2 && !isNaN(filterBonusesMod) ) {
+		if( enableBonusSearch ) {
 			if( array[i][2] == null) {
 				array[i][13] = true;
 				continue;
 			}
 	
+			var gm = []; //gilds' bonuses
+			var am = []; //item's bonuses
+			var fm = []; //fep stats
+			var gi = []; //item as gilding bonuses
 			var ItemBonus = 0;
-			var gm = [];
-			var am = [];
+
 			if( array[i][2].gildings )
 				if( array[i][2].gildings.gildm ) gm = array[i][2].gildings.gildm.slice(0);
 			if( array[i][2].atrm ) am = array[i][2].atrm.slice(0);
+			if( array[i][2].fep ) fm = array[i][2].fep.slice(0);
+			if( array[i][2].gilding ) gi = array[i][2].gilding.slice(0);
+	
+			if( (gm.length > 0) || (am.length > 0) )
+			{
+				ItemBonus = 0;
 				for( var j = 0; j < gm.length; j++)
-				if( gm[j] )
 					if( gm[j].atr.toUpperCase() == filterBonusesAtr.toUpperCase() ) 
 						ItemBonus += gm[j].mod;
-			for( var j = 0; j < am.length; j++)
-				if( am[j] )
+				for( var j = 0; j < am.length; j++)
 					if( am[j].atr.toUpperCase() == filterBonusesAtr.toUpperCase() )
 						ItemBonus += am[j].mod;
+			}
+			if( fm.length > 0 ) 
+			{
+				ItemBonus = 0;
+				for( var j = 0; j < fm.length; j++)
+					if( fm[j].atr.toUpperCase().indexOf(filterBonusesAtr.toUpperCase()) !== -1 )
+						ItemBonus += fm[j].mod;
+			}
+			if( gi.length > 0 ) {
+				ItemBonus = 0;
+				for( var j = 0; j < gi.length; j++)
+					if( gi[j].atr.toUpperCase() == filterBonusesAtr.toUpperCase() ) 
+						ItemBonus += gi[j].mod;
+			}
 	
 			if( ItemBonus < filterBonusesMod ) array[i][13] = true;	
 			delete gm;
 			delete am;
+			delete fm;
+			delete gi;
 		}
 	}
 	
+}
+
+function resetFields() {
+	// document.getElementById("filterGoods").value = "";
+	// document.getElementById("filterInfo").value = "";
+	// document.getElementById("filterQmin").value = "";
+	// document.getElementById("filterQmax").value = "";
+	// document.getElementById("filterLmin").value = "";
+	// document.getElementById("filterLmax").value = "";
+	// document.getElementById("filterBonuses").value = "";
+	// document.getElementById("filterPrice").value = "";
+	// document.getElementById("filterPQmin").value = "";
+	// document.getElementById("filterPQmax").value = "";
+	// document.getElementById("filterPAMTmin").value = "";
+	// document.getElementById("filterPAMTmax").value = "";
+	var filters = document.getElementById("filters").childNodes;
+	for(var i = 0; i < filters.length; i++)
+		if( filters[i].nodeName = "#text" ) filters[i].value = "";
+	refreshView();
+	document.getElementById("filterGoods").focus();
+}
+
+function hotkeys(ev){
+	if (ev)
+		switch (ev.keyCode) {
+			case 27 : //ESC
+				resetFields();
+				break;
+			case 13 : //Enter
+				refreshView();
+				break;
+			default : return;
+		}
 }
 
 function renderTable(array) {
@@ -325,11 +388,6 @@ function renderTable(array) {
 			else
 				cells[1].innerHTML = array[i][2].coinage;
 		}
-	
-		//details
-		// if( array[i][2] != null && !array[i][0].includes("coins/") ) {
-			// cells[2].appendChild(parseDetails(array[i][2]));	
-		// }
 
 		//Merch quality
 		if( array[i][3] ) {
@@ -362,7 +420,8 @@ function renderTable(array) {
 		}
 
 		//Price amount
-		cells[7].innerHTML = array[i][9];		
+		if( array[i][9] ) 
+			cells[7].innerHTML = array[i][9];		
 
 		for( var j = 0; j < cells.length; j++) {
 			row.appendChild(cells[j]);
@@ -381,7 +440,48 @@ function refreshView() {
 	mapGen(displayData);
 }
 
+function processQuery() {
+	var Query = window.location.href.split("?")[1];
+	if( !Query ) return;
+	var Options = {};
+	if( Query.length > 0 ) {
+		var pairs = Query.split("&");
+		for( var i = 0; i < pairs.length; i++) {
+			Options[pairs[i].split("=")[0]] = pairs[i].split("=")[1];
+		}
+	}
+	if( Options.debug ) {
+		debug = Options.debug;
+		var theme = document.createElement("link");
+		theme.id = "styleDebug";
+		theme.rel = "stylesheet";
+		theme.href = "debug.css";
+		document.head.appendChild(theme);
+		return;
+	}
+	if( Options.theme = "dark" ) {
+		var themeLight = document.getElementById("styleLight");
+		var themeDark = document.createElement("link");
+		themeDark.id = "styleDark";
+		themeDark.rel = "stylesheet";
+		themeDark.href = "theme_dark.css";
+		document.head.appendChild(themeDark);
+		if (themeLight);
+			document.head.removeChild(themeLight);
+    }
+	
+}
+
 function main() {
+	processQuery();
+	document.addEventListener("keydown", function() {hotkeys(event)});
+	document.getElementById("btnReset").addEventListener("click", resetFields);
+	document.getElementById("btnSearch").addEventListener("click", refreshView);
+/*
+	var filters = document.getElementById("filters").childNodes;
+	for( var i = 0; i < filters.length; i++ )
+		if( filters[i].nodeName = "#text" ) filters[i].addEventListener("keydown", function() {hotkeys(event)});
+*/
 	displayData = data.slice(0);
 	document.title = "CF " + displayData[displayData.length-1][12];
 	refreshView();
