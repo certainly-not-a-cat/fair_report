@@ -46,12 +46,6 @@ body *
 	color: #06A !important;
 }
 
-#data tr:hover td
-{
-	background-color: #ACD !important;
-	color: #000;
-}
-
 #data tbody tr:nth-child(even)
 {
 	background-color:#eee;

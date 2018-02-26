@@ -46,12 +46,6 @@ body *
 	color: #D62 !important;
 }
 
-#data tr:hover td
-{
-	background-color: #631;
-	color: #FFF;
-}
-
 #data tbody tr:nth-child(even)
 {
 	background-color:#111;
@@ -97,10 +91,10 @@ body *
 }
 
 	#mapSVG .SVGstand {
-		fill: #D62;
+		fill: #888;
 	}
 	
 	#mapSVG .SVGmarker {
-		fill: #DDD;
+		fill: #FED;
 		stroke: #000;
 	}

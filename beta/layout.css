@@ -68,7 +68,6 @@ body *
 {
 	display: block;
 	position: relative;
-	/*height: 20pt;*/
 	vertical-align: top;
 }
 
@@ -101,7 +100,7 @@ body *
 
 #data tr td
 {
-	height: 24px;
+	height: 26px;
 }
 
 #data td:nth-child(1), #data td:nth-child(5),
@@ -198,10 +197,7 @@ body *
 }
 
 	#lot-details{
-		height: 120px;
 		min-height: 56px;
-		height: 50vh;
-		max-height: calc(105vh - 700px);
 		overflow-x: hidden;
 		overflow-y: auto;
 		margin: 0.5ex;

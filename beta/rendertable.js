@@ -76,7 +76,7 @@ function parseDetails(details) {
 				result.appendChild(list);
 				break;
 			case "armpen":
-				var list = bakeSingleNamedDL("Armor ignore", details[k1], "d2pr");
+				var list = bakeSingleNamedDL("AP", details[k1], "d2pr");
 				result.appendChild(list);
 				break;
 			case "weight":
@@ -361,7 +361,16 @@ function hotkeys(ev){
 		}
 }
 
+function isIE() {
+	var msie = window.navigator.userAgent.indexOf('MSIE ');
+  	if (msie !== -1) // IE 10 or older => return version number
+    	return true;
+    else
+    	return false;
+}
+
 function renderTable(array) {
+	var IE = isIE();
 	var tbody = table.getElementsByTagName("tbody")[0];
 	while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
 	for( var i = 0; i < array.length; i++) {
@@ -374,7 +383,7 @@ function renderTable(array) {
 
 		//Merch icon
 		var img = document.createElement("img");
-		if (!debug) img.src = (basicURL + array[i][0]).replace("/gems/gemstone", "/gems/any");
+		if ( !opts.debug ) img.src = (basicURL + array[i][0]).replace("/gems/gemstone", "/gems/any");
 		img.alt = array[i][0];
 		cells[0].appendChild(img);
 		
@@ -401,7 +410,7 @@ function renderTable(array) {
 
 		//Price icon
 		var pimg = document.createElement("img");
-		if (!debug) pimg.src = basicURL + array[i][5];
+		if ( !opts.debug ) pimg.src = (basicURL + array[i][5]).replace("/gems/gemstone", "/gems/any");
 		pimg.alt = array[i][5];
 		cells[4].appendChild(pimg);
 
@@ -426,8 +435,10 @@ function renderTable(array) {
 		for( var j = 0; j < cells.length; j++) {
 			row.appendChild(cells[j]);
 		}
-
-		row.addEventListener("mouseover", highlight);
+		if( IE )
+			row.addEventListener("click", highlight);
+		else
+			row.addEventListener("mouseover", highlight);
 		row.id = i;
 		tbody.appendChild(row);
 	}
@@ -440,36 +451,42 @@ function refreshView() {
 	mapGen(displayData);
 }
 
+function applyTheme() {
+	if( opts.debug ) {
+		var debugStyle = document.createElement("link");
+		debugStyle.rel = "stylesheet";
+		debugStyle.href = "debug.css";
+		document.head.appendChild(debugStyle);
+	}
+
+	var themeStyle = document.createElement("link");
+	themeStyle.rel = "stylesheet";
+	themeStyle.href = "theme_" + opts.theme + ".css";
+	document.head.appendChild(themeStyle);
+
+	if( !isIE() ) {
+		var nonIEStyle = document.createElement("link");
+		nonIEStyle.rel = "stylesheet";
+		nonIEStyle.href = "nonie_" + opts.theme + ".css";
+		document.head.appendChild(nonIEStyle);
+	}
+}
+
 function processQuery() {
-	var Query = window.location.href.split("?")[1];
-	if( !Query ) return;
-	var Options = {};
-	if( Query.length > 0 ) {
-		var pairs = Query.split("&");
-		for( var i = 0; i < pairs.length; i++) {
-			Options[pairs[i].split("=")[0]] = pairs[i].split("=")[1];
-		}
-	}
-	if( Options.debug ) {
-		debug = Options.debug;
-		var theme = document.createElement("link");
-		theme.id = "styleDebug";
-		theme.rel = "stylesheet";
-		theme.href = "debug.css";
-		document.head.appendChild(theme);
-		return;
-	}
-	if( Options.theme = "dark" ) {
-		var themeLight = document.getElementById("styleLight");
-		var themeDark = document.createElement("link");
-		themeDark.id = "styleDark";
-		themeDark.rel = "stylesheet";
-		themeDark.href = "theme_dark.css";
-		document.head.appendChild(themeDark);
-		if (themeLight);
-			document.head.removeChild(themeLight);
-    }
-	
+	var querystring = window.location.href.split("?")[1];
+	if( !querystring ) return;
+	if( querystring.length == 0 ) return;
+
+	var optionlist = {};
+	var pairs = querystring.split("&");
+	for( var i = 0; i < pairs.length; i++) optionlist[pairs[i].split("=")[0]] = pairs[i].split("=")[1];
+
+	if( optionlist.debug ) opts.debug = optionlist.debug;
+	if( optionlist.theme == "dark" ) opts.theme = "dark";   
+}
+
+function resizeDetailsDiv() {
+	document.getElementById("lot-details").style.maxHeight = window.innerHeight-640 + "px";
 }
 
 function main() {
@@ -477,14 +494,13 @@ function main() {
 	document.addEventListener("keydown", function() {hotkeys(event)});
 	document.getElementById("btnReset").addEventListener("click", resetFields);
 	document.getElementById("btnSearch").addEventListener("click", refreshView);
-/*
-	var filters = document.getElementById("filters").childNodes;
-	for( var i = 0; i < filters.length; i++ )
-		if( filters[i].nodeName = "#text" ) filters[i].addEventListener("keydown", function() {hotkeys(event)});
-*/
+	window.addEventListener("resize", resizeDetailsDiv);
+
 	displayData = data.slice(0);
 	document.title = "CF " + displayData[displayData.length-1][12];
 	refreshView();
+	applyTheme();
+	resizeDetailsDiv();
 }
 
 function highlight() {
@@ -521,7 +537,7 @@ function detailsToLot(id){
 	var lprimg = lot.querySelector("#lot-product-image");
 	while (lprimg.firstChild) lprimg.removeChild(lprimg.firstChild);
 	var img = document.createElement("img");
-	if (!debug) img.src = (basicURL + data[id][0]).replace("/gems/gemstone", "/gems/any");
+	if ( !opts.debug ) img.src = (basicURL + data[id][0]).replace("/gems/gemstone", "/gems/any");
 	img.alt = data[id][0];
 	lprimg.appendChild(img);
 
@@ -532,7 +548,7 @@ function detailsToLot(id){
 	var lpriceimg = lot.querySelector("#lot-price-image");
 	while (lpriceimg.firstChild) lpriceimg.removeChild(lpriceimg.firstChild);
 	var pimg = document.createElement("img");
-	if (!debug) pimg.src = (basicURL + data[id][5]).replace("/gems/gemstone", "/gems/any");
+	if ( !opts.debug ) pimg.src = (basicURL + data[id][5]).replace("/gems/gemstone", "/gems/any");
 	pimg.alt = data[id][5];
 	lpriceimg.appendChild(pimg);
 
