@@ -1,0 +1,5 @@
+#data tr:hover td
+{
+	background-color: #ACD !important;
+	color: #000;
+}
