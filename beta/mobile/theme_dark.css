@@ -56,9 +56,9 @@ body *
 	background-color: #000;
 }
 
-
-.filters *
+#filters *
 {
+	border: #000 1px solid;
 	border-bottom: #888 1px solid;
 }
 
@@ -74,6 +74,16 @@ body *
 #filters input :-ms-input-placeholder  
 {
 	color: #888;
+}
+
+#btnClose svg, #buttons svg
+{
+	fill: #FED;
+}
+
+#modalContentDetails 
+{
+	background-color: #000;
 }
 
 #lot-details *
@@ -93,11 +103,11 @@ body *
 
 #mapContainer 
 {
-	background: url("mapBG_dark_mini.png") no-repeat;
+	background: url("mapBG_dark.png") no-repeat;
 }
 
 	#mapSVG .SVGstand {
-		fill: #888;
+		fill: #876;
 	}
 	
 	#mapSVG .SVGmarker {

@@ -1,7 +1,14 @@
+body *
+{
+	border: rgba(0, 0, 0, 0.2) 1px solid !important; //DEBUG 
+}
+
+
 #data *
 {
-	border: rgba(0, 0, 0, 0.3) 1px solid !important; //DEBUG 
+	border: rgba(0, 0, 0, 0.5) 1px solid !important; //DEBUG 
 }
+
 
 #data td:nth-child(1), #data td:nth-child(5)
 {
@@ -32,17 +39,4 @@
 #lot-details
 {
 	background-color: #999; //DEBUG
-}
-
-#rFloater 
-{
-	background-color: #FD2;
-}
-
-@media screen and (max-width: 680px)
-{
-	#rFloater 
-	{
-		background-color: #F00;
-	}	
 }

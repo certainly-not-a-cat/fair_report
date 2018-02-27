@@ -329,36 +329,11 @@ function filterData(array) {
 }
 
 function resetFields() {
-	// document.getElementById("filterGoods").value = "";
-	// document.getElementById("filterInfo").value = "";
-	// document.getElementById("filterQmin").value = "";
-	// document.getElementById("filterQmax").value = "";
-	// document.getElementById("filterLmin").value = "";
-	// document.getElementById("filterLmax").value = "";
-	// document.getElementById("filterBonuses").value = "";
-	// document.getElementById("filterPrice").value = "";
-	// document.getElementById("filterPQmin").value = "";
-	// document.getElementById("filterPQmax").value = "";
-	// document.getElementById("filterPAMTmin").value = "";
-	// document.getElementById("filterPAMTmax").value = "";
 	var filters = document.getElementById("filters").childNodes;
 	for(var i = 0; i < filters.length; i++)
 		if( filters[i].nodeName = "#text" ) filters[i].value = "";
 	refreshView();
 	document.getElementById("filterGoods").focus();
-}
-
-function hotkeys(ev){
-	if (ev)
-		switch (ev.keyCode) {
-			case 27 : //ESC
-				resetFields();
-				break;
-			case 13 : //Enter
-				refreshView();
-				break;
-			default : return;
-		}
 }
 
 function isIE() {
@@ -370,6 +345,7 @@ function isIE() {
 }
 
 function renderTable(array) {
+	var rendered = 0;
 	var IE = isIE();
 	var tbody = table.getElementsByTagName("tbody")[0];
 	while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
@@ -435,12 +411,11 @@ function renderTable(array) {
 		for( var j = 0; j < cells.length; j++) {
 			row.appendChild(cells[j]);
 		}
-		if( IE )
-			row.addEventListener("click", highlight);
-		else
-			row.addEventListener("mouseover", highlight);
+		row.addEventListener("click", highlight);
 		row.id = i;
 		tbody.appendChild(row);
+		rendered++;
+		if( opts.limit && opts.limit > 0 && rendered >= opts.limit) break; //output table rows till limit is reached (if defined)
 	}
 }
 
@@ -463,13 +438,14 @@ function applyTheme() {
 	themeStyle.rel = "stylesheet";
 	themeStyle.href = "theme_" + opts.theme + ".css";
 	document.head.appendChild(themeStyle);
-
+	/*
 	if( !isIE() ) {
 		var nonIEStyle = document.createElement("link");
 		nonIEStyle.rel = "stylesheet";
 		nonIEStyle.href = "nonie_" + opts.theme + ".css";
 		document.head.appendChild(nonIEStyle);
 	}
+	*/
 }
 
 function processQuery() {
@@ -483,24 +459,29 @@ function processQuery() {
 
 	if( optionlist.debug ) opts.debug = optionlist.debug;
 	if( optionlist.theme == "dark" ) opts.theme = "dark";   
+	if( optionlist.limit ) opts.limit = parseInt(optionlist.limit);
 }
 
 function resizeDetailsDiv() {
 	document.getElementById("lot-details").style.maxHeight = window.innerHeight-640 + "px";
 }
 
+function resizeTable() {
+	document.getElementById("data-container").style.height = window.innerHeight-84+(window.innerHeight/100) + "px";
+}
+
 function main() {
 	processQuery();
-	document.addEventListener("keydown", function() {hotkeys(event)});
 	document.getElementById("btnReset").addEventListener("click", resetFields);
 	document.getElementById("btnSearch").addEventListener("click", refreshView);
-	window.addEventListener("resize", resizeDetailsDiv);
+	document.getElementById("btnClose").addEventListener("click", hideDetails);
+	window.addEventListener("resize", resizeTable);
 
 	displayData = data.slice(0);
 	document.title = "CF " + displayData[displayData.length-1][12];
 	refreshView();
 	applyTheme();
-	resizeDetailsDiv();
+	resizeTable();
 }
 
 function highlight() {
@@ -514,7 +495,7 @@ function highlight() {
 	var marker = mapSVG.getElementById('mapMarker');
 	if (marker == undefined) {
 		marker = document.createElementNS(ns, 'circle');
-		marker.setAttribute('r', 3);
+		marker.setAttribute('r', 5);
 		marker.setAttribute('class', "SVGmarker");
 		marker.setAttribute('id', 'mapMarker');
 		map.appendChild(marker);
@@ -525,7 +506,15 @@ function highlight() {
 	detailsToLot(id);
 }
 
+function hideDetails() {
+	var modal = document.getElementById("modalDetails");
+	if( modal ) modal.style.display = "none";	
+}
+
 function detailsToLot(id){
+	var modal = document.getElementById("modalDetails");
+	if( modal ) modal.style.display = "block";
+	
 	var lot = document.getElementById("lot");
 
 	var stringProduct = data[id][1] + (data[id][3] ? " Q" + data[id][3] : "");
