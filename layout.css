@@ -14,29 +14,15 @@
 	border-radius: 9px;
 }
 
-body 
-{
-	font-family: sans-serif;
-}
-
 body *
 {
 	background: none;
-}
-
-.hidden 
-{
-	display: none;
-}
-
-.visible 
-{
-	display: block;
+	font-family: sans-serif;
 }
 
 #data-container 
 {
-	width: 600px;
+	width: 700px;
 	height: 600px;
 	height: 97vh;
 }
@@ -63,16 +49,16 @@ body *
 	line-height: 120%;
 }
 
-#data div.img-container
+#data td:nth-child(1), #data td:nth-child(5)
 {
 	display: inline-block;
-	width: 24px;
-	height: 24px;
+	max-width: 24px;
+	max-height: 26px;
 	overflow: hidden;
 	text-align: center;
 }
 
-#data .img-container img
+#data img
 {
 	display: inline-block;
 	max-width: 24px;
@@ -82,7 +68,6 @@ body *
 {
 	display: block;
 	position: relative;
-	height: 20pt;
 	vertical-align: top;
 }
 
@@ -94,8 +79,6 @@ body *
 
 #data th span 
 {
-	/*display: block;
-	line-height: 2pt;*/
 	display: none;
 }
 
@@ -112,44 +95,29 @@ body *
 
 #data tbody td *
 {
-	vertical-align: middle !important;
+	vertical-align: middle;
 }
 
 #data tr td
 {
-	height: 24px;
-	/*opacity: 0.92;*/
+	height: 26px;
 }
 
-#data tr:hover td
+#data td:nth-child(1), #data td:nth-child(5),
+#data th:nth-child(1), #data th:nth-child(5)
 {
-	/*opacity: 1.0;*/
+	width: 26px;
 }
 
-#data td div 
-{
-	display: none;
-}
-
-#data td:nth-child(9), #data td:nth-child(10), #data td:nth-child(11),
-#data th:nth-child(1), #data th:nth-child(5), #data th:nth-child(9), #data th:nth-child(10), #data th:nth-child(11)
+#data th:nth-child(1), #data th:nth-child(5) 
 {
 	display: none;
 }
 
-#data td:nth-child(1), #data td:nth-child(5)
-{
-	width: 28px;
-}
-
+#data th:nth-child(2), #data th:nth-child(6),
 #data td:nth-child(2), #data td:nth-child(6)
 {
-	width: 190px;
-}
-
-#data th:nth-child(2), #data th:nth-child(6)
-{
-	width: 220px;
+	width: 244px;
 }
 
 /*Q, LEft, Qp, X*/
@@ -157,7 +125,7 @@ body *
 #data td:nth-child(7), #data td:nth-child(8), #data th:nth-child(7), #data th:nth-child(8)
 {
 	text-align: center;
-	width: 24px;
+	width: 40px;
 }
 
 /* ------------------------------------*/
@@ -175,20 +143,21 @@ body *
 	height: 100%;
 }
 
-.filters 
+#filters 
 {
 	z-index: 3;
 }
 
-.filters *
+#filters *
 {
 	margin: 0px; 
 	padding: 0px;
 	z-index: 4;	
 	border: none;
+	outline: none;
 }
 
-#filterGoods, #filterPrice, #filterInfo 
+#filterGoods, #filterPrice, #filterInfo, #filterBonuses
 {
 	width: 296px;
 }
@@ -203,9 +172,22 @@ body *
 	margin-left: 28px;
 }
 
+#filters .button_halfwide
+{
+	width: 128px;
+	display: inline-block;
+	margin: 9px;
+	text-align: center;
+	height: 24px;
+	cursor: pointer;
+}
+
+
+
 #lot 
 {
-	font-size: 90%;
+	font-size: 75%;
+	margin-top: 1ex;
 }
 
 #lot *
@@ -215,13 +197,10 @@ body *
 }
 
 	#lot-details{
-		max-height: 16vh !important;
+		min-height: 56px;
 		overflow-x: hidden;
 		overflow-y: auto;
-		margin-top: 1.0ex;
-		margin-bottom: 1.0ex;
-		margin-left: 0.5ex;
-		font-size: 88%;
+		margin: 0.5ex;
 	}
 
 	#lot img
@@ -238,42 +217,64 @@ body *
 		margin-top: 8px;
 	}
 
+	#lot ul, dl
+	{
+		margin-bottom: 1ex !important;
+		list-style-type: none;
+	}
+
+	#lot dl.single
+	{
+		margin-bottom: 0.5ex !important;
+	}	
+
 	#lot ul
 	{
-		margin-bottom: 0.2ex;
-		list-style-type: none;
 		text-indent: 8pt;
 	}
 
-		#lot ul li
+		#lot-details *
 		{
-			line-height: 98%;
+			line-height: 97.4%;
 		}
 	
-	#lot ul.plain
-	{
-		text-indent: 0pt;
-	}
-
-		#lot ul.plain *
+		#lot dl dt
 		{
-			display: inline;
-		}
-	
-		#lot ul.plain li:nth-child(1)
-		{
+			padding: 0px;
+			margin: 0px;
+			margin-right: 0.5em;
 			font-weight: bold;
+			display: inline-block;
+			text-align: right;
+			width: 96px !important;
+		}
+
+		#lot dl dd
+		{
+			padding:  0px;
+			margin: 0px;
+			display: inline-block;
+			text-align: left;
+			width: 160px !important
 		}
 	
 	#lot h1
 	{
-		font-size: 110%;
+		font-size: 140%;
 	}
 
 	#lot h3
 	{
-		font-size: 70%;
+		font-size: 80%;
 		text-align: left;
+	}
+
+	#lot h4
+	{
+		font-size: 115%;
+		text-align: left;
+		margin-top: 0.3em;
+		margin-bottom: 0.15em;
 	}
 
 #mapContainer 
@@ -292,3 +293,15 @@ body *
 	height: 100%;
 	z-index: 6;
 }
+
+	#mapSVG .SVGstand {
+		/*stroke-width:0px;*/
+	}
+	
+	#mapSVG .SVGstandInactive {
+		stroke-width:0.0;
+	}
+	
+	#mapSVG .SVGmarker {
+		stroke-width:3.5;
+	}

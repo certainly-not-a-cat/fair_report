@@ -3,11 +3,6 @@
 	border: rgba(0, 0, 0, 0.3) 1px solid !important; //DEBUG 
 }
 
-#data .img-container img
-{
-	display: none; //DEBUG
-}
-
 #data td:nth-child(1), #data td:nth-child(5)
 {
 	background-color: #999; //DEBUG
@@ -36,5 +31,5 @@
 
 #lot-details
 {
-	background-color: silver; //DEBUG
+	background-color: #999; //DEBUG
 }

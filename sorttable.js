@@ -157,7 +157,8 @@ sorttable = {
 	          tb.appendChild(row_array[j][1]);
 	        }
           //calling external function to "zebra" sorted table
-          hlTableRows();
+          //disabled. done with css
+          //hlTableRows();
 
 	        delete row_array;
 	      });
