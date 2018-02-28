@@ -50,7 +50,7 @@ sorttable = {
     // Safari doesn't support table.tHead, sigh
     if (table.tHead == null) table.tHead = table.getElementsByTagName('thead')[0];
 
-    if (table.tHead.rows.length != 1) return; // can't cope with two header rows
+    if (table.tHead.rows.length != 1) return;  // can't cope with two header rows
 
     // Sorttable v1 put rows with a class of "sortbottom" at the bottom (as
     // "total" rows, for example). This is B&R, since what you're supposed

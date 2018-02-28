@@ -198,6 +198,7 @@ body *
 
 	#lot-details{
 		min-height: 56px;
+		max-height: 56px;
 		overflow-x: hidden;
 		overflow-y: auto;
 		margin: 0.5ex;

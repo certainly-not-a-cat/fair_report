@@ -185,7 +185,7 @@ function parseDetails(details) {
 
 function resetSorted() {
 	var tHead = table.getElementsByTagName('thead')[0];
-	var headrow = tHead.rows[0].cells;
+	var headrow = tHead.getElementsByTagName('tr')[0].cells;
 	for( var i = 0; i < headrow.length; i++) {
 		headrow[i].className = headrow[i].className.replace("sorttable_sorted_reverse", "").replace("sorttable_sorted", "");
 	}
@@ -336,17 +336,8 @@ function resetFields() {
 	document.getElementById("filterGoods").focus();
 }
 
-function isIE() {
-	var msie = window.navigator.userAgent.indexOf('MSIE ');
-  	if (msie !== -1) // IE 10 or older => return version number
-    	return true;
-    else
-    	return false;
-}
-
 function renderTable(array) {
 	var rendered = 0;
-	var IE = isIE();
 	var tbody = table.getElementsByTagName("tbody")[0];
 	while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
 	for( var i = 0; i < array.length; i++) {
@@ -438,14 +429,6 @@ function applyTheme() {
 	themeStyle.rel = "stylesheet";
 	themeStyle.href = "theme_" + opts.theme + ".css";
 	document.head.appendChild(themeStyle);
-	/*
-	if( !isIE() ) {
-		var nonIEStyle = document.createElement("link");
-		nonIEStyle.rel = "stylesheet";
-		nonIEStyle.href = "nonie_" + opts.theme + ".css";
-		document.head.appendChild(nonIEStyle);
-	}
-	*/
 }
 
 function processQuery() {
@@ -467,7 +450,7 @@ function resizeDetailsDiv() {
 }
 
 function resizeTable() {
-	document.getElementById("data-container").style.height = window.innerHeight-84+(window.innerHeight/100) + "px";
+	document.getElementById("data-container").style.height = window.innerHeight-96+(window.innerHeight/100) + "px";
 }
 
 function main() {

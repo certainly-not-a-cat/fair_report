@@ -51,6 +51,12 @@ body *
 	background-color:#111;
 }
 
+#data tr:hover td
+{
+	background-color: #631;
+	color: #FFF;
+}
+
 .filters *
 {
 	border-bottom: #888 1px solid;
