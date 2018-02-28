@@ -348,19 +348,6 @@ function resetFields() {
 	document.getElementById("filterGoods").focus();
 }
 
-function hotkeys(ev){
-	if (ev)
-		switch (ev.keyCode) {
-			case 27 : //ESC
-				resetFields();
-				break;
-			case 13 : //Enter
-				refreshView();
-				break;
-			default : return;
-		}
-}
-
 function renderTable(array) {
 	var tbody = table.getElementsByTagName("tbody")[0];
 	while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
@@ -472,7 +459,18 @@ function resizeDetailsDiv() {
 
 function main() {
 	processQuery();
-	document.addEventListener("keydown", function() {hotkeys(event)});
+	window.addEventListener("keydown", function(event) {
+		if (event)
+			switch (event.keyCode) {
+				case 27 : //ESC
+					resetFields();
+					break;
+				case 13 : //Enter
+					refreshView();
+					break;
+				default : return;
+			}
+		});
 	document.getElementById("btnReset").addEventListener("click", resetFields);
 	document.getElementById("btnSearch").addEventListener("click", refreshView);
 	window.addEventListener("resize", resizeDetailsDiv);
