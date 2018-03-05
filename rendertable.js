@@ -329,23 +329,10 @@ function filterData(array) {
 }
 
 function resetFields() {
-	// document.getElementById("filterGoods").value = "";
-	// document.getElementById("filterInfo").value = "";
-	// document.getElementById("filterQmin").value = "";
-	// document.getElementById("filterQmax").value = "";
-	// document.getElementById("filterLmin").value = "";
-	// document.getElementById("filterLmax").value = "";
-	// document.getElementById("filterBonuses").value = "";
-	// document.getElementById("filterPrice").value = "";
-	// document.getElementById("filterPQmin").value = "";
-	// document.getElementById("filterPQmax").value = "";
-	// document.getElementById("filterPAMTmin").value = "";
-	// document.getElementById("filterPAMTmax").value = "";
 	var filters = document.getElementById("filters").childNodes;
 	for(var i = 0; i < filters.length; i++)
 		if( filters[i].nodeName = "#text" ) filters[i].value = "";
 	refreshView();
-	document.getElementById("filterGoods").focus();
 }
 
 function renderTable(array) {
@@ -457,15 +444,46 @@ function resizeDetailsDiv() {
 	document.getElementById("lot-details").style.maxHeight = Math.max(56, window.innerHeight-640) + "px";
 }
 
+function showBonusesTips(key) {
+	var k = key.keyCode;
+	var fBonuses = document.getElementById("filterBonuses");
+	var currentLength = fBonuses.value.length;
+	if( currentLength == 0 || k < 65 || k > 90 || key.ctrlKey || key.altKey ) return;
+	var match = "";
+	for(var i = 0; i < aBonuses.length; i++) {
+		var hitIndex = aBonuses[i].toUpperCase().indexOf(fBonuses.value.toUpperCase());
+		if( hitIndex == 0 ) {
+			match = aBonuses[i];
+			break;
+		}
+	}
+	if( match == "" ) {
+		for(var i = 0; i < aBonuses.length; i++) {
+			var hitIndex = aBonuses[i].toUpperCase().indexOf(fBonuses.value.toUpperCase());
+			if( hitIndex !== -1 ) {
+				match = aBonuses[i];
+				break;
+			}
+		}
+	}
+	if( match != "" )
+	{
+		fBonuses.value = match;
+		fBonuses.setSelectionRange(currentLength, fBonuses.value.length);
+	}
+}
+
 function main() {
 	processQuery();
 	window.addEventListener("keydown", function(event) {
 		if (event)
 			switch (event.keyCode) {
 				case 27 : //ESC
+					event.preventDefault();
 					resetFields();
 					break;
 				case 13 : //Enter
+					event.preventDefault();
 					refreshView();
 					break;
 				default : return;
@@ -474,6 +492,7 @@ function main() {
 	document.getElementById("btnReset").addEventListener("click", resetFields);
 	document.getElementById("btnSearch").addEventListener("click", refreshView);
 	window.addEventListener("resize", resizeDetailsDiv);
+	document.getElementById("filterBonuses").addEventListener("keyup", function(event){ showBonusesTips(event); });
 
 	displayData = data.slice(0);
 	document.title = "CF " + displayData[displayData.length-1][12];

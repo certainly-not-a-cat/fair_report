@@ -12,3 +12,28 @@ var mody = 1/11*zoomy;
 var table = document.getElementById("data");
 var map = document.getElementById('mapSVG');
 var opts = { theme : "light", debug : false }
+	
+var aBonuses = [
+	"agi",
+	"csm",
+	"con",
+	"dex",
+	"int",
+	"prc",
+	"psy",
+	"str",
+	"wil",
+	"carpentry",
+	"cooking",
+	"explore",
+	"farming",
+	"lore",
+	"masonry",
+	"melee",
+	"ranged",
+	"sewing",
+	"smithing",
+	"stealth",
+	"survive",
+	"unarmed"
+]
