@@ -65,6 +65,15 @@ var ItemReferenceList = {
 		"nugget-bronze"
 	],
 
+	"Cloth" : [
+		"hempcloth",
+		"linencloth",
+		"silkcloth",
+		"leatherfabric",
+		"woolcloth",
+		"mohair"
+	],
+
 	"String" : [
 		"herbs/cattailfibre",
 		"flaxfibre",
@@ -78,17 +87,41 @@ var ItemReferenceList = {
 		"herbs/stingingnettle"
 	],
 
-	"Cloth" : [
-		"hempcloth",
-		"linencloth",
-		"silkcloth",
-		"leatherfabric",
-		"woolcloth",
-		"mohair"
+	"Fine bones" : [
+		"beartooth",
+		"boartusk",
+		"borewormbeak",
+		"crabshell",
+		"flipperbone",
+		"lynxclaws",
+		"small/mammothtusk",
+		"small/antlers-moose",
+		"antlers-reddeer",
+		"small/walrustusk",
+		"small/wildgoathorn",
+		"wishbone",
+	],
+
+	"Fine Clay" : [
+		"clay-cave",
+		"clay-pit"
+	],
+
+	"Flower" : [
+		"herbs/bloodstern",
+		"herbs/cavebulb",
+		"herbs/chimingbluebell",
+		"herbs/clover",
+		"herbs/dandelion",
+		"herbs/edelweiss",
+		"herbs/frogscrown",
+		"flower-poppy",
+		"herbs/stingingnettle",
+		"small/thornythistle",
+		"small/snapdragon"
 	],
 
 	"Stone" : [
-//common stones
 		"basalt",
 		"catgold",
 		"cinnabar",
@@ -104,7 +137,6 @@ var ItemReferenceList = {
 		"quartz",
 		"sandstone",
 		"schist",
-//ores
 		"cassiterite",
 		"chalcopyrite",
 		"malachite",
@@ -119,7 +151,6 @@ var ItemReferenceList = {
 		"sylvanite",
 		"nagyagite",
 		"slag",
-//special
 		"rockcrystal"
 	],
 
@@ -139,40 +170,4 @@ var ItemReferenceList = {
 		"nagyagite",
 		"slag"
 	],
-
-	"Fine Clay" : [
-		"clay-cave",
-		"clay-pit"
-	],
-
-	"Fine bones" : [
-		"beartooth",
-		"boartusk",
-		"borewormbeak",
-		"crabshell",
-		"flipperbone",
-		"lynxclaws",
-		"small/mammothtusk",
-		"small/antlers-moose",
-		"antlers-reddeer",
-		"small/walrustusk",
-		"small/wildgoathorn",
-		"wishbone",
-	],
-
-	"Flower" : [
-		"herbs/bloodstern",
-		"herbs/cavebulb",
-		"herbs/chimingbluebell",
-		"herbs/clover",
-		"herbs/dandelion",
-		"herbs/edelweiss",
-		"herbs/frogscrown",
-		"flower-poppy",
-		"herbs/stingingnettle",
-		"small/thornythistle",
-		"small/snapdragon"
-	],
-
-
-	}
+}
