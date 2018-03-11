@@ -57,12 +57,33 @@ body *
 	color: #000;
 }
 
-#filters *
+.dropdownButton 
+{
+	background-color: #FFF !important;
+}
+
+.dropdownButton:hover
+{
+	background-color: #CDE !important;
+}
+
+.dropdownList
+{
+	background-color: #FFF !important;
+	border: #AAA 1px solid !important;
+}
+
+.dropdownList div:hover 
+{
+	background-color: #CDE !important;
+}
+
+#filters>*
 {
 	border-bottom: #AAA 1px solid;
 }
 
-#filters :focus {
+#filters>*:focus {
 	border-bottom: #444 1px solid;
 }
 

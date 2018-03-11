@@ -155,6 +155,47 @@ body *
 	z-index: 4;	
 	border: none;
 	outline: none;
+	height: 24px;
+}
+
+#filters>*
+{
+	border-bottom: #000 1px solid;
+}
+
+.dropdownButton
+{
+	float: left;
+	width: 24px;
+	font-size: 130%;	
+	text-align: center;
+	cursor: pointer;
+}
+
+.dropdownButton *
+{
+	vertical-align: middle !important;
+}
+
+.dropdownList
+{
+	font-size: 90%;
+	position: absolute;
+	padding: 4px !important;
+	left: -198px;
+	width: 192px;
+	height: 128px !important;
+	overflow-y: auto;
+	z-index: 9;
+	border: none !important;
+}
+
+.dropdownList div
+{
+	height: auto !important;
+	vertical-align: middle;
+	border: none !important;
+	cursor: pointer;
 }
 
 #filterGoods, #filterPrice, #filterInfo, #filterBonuses
@@ -178,11 +219,9 @@ body *
 	display: inline-block;
 	margin: 9px;
 	text-align: center;
-	height: 24px;
+	/*height: 24px;*/
 	cursor: pointer;
 }
-
-
 
 #lot 
 {

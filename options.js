@@ -37,3 +37,31 @@ var aBonuses = [
 	"survive",
 	"unarmed"
 ]
+
+var ItemReferenceList = { "String" : [
+			"cattailfibre", //Cattail Fibres
+			"flaxfibre", //Flax Fibre
+			"hempfibre", //Hemp Fibre
+			"hidestrap", //Hide Strap
+			"silkthread", //Silk Thread
+			"spindlytaproot", //Spindly Taproot
+			"strawstring", //Straw Twine
+			"yarn-", //Yarn (yarn-sheep and yarn-goat)
+			"stingingnettle"
+		],
+		"Common Metal" : [
+			"-tin",
+			"-castiron",
+			"-wroughtiron",
+			"-steel",
+			"-bronze",
+			"-copper",
+		],
+		"Hard Metal" : [
+			"-castiron",
+			"-wroughtiron",
+			"-steel",
+			"-bronze"
+		],
+
+	}

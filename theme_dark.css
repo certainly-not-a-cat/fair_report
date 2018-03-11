@@ -38,7 +38,7 @@ body *
 
 #data th 
 {
-	color: color: #FFF; !important;
+	color: color: #FFF !important;
 }
 
 #data th:hover
@@ -57,12 +57,33 @@ body *
 	color: #FFF;
 }
 
-.filters *
+.dropdownButton 
+{
+	background-color: #000 !important;
+}
+
+.dropdownButton:hover
+{
+	background-color: #631 !important;
+}
+
+.dropdownList
+{
+	background-color: #000 !important;
+	border: #888 1px solid !important;
+}
+
+.dropdownList div:hover 
+{
+	background-color: #631;
+}
+
+#filters>*
 {
 	border-bottom: #888 1px solid;
 }
 
-#filters :focus {
+#filters>*:focus {
 	border-bottom: #AAA 1px solid;
 }
 

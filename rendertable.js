@@ -215,19 +215,39 @@ function filterData(array) {
 			enableBonusSearch = true;
 	}
 
+	var searchbyref = [];
+	for( var k in ItemReferenceList ) {
+		if( filterGoods.indexOf(k) == 0) {
+			document.getElementById("filterGoods").value = k;
+			searchbyref = ItemReferenceList[k];
+			break;
+		}
+	}
+
 	for( var i = 0; i < array.length; i++) {
 		array[i][13] = false; //unhide every single row
 		var itemInfo = "";
 		
 		//filter by merch
-		if( filterGoods.length > 0 ) {
-			if( itemInfo == "") itemInfo = parseDetails(array[i][2]).innerHTML.replace(/<.*?>/g, " ");
-			var itemName = array[i][1] + itemInfo;
-			if( itemName.toUpperCase().indexOf(filterGoods.toUpperCase()) == -1 ) {
+		if( searchbyref.length > 0 ) {
+			var hide = true;
+			for( var j = 0; j < searchbyref.length; j++ ) {
+				if( array[i][0].indexOf(searchbyref[j]) !== -1 ) hide = false;
+			}
+			if( hide ) {
 				array[i][13] = true;
 				continue;
 			}
 		}
+		else
+			if( filterGoods.length > 0 ) {
+				if( itemInfo == "") itemInfo = parseDetails(array[i][2]).innerHTML.replace(/<.*?>/g, " ");
+				var itemName = array[i][1] + itemInfo;
+				if( itemName.toUpperCase().indexOf(filterGoods.toUpperCase()) == -1 ) {
+					array[i][13] = true;
+					continue;
+				}
+			}
 
 		//filter by info
 		if( filterInfo.length > 0 ) {
@@ -473,6 +493,57 @@ function showBonusesTips(key) {
 	}
 }
 
+function addReference() {
+	var fieldFilterGoods = document.getElementById("filterGoods");
+	var currentWidth = fieldFilterGoods.clientWidth;
+	var fieldParent = fieldFilterGoods.parentNode;
+	
+	//adding dropdown button to merch filter
+	var divReferenceButton = document.createElement("div");
+	divReferenceButton.id = "buttonReference";
+	divReferenceButton.className = "dropdownButton";
+	divReferenceButton.innerHTML = "+";
+	fieldParent.insertBefore(divReferenceButton, fieldFilterGoods);
+	fieldFilterGoods.style.width = currentWidth - 24+ "px";
+	
+	//adding dropdown list to merch filter
+	var divReferenceList = document.createElement("div");
+	divReferenceList.div = "listReference";
+	divReferenceList.className = "dropdownList";
+	divReferenceList.style.display = "none";
+
+	for( var i in ItemReferenceList ) {
+		var line = document.createElement("div");
+		var text = document.createTextNode(i);
+		line.appendChild(text);
+		line.addEventListener("click", fillInput)
+		divReferenceList.appendChild(line);
+	}
+
+	fieldParent.insertBefore(divReferenceList, divReferenceButton);
+
+	divReferenceButton.addEventListener("click", function () {toggleList(divReferenceList, divReferenceButton);} );
+}
+
+function fillInput() {
+	var fieldFilterGoods = document.getElementById("filterGoods");
+	var divReferenceButton = document.getElementById("buttonReference");
+	fieldFilterGoods.value = this.innerHTML;
+	toggleList(this.parentNode, divReferenceButton);
+}
+
+function toggleList(list, button) {
+	if( list.style.display == "block" ) {
+		button.innerHTML = "+";
+		list.style.display = "none";
+	}
+	else {
+		list.style.display = "block";
+		button.innerHTML = "-";
+	}
+	return;
+}
+
 function main() {
 	processQuery();
 	window.addEventListener("keydown", function(event) {
@@ -493,6 +564,7 @@ function main() {
 	document.getElementById("btnSearch").addEventListener("click", refreshView);
 	window.addEventListener("resize", resizeDetailsDiv);
 	document.getElementById("filterBonuses").addEventListener("keyup", function(event){ showBonusesTips(event); });
+	addReference();
 
 	displayData = data.slice(0);
 	document.title = "CF " + displayData[displayData.length-1][12];
