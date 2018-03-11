@@ -230,11 +230,14 @@ function filterData(array) {
 		
 		//filter by merch
 		if( searchbyref.length > 0 ) {
-			var hide = true;
+			var containsRef = false;
 			for( var j = 0; j < searchbyref.length; j++ ) {
-				if( array[i][0].indexOf(searchbyref[j]) !== -1 ) hide = false;
+				if( array[i][0] == searchbyref[j] ) {
+					containsRef = true;
+					break;
+				}
 			}
-			if( hide ) {
+			if( !containsRef ) {
 				array[i][13] = true;
 				continue;
 			}

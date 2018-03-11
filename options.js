@@ -40,31 +40,42 @@ var aBonuses = [
 
 var ItemReferenceList = { 
 	"Common Metal" : [
-		"-tin",
-		"-castiron",
-		"-wroughtiron",
-		"-steel",
-		"-bronze",
-		"-copper"
+		"bar-tin",
+		"bar-castiron",
+		"bar-wroughtiron",
+		"bar-steel",
+		"bar-bronze",
+		"bar-copper",
+		"nugget-tin",
+		"nugget-castiron",
+		"nugget-wroughtiron",
+		"nugget-steel",
+		"nugget-bronze",
+		"nugget-copper"
 	],
 
 	"Hard Metal" : [
-		"-castiron",
-		"-wroughtiron",
-		"-steel",
-		"-bronze"
+		"bar-castiron",
+		"bar-wroughtiron",
+		"bar-steel",
+		"bar-bronze",
+		"nugget-castiron",
+		"nugget-wroughtiron",
+		"nugget-steel",
+		"nugget-bronze"
 	],
 
 	"String" : [
-		"cattailfibre",
+		"herbs/cattailfibre",
 		"flaxfibre",
 		"hempfibre",
 		"hidestrap",
 		"silkthread",
-		"spindlytaproot",
+		"herbs/spindlytaproot",
 		"strawstring",
-		"yarn-",
-		"stingingnettle"
+		"yarn-goat",
+		"yarn-sheep",
+		"herbs/stingingnettle"
 	],
 
 	"Cloth" : [
@@ -124,26 +135,26 @@ var ItemReferenceList = {
 		"crabshell",
 		"flipperbone",
 		"lynxclaws",
-		"mammothtusk",
-		"antlers-moose",
+		"small/mammothtusk",
+		"small/antlers-moose",
 		"antlers-reddeer",
-		"walrustusk",
-		"wildgoathorn",
+		"small/walrustusk",
+		"small/wildgoathorn",
 		"wishbone",
 	],
 
 	"Flower" : [
-		"bloodstern",
-		"cavebulb",
-		"chimingbluebell",
-		"clover",
-		"dandelion",
-		"edelweiss",
-		"frogscrown",
+		"herbs/bloodstern",
+		"herbs/cavebulb",
+		"herbs/chimingbluebell",
+		"herbs/clover",
+		"herbs/dandelion",
+		"herbs/edelweiss",
+		"herbs/frogscrown",
 		"flower-poppy",
-		"stingingnettle",
-		"thornythistle",
-		"snapdragon"
+		"herbs/stingingnettle",
+		"small/thornythistle",
+		"small/snapdragon"
 	],
 
 
