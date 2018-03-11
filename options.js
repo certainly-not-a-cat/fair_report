@@ -38,30 +38,113 @@ var aBonuses = [
 	"unarmed"
 ]
 
-var ItemReferenceList = { "String" : [
-			"cattailfibre", //Cattail Fibres
-			"flaxfibre", //Flax Fibre
-			"hempfibre", //Hemp Fibre
-			"hidestrap", //Hide Strap
-			"silkthread", //Silk Thread
-			"spindlytaproot", //Spindly Taproot
-			"strawstring", //Straw Twine
-			"yarn-", //Yarn (yarn-sheep and yarn-goat)
-			"stingingnettle"
-		],
-		"Common Metal" : [
-			"-tin",
-			"-castiron",
-			"-wroughtiron",
-			"-steel",
-			"-bronze",
-			"-copper",
-		],
-		"Hard Metal" : [
-			"-castiron",
-			"-wroughtiron",
-			"-steel",
-			"-bronze"
-		],
+var ItemReferenceList = { 
+	"Common Metal" : [
+		"-tin",
+		"-castiron",
+		"-wroughtiron",
+		"-steel",
+		"-bronze",
+		"-copper"
+	],
+
+	"Hard Metal" : [
+		"-castiron",
+		"-wroughtiron",
+		"-steel",
+		"-bronze"
+	],
+
+	"String" : [
+		"cattailfibre",
+		"flaxfibre",
+		"hempfibre",
+		"hidestrap",
+		"silkthread",
+		"spindlytaproot",
+		"strawstring",
+		"yarn-",
+		"stingingnettle"
+	],
+
+	"Cloth" : [
+		"hempcloth",
+		"linencloth",
+		"silkcloth",
+		"leatherfabric",
+		"woolcloth",
+		"mohair"
+	],
+
+	"Stone" : [
+		"basalt",
+		"catgold",
+		"cinnabar",
+		"dolomite",
+		"feldspar",
+		"flint",
+		"gneiss",
+		"granite",
+		"hornblende",
+		"limestone",
+		"marble",
+		"porphyry",
+		"quartz",
+		"sandstone",
+		"schist",
+		"rockcrystal"
+	],
+
+	"Ore" : [
+		"cassiterite",
+		"chalcopyrite",
+		"malachite",
+		"ilmenite",
+		"limonite",
+		"hematite",
+		"magnetite",
+		"galena",
+		"argentite",
+		"hornsilver",
+		"petzite",
+		"sylvanite",
+		"nagyagite",
+		"slag"
+	],
+
+	"Fine Clay" : [
+		"clay-cave",
+		"clay-pit"
+	],
+
+	"Fine bones" : [
+		"beartooth",
+		"boartusk",
+		"borewormbeak",
+		"crabshell",
+		"flipperbone",
+		"lynxclaws",
+		"mammothtusk",
+		"antlers-moose",
+		"antlers-reddeer",
+		"walrustusk",
+		"wildgoathorn",
+		"wishbone",
+	],
+
+	"Flower" : [
+		"bloodstern",
+		"cavebulb",
+		"chimingbluebell",
+		"clover",
+		"dandelion",
+		"edelweiss",
+		"frogscrown",
+		"flower-poppy",
+		"stingingnettle",
+		"thornythistle",
+		"snapdragon"
+	],
+
 
 	}
