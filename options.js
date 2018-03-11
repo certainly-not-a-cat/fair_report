@@ -88,6 +88,7 @@ var ItemReferenceList = {
 	],
 
 	"Stone" : [
+//common stones
 		"basalt",
 		"catgold",
 		"cinnabar",
@@ -103,6 +104,22 @@ var ItemReferenceList = {
 		"quartz",
 		"sandstone",
 		"schist",
+//ores
+		"cassiterite",
+		"chalcopyrite",
+		"malachite",
+		"ilmenite",
+		"limonite",
+		"hematite",
+		"magnetite",
+		"galena",
+		"argentite",
+		"hornsilver",
+		"petzite",
+		"sylvanite",
+		"nagyagite",
+		"slag",
+//special
 		"rockcrystal"
 	],
 
