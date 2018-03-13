@@ -14,6 +14,11 @@
 	border-radius: 9px;
 }
 
+body
+{
+	background-color: #000;
+}
+
 body *
 {
 	background: none;
