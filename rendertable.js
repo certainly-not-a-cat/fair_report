@@ -549,6 +549,8 @@ function toggleList(list, button) {
 
 function main() {
 	processQuery();
+	applyTheme();
+
 	window.addEventListener("keydown", function(event) {
 		if (event)
 			switch (event.keyCode) {
@@ -572,7 +574,6 @@ function main() {
 	displayData = data.slice(0);
 	document.title = "CF " + displayData[displayData.length-1][12];
 	refreshView();
-	applyTheme();
 	resizeDetailsDiv();
 }
 

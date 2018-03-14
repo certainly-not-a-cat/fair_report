@@ -17,6 +17,7 @@
 body
 {
 	background-color: #000;
+	min-width: 1012px;
 }
 
 body *
