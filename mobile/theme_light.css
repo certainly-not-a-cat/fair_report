@@ -103,7 +103,7 @@ body *
 
 #mapContainer 
 {
-	background: url("mapBG.png") no-repeat;
+	background: url("../gfx/mapBG.png") no-repeat;
 }
 
 	#mapSVG .SVGstand {

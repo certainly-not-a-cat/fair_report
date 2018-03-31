@@ -114,7 +114,7 @@ body *
 
 #mapContainer 
 {
-	background: url("mapBG_dark.png") no-repeat;
+	background: url("gfx/mapBG_dark.png") no-repeat;
 }
 
 	#mapSVG .SVGstand {
