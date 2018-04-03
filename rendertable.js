@@ -464,7 +464,7 @@ function processQuery() {
 }
 
 function resizeDetailsDiv() {
-	document.getElementById("lot-details").style.maxHeight = Math.max(56, window.innerHeight-640) + "px";
+	document.getElementById("lot-details").style.maxHeight = Math.max(48, window.innerHeight-660) + "px";
 }
 
 function showBonusesTips(key) {
@@ -496,43 +496,40 @@ function showBonusesTips(key) {
 	}
 }
 
-function addReference() {
-	var fieldFilterGoods = document.getElementById("filterGoods");
-	var currentWidth = fieldFilterGoods.clientWidth;
-	var fieldParent = fieldFilterGoods.parentNode;
+function addDropdownToInput(inputField, list) {
+	var currentWidth = inputField.clientWidth;
+	var fieldParent = inputField.parentNode;
 	
-	//adding dropdown button to merch filter
+	//adding dropdown button before target input
 	var divReferenceButton = document.createElement("div");
-	divReferenceButton.id = "buttonReference";
 	divReferenceButton.className = "dropdownButton";
 	divReferenceButton.innerHTML = "+";
-	fieldParent.insertBefore(divReferenceButton, fieldFilterGoods);
-	fieldFilterGoods.style.width = currentWidth - 24+ "px";
-	
-	//adding dropdown list to merch filter
+	inputField.style.width = currentWidth - 20 + "px";
+	inputField.style.paddingLeft = 20 + "px";
+	divReferenceButton.addEventListener("click", function () {toggleList(divReferenceList, divReferenceButton);} );
+	fieldParent.insertBefore(divReferenceButton, inputField);
+
+	//adding dropdown list to target input
 	var divReferenceList = document.createElement("div");
 	divReferenceList.div = "listReference";
 	divReferenceList.className = "dropdownList";
 	divReferenceList.style.display = "none";
 
-	for( var i in ItemReferenceList ) {
+	var listsize = 0;
+	for( var i in list ) {
 		var line = document.createElement("div");
 		var text = document.createTextNode(i);
 		line.appendChild(text);
-		line.addEventListener("click", fillInput)
+		line.addEventListener("click", function() {
+			inputField.value = this.innerHTML;
+			toggleList(divReferenceList, divReferenceButton);
+		})
 		divReferenceList.appendChild(line);
+		listsize += 1;
 	}
 
+	divReferenceList.style.height = listsize*16 + "px";
 	fieldParent.insertBefore(divReferenceList, divReferenceButton);
-
-	divReferenceButton.addEventListener("click", function () {toggleList(divReferenceList, divReferenceButton);} );
-}
-
-function fillInput() {
-	var fieldFilterGoods = document.getElementById("filterGoods");
-	var divReferenceButton = document.getElementById("buttonReference");
-	fieldFilterGoods.value = this.innerHTML;
-	toggleList(this.parentNode, divReferenceButton);
 }
 
 function toggleList(list, button) {
@@ -548,6 +545,7 @@ function toggleList(list, button) {
 }
 
 function main() {
+	document.title = "Loading data...";
 	processQuery();
 	applyTheme();
 
@@ -569,12 +567,14 @@ function main() {
 	document.getElementById("btnSearch").addEventListener("click", refreshView);
 	window.addEventListener("resize", resizeDetailsDiv);
 	document.getElementById("filterBonuses").addEventListener("keyup", function(event){ showBonusesTips(event); });
-	addReference();
+	
+	addDropdownToInput(document.getElementById("filterGoods"), ItemReferenceList);
+	addDropdownToInput(document.getElementById("filterBonuses"), aBonuses);
 
 	displayData = data.slice(0);
-	document.title = "CF " + displayData[displayData.length-1][12];
 	refreshView();
 	resizeDetailsDiv();
+	document.title = "CF " + displayData[displayData.length-1][12];
 }
 
 function highlight() {

@@ -161,7 +161,7 @@ body *
 	z-index: 4;	
 	border: none;
 	outline: none;
-	height: 24px;
+	height: 18px;
 }
 
 #filters>*
@@ -171,11 +171,13 @@ body *
 
 .dropdownButton
 {
-	float: left;
-	width: 24px;
-	font-size: 130%;	
+	position: absolute;
+	z-index: 5;
+	width: 20px;
+	font-size: 110%;	
 	text-align: center;
 	cursor: pointer;
+	border: none !important;
 }
 
 .dropdownButton *
@@ -190,8 +192,8 @@ body *
 	padding: 4px !important;
 	left: -198px;
 	width: 192px;
-	/*height: 192px !important;*/
-	height: 112pt  !important; /*(font-size + 1) x lineNumber + 2*/
+	/*height: 112pt  !important;*/
+	max-height: 300px;
 	overflow-y: auto;
 	z-index: 9;
 	border: none !important;
@@ -226,14 +228,16 @@ body *
 	display: inline-block;
 	margin: 9px;
 	text-align: center;
-	/*height: 24px;*/
+	height: 24px;
 	cursor: pointer;
 }
 
 #lot 
 {
+	position: relative;
+	z-index: 5;
 	font-size: 75%;
-	margin-top: 1ex;
+	margin-top: 0.3ex;
 }
 
 #lot *
@@ -243,11 +247,11 @@ body *
 }
 
 	#lot-details{
-		min-height: 56px;
-		max-height: 56px;
+		min-height: 20px;
+		/*max-height: 56px;*/
 		overflow-x: hidden;
 		overflow-y: auto;
-		margin: 0.5ex;
+		margin: 0.3ex;
 	}
 
 	#lot img
@@ -272,7 +276,7 @@ body *
 
 	#lot dl.single
 	{
-		margin-bottom: 0.5ex !important;
+		margin-bottom: 0.3ex !important;
 	}	
 
 	#lot ul
@@ -282,7 +286,7 @@ body *
 
 		#lot-details *
 		{
-			line-height: 97.4%;
+			line-height: 97.0%;
 		}
 	
 		#lot dl dt
@@ -307,7 +311,7 @@ body *
 	
 	#lot h1
 	{
-		font-size: 140%;
+		font-size: 120%;
 	}
 
 	#lot h3
@@ -318,10 +322,10 @@ body *
 
 	#lot h4
 	{
-		font-size: 115%;
+		font-size: 110%;
 		text-align: left;
 		margin-top: 0.3em;
-		margin-bottom: 0.15em;
+		margin-bottom: 0.1em;
 	}
 
 #mapContainer 
@@ -331,18 +335,17 @@ body *
 	right: 0px;
 	width: 300px;
 	height: 300px;
-	z-index: 5;
+	z-index: 2;
 }
 
 #mapSVG 
 {
 	width: 100%;
 	height: 100%;
-	z-index: 6;
+	z-index: 3;
 }
 
 	#mapSVG .SVGstand {
-		/*stroke-width:0px;*/
 	}
 	
 	#mapSVG .SVGstandInactive {
