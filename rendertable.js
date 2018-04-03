@@ -467,35 +467,6 @@ function resizeDetailsDiv() {
 	document.getElementById("lot-details").style.maxHeight = Math.max(48, window.innerHeight-660) + "px";
 }
 
-function showBonusesTips(key) {
-	var k = key.keyCode;
-	var fBonuses = document.getElementById("filterBonuses");
-	var currentLength = fBonuses.value.length;
-	if( currentLength == 0 || k < 65 || k > 90 || key.ctrlKey || key.altKey ) return;
-	var match = "";
-	for(var i = 0; i < aBonuses.length; i++) {
-		var hitIndex = aBonuses[i].toUpperCase().indexOf(fBonuses.value.toUpperCase());
-		if( hitIndex == 0 ) {
-			match = aBonuses[i];
-			break;
-		}
-	}
-	if( match == "" ) {
-		for(var i = 0; i < aBonuses.length; i++) {
-			var hitIndex = aBonuses[i].toUpperCase().indexOf(fBonuses.value.toUpperCase());
-			if( hitIndex !== -1 ) {
-				match = aBonuses[i];
-				break;
-			}
-		}
-	}
-	if( match != "" )
-	{
-		fBonuses.value = match;
-		fBonuses.setSelectionRange(currentLength, fBonuses.value.length);
-	}
-}
-
 function addDropdownToInput(inputField, list) {
 	var currentWidth = inputField.clientWidth;
 	var fieldParent = inputField.parentNode;
@@ -548,7 +519,6 @@ function main() {
 	document.title = "Loading data...";
 	processQuery();
 	applyTheme();
-
 	window.addEventListener("keydown", function(event) {
 		if (event)
 			switch (event.keyCode) {
@@ -566,8 +536,6 @@ function main() {
 	document.getElementById("btnReset").addEventListener("click", resetFields);
 	document.getElementById("btnSearch").addEventListener("click", refreshView);
 	window.addEventListener("resize", resizeDetailsDiv);
-	document.getElementById("filterBonuses").addEventListener("keyup", function(event){ showBonusesTips(event); });
-	
 	addDropdownToInput(document.getElementById("filterGoods"), ItemReferenceList);
 	addDropdownToInput(document.getElementById("filterBonuses"), aBonuses);
 
