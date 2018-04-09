@@ -184,11 +184,13 @@ function parseDetails(details) {
 }
 
 function resetSorted() {
-	var tHead = table.getElementsByTagName('thead')[0];
-	var headrow = tHead.getElementsByTagName('tr')[0].cells;
+	
+	var headers = document.getElementById('data-headers');
+	var headrow = headers.getElementsByTagName("div");
 	for( var i = 0; i < headrow.length; i++) {
 		headrow[i].className = headrow[i].className.replace("sorttable_sorted_reverse", "").replace("sorttable_sorted", "");
 	}
+	
 }
 
 function filterData(array) {
@@ -499,7 +501,7 @@ function addDropdownToInput(inputField, list) {
 		listsize += 1;
 	}
 
-	divReferenceList.style.height = listsize*16 + "px";
+	divReferenceList.style.height = listsize*17 + "px";
 	fieldParent.insertBefore(divReferenceList, divReferenceButton);
 }
 

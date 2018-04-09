@@ -1,6 +1,16 @@
+#data-headers
+{
+	background-color: #AAA;
+}
+
+#data-headers *
+{
+	border: 1px #666 solid;
+}
+
 #data *
 {
-	border: rgba(0, 0, 0, 0.3) 1px solid !important; //DEBUG 
+	border: #AAA 1px solid !important; //DEBUG 
 }
 
 #data td:nth-child(1), #data td:nth-child(5)
@@ -26,7 +36,7 @@
 
 #lot *
 {
-	border: rgba(0, 0, 0, 0.2) 1px solid !important; //DEBUG 
+	border: #CCC 1px solid !important; //DEBUG 
 }
 
 #lot-details

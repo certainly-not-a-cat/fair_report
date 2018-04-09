@@ -7,24 +7,6 @@
 #D62 - accent
 */
 
-::-webkit-scrollbar-track
-{
-	background: none;
-	border: #421 1px solid;
-}
-
-::-webkit-scrollbar-thumb 
-{
-	background: #421;
-	border: #631 1px solid;
-}
-
-::-webkit-scrollbar-thumb:hover 
-{
-	border: #D62 1px solid;
-	background: #631; 
-}
-
 body 
 {
 	background-color: #000;
@@ -36,12 +18,18 @@ body *
 	color: #DDD;
 }
 
+#data-headers
+{
+	background-color: #000;
+}
+
+
 #data th 
 {
 	color: color: #FFF !important;
 }
 
-#data th:hover
+#data-headers .hdr:hover
 {
 	color: #D62 !important;
 }

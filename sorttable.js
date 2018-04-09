@@ -40,6 +40,8 @@ sorttable = {
   },
 
   makeSortable: function(table) {
+//OLD TABLE HEADER CHECK
+/*
     if (table.getElementsByTagName('thead').length == 0) {
       // table doesn't have a tHead. Since it should have, create one and
       // put the first table row in it.
@@ -51,11 +53,15 @@ sorttable = {
     if (table.tHead == null) table.tHead = table.getElementsByTagName('thead')[0];
 
     if (table.tHead.rows.length != 1) return;  // can't cope with two header rows
+*/
 
+//OLD BOTTOMROWS
+/*
     // Sorttable v1 put rows with a class of "sortbottom" at the bottom (as
     // "total" rows, for example). This is B&R, since what you're supposed
     // to do is put them in a tfoot. So, if there are sortbottom rows,
     // for backwards compatibility, move them to tfoot (creating it if needed).
+
     sortbottomrows = [];
     for (var i=0; i<table.rows.length; i++) {
       if (table.rows[i].className.search(/\bsortbottom\b/) != -1) {
@@ -73,9 +79,15 @@ sorttable = {
       }
       delete sortbottomrows;
     }
+*/
 
     // work through each column and calculate its type
+//REPLACING OLD headrow VALUE
+/*
     headrow = table.tHead.rows[0].cells;
+*/
+    var headers = document.getElementById('data-headers');
+    headrow = headers.getElementsByTagName("div");
     for (var i=0; i<headrow.length; i++) {
       // manually override the type with a sorttable_type attribute
       if (!headrow[i].className.match(/\bsorttable_nosort\b/)) { // skip this col
@@ -172,7 +184,7 @@ sorttable = {
     for (var i=0; i<table.tBodies[0].rows.length; i++) {
       text = sorttable.getInnerText(table.tBodies[0].rows[i].cells[column]);
       if (text != '') {
-        if (text.match(/^-?[£$¤]?[\d,.]+%?$/)) {
+        if (text.match(/^-?[Â£$Â¤]?[\d,.]+%?$/)) {
           return sorttable.sort_numeric;
         }
         // check for a date: dd/mm/yyyy or dd/mm/yy
