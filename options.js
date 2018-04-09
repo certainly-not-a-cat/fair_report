@@ -6,6 +6,9 @@ var zoomy = 1;
 var offx = 19;
 var offy = 164;
 
+var fixx = 0;
+var fixy = -1.375;
+
 var modx = 1/11*zoomx;
 var mody = 1/11*zoomy;
 

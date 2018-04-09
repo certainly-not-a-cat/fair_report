@@ -563,8 +563,8 @@ function highlight() {
 		marker.setAttribute('id', 'mapMarker');
 		map.appendChild(marker);
 	}
-	marker.setAttribute('cx', x*modx+offx);
-	marker.setAttribute('cy', y*mody+offy);
+	marker.setAttribute('cx', (x-fixx)*modx+offx);
+	marker.setAttribute('cy', (y-fixy)*mody+offy);
 	
 	detailsToLot(id);
 }
