@@ -542,15 +542,24 @@ function main() {
 	addDropdownToInput(document.getElementById("filterBonuses"), aBonuses);
 
 	displayData = data.slice(0);
+	document.title = "CF " + data[data.length-1][12];
+	prepareData();
+
 	refreshView();
 	resizeDetailsDiv();
-	document.title = "CF " + displayData[displayData.length-1][12];
+}
+
+function prepareData() {
+	for (var i = 0; i < displayData.length; i++) {
+		var bsid = searchForId(i);
+		displayData[i][12] = bsid + ", " + displayData[i][12];
+	}
 }
 
 function highlight() {
 	var id = this.id;
-	var x = data[id][10];
-	var y = data[id][11];
+	var x = displayData[id][10];
+	var y = displayData[id][11];
 
 	if (map	== undefined)
 		var map = document.getElementById('mapSVG');
@@ -569,34 +578,54 @@ function highlight() {
 	detailsToLot(id);
 }
 
+function searchForId(id){
+	var x = displayData[id][10];
+	var y = displayData[id][11];
+	var searchDist = 5;
+	for (var i = 0; i < coords.length; i++) {
+		var bsid = coords[i][0];
+		var x1 = coords[i][1];
+		var y1 = coords[i][2];
+		var dist = Math.pow((x1-x), 2) + Math.pow((y1-y), 2);
+		if(  dist < searchDist ) return bsid;
+	}
+	var uic = Math.round(x) + ", " + Math.round(y)
+	console.log(uic);
+	return uic;
+}
+
 function detailsToLot(id){
 	var lot = document.getElementById("lot");
 
-	var stringProduct = data[id][1] + (data[id][3] ? " Q" + data[id][3] : "");
-	var stringProductLeft = data[id][4] + " left";
-	var stringPrice = data[id][6];
-	if( data[id][8] && data[id][8] != "Any") stringPrice += " Q" + data[id][8];
-	if( data[id][9] && data[id][9] > 1 ) stringPrice += " × " + data[id][9];
+	var stringProduct = displayData[id][1] + (displayData[id][3] ? " Q" + displayData[id][3] : "");
+	var stringProductLeft = displayData[id][4] + " left";
+	var stringPrice = displayData[id][6];
+	if( displayData[id][8] && displayData[id][8] != "Any") stringPrice += " Q" + displayData[id][8];
+	if( displayData[id][9] && displayData[id][9] > 1 ) stringPrice += " × " + displayData[id][9];
 	
 	var lprimg = lot.querySelector("#lot-product-image");
 	while (lprimg.firstChild) lprimg.removeChild(lprimg.firstChild);
 	var img = document.createElement("img");
-	if ( !opts.debug ) img.src = (basicURL + data[id][0]).replace("/gems/gemstone", "/gems/any");
-	img.alt = data[id][0];
+	if ( !opts.debug ) img.src = (basicURL + displayData[id][0]).replace("/gems/gemstone", "/gems/any");
+	img.alt = displayData[id][0];
 	lprimg.appendChild(img);
 
 	lot.querySelector("#lot-product").innerHTML = stringProduct;
 	lot.querySelector("#lot-left").innerHTML = stringProductLeft;
-	lot.querySelector("#lot-details").innerHTML = (parseDetails(data[id][2])).innerHTML;
+	lot.querySelector("#lot-details").innerHTML = (parseDetails(displayData[id][2])).innerHTML;
 
 	var lpriceimg = lot.querySelector("#lot-price-image");
 	while (lpriceimg.firstChild) lpriceimg.removeChild(lpriceimg.firstChild);
 	var pimg = document.createElement("img");
-	if ( !opts.debug ) pimg.src = (basicURL + data[id][5]).replace("/gems/gemstone", "/gems/any");
-	pimg.alt = data[id][5];
+	if ( !opts.debug ) pimg.src = (basicURL + displayData[id][5]).replace("/gems/gemstone", "/gems/any");
+	pimg.alt = displayData[id][5];
 	lpriceimg.appendChild(pimg);
 
 	lot.querySelector("#lot-price").innerHTML = stringPrice;
-	lot.querySelector("#lot-pricedetails").innerHTML = data[id][7];
-	lot.querySelector("#lot-timestamp").innerHTML = data[id][12];
+	if (displayData[id][7] != null) {
+		lot.querySelector("#lot-pricedetails").innerHTML = displayData[id][7];
+	} else {
+		lot.querySelector("#lot-pricedetails").innerHTML = "";
+	}
+	lot.querySelector("#lot-timestamp").innerHTML = displayData[id][12];
 }
