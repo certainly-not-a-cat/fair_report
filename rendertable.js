@@ -14,6 +14,9 @@ function formatVal(val, format) {
 		case "d2sd" :
 			return Math.round(val*100)/100;
 			break;
+		case "2lz" :
+			return val.substr(0, 1) + (val.length < 4 ? (val.length < 3 ? "00" : "0") : "") + val.substr(1, val.length-1);
+			break;
 		case "h2hm" :
 			var hrs = (val/60 < 10 ? "0" : "") + Math.floor(val/60);
 			var mns = (val%60 < 10 ? "0" : "") + Math.round(val%60);
@@ -196,6 +199,7 @@ function resetSorted() {
 function filterData(array) {
 	var filterGoods	= document.getElementById("filterGoods").value;
 	var filterInfo	= document.getElementById("filterInfo").value;
+	var filterTrader	= document.getElementById("filterTrader").value;
 	var filterQmin	= parseInt(document.getElementById("filterQmin").value);
 	var filterQmax	= parseInt(document.getElementById("filterQmax").value);
 	var filterLmin = parseInt(document.getElementById("filterLmin").value);
@@ -215,6 +219,10 @@ function filterData(array) {
 		var filterBonusesMod = parseInt(filterBonuses.slice(filterBonuses.lastIndexOf(" ")));
 		if( filterBonusesAtr.length > 2 && !isNaN(filterBonusesMod) )
 			enableBonusSearch = true;
+	}
+
+	if ( (filterTrader.indexOf("-") !== -1) && (filterTrader.indexOf("-") == filterTrader.lastIndexOf("-")) ) {
+		var filterTraderRange = filterTrader.split("-");
 	}
 
 	var searchbyref = [];
@@ -260,6 +268,24 @@ function filterData(array) {
 			if( itemInfo.toUpperCase().indexOf(filterInfo.toUpperCase()) == -1 ) {
 				array[i][13] = true;
 				continue;
+			}
+		}
+
+		//filter by trader
+		if( filterTrader.length > 0 ) {
+			var itemtraderName = array[i][12][1];
+			var itemtraderID = array[i][12][0];
+			if (filterTraderRange !== undefined) {
+				if ( (itemtraderID < filterTraderRange[0]) || (itemtraderID > filterTraderRange[1]) ) {
+					array[i][13] = true;
+					continue;	
+				}
+			} else {
+				if( (itemtraderName.toUpperCase().indexOf(filterTrader.toUpperCase()) == -1) && (itemtraderID.toUpperCase().indexOf(filterTrader.toUpperCase()) == -1)  ) 
+				{
+					array[i][13] = true;
+					continue;
+				}
 			}
 		}
 
@@ -367,60 +393,81 @@ function renderTable(array) {
 		if( array[i][13] == true ) continue;
 		var row = document.createElement("tr");
 		var cells = [];
-		for( var j = 0; j <= 7; j++) {
+		for( var j = 0; j <= 8; j++) {
 			cells[j] = document.createElement("td");
 		}
+
+		//Brand
+		var brand = "";
+		var maxWidthBrand = 12;
+		brand = (array[i][12][1] == "" ? array[i][12][0] : array[i][12][1]); //show name instead of ID if any
+		// brand = array[i][12][0];
+		
+		if (brand.length > maxWidthBrand*2) {
+			brand = brand.substr(0, maxWidthBrand*2)+"..";
+			var ls = brand.lastIndexOf(" ");
+			if (ls != -1)
+				brand = brand.substr(0, ls)+"...";
+		}
+
+
+		if (brand.length > maxWidthBrand)
+			if (brand.indexOf(" ") > maxWidthBrand || brand.indexOf(" ") == -1)
+				brand = brand.substr(0, maxWidthBrand)+"..";
+		cells[0].innerHTML = brand;
 
 		//Merch icon
 		var img = document.createElement("img");
 		if ( !opts.debug ) img.src = (basicURL + array[i][0]).replace("/gems/gemstone", "/gems/any");
 		img.alt = array[i][0];
-		cells[0].appendChild(img);
+		cells[1].appendChild(img);
 		
 		//Merch name
-		cells[1].innerHTML = array[i][1];
+		cells[2].innerHTML = array[i][1];
 		if( array[i][0].indexOf("coins/") != -1 ) 
 		{
 			var numberOfCoins = parseInt(array[i][1].split(" ")[0]);
 			if (numberOfCoins > 1)
-				cells[1].innerHTML = numberOfCoins + " " + array[i][2].coinage + "s";
+				cells[2].innerHTML = numberOfCoins + " " + array[i][2].coinage + "s";
 			else
-				cells[1].innerHTML = array[i][2].coinage;
+				cells[2].innerHTML = array[i][2].coinage;
 		}
 
 		//Merch quality
 		if( array[i][3] ) {
-			cells[2].innerHTML = array[i][3];	
+			cells[3].innerHTML = array[i][3];	
 		} else {
-			cells[2].innerHTML = "";
+			cells[3].innerHTML = "";
 		}
 
 		//Merch left amount
-		cells[3].innerHTML = array[i][4];
+		cells[4].innerHTML = array[i][4];
+
+
 
 		//Price icon
 		var pimg = document.createElement("img");
 		if ( !opts.debug ) pimg.src = (basicURL + array[i][5]).replace("/gems/gemstone", "/gems/any");
 		pimg.alt = array[i][5];
-		cells[4].appendChild(pimg);
+		cells[5].appendChild(pimg);
 
 		//price name
 		if( array[i][5].indexOf("coins/") != -1 ) {
-			cells[5].innerHTML = array[i][7];
+			cells[6].innerHTML = array[i][7];
 		} else {
-			cells[5].innerHTML = array[i][6];	
+			cells[6].innerHTML = array[i][6];	
 		}	
 
 		//Price quality
 		if( array[i][8] ) {
-			cells[6].innerHTML = array[i][8];	
+			cells[7].innerHTML = array[i][8];	
 		} else {
-			cells[6].innerHTML = "";
+			cells[7].innerHTML = "";
 		}
 
 		//Price amount
 		if( array[i][9] ) 
-			cells[7].innerHTML = array[i][9];		
+			cells[8].innerHTML = array[i][9];		
 
 		for( var j = 0; j < cells.length; j++) {
 			row.appendChild(cells[j]);
@@ -552,7 +599,8 @@ function main() {
 function prepareData() {
 	for (var i = 0; i < displayData.length; i++) {
 		var bsid = searchForId(i);
-		displayData[i][12] = bsid + ", " + displayData[i][12];
+		bsid.push(displayData[i][12]);
+		displayData[i][12] = bsid; //replacing tmstmp with [id, brand, tmstmp]
 	}
 }
 
@@ -578,20 +626,25 @@ function highlight() {
 	detailsToLot(id);
 }
 
-function searchForId(id){
+function searchForId(id, format){
 	var x = displayData[id][10];
 	var y = displayData[id][11];
 	var searchDist = 5;
 	for (var i = 0; i < coords.length; i++) {
 		var bsid = coords[i][0];
+		var bsOwnerName = coords[i][3];
 		var x1 = coords[i][1];
 		var y1 = coords[i][2];
 		var dist = Math.pow((x1-x), 2) + Math.pow((y1-y), 2);
-		if(  dist < searchDist ) return bsid;
+		if(  dist < searchDist ) {
+			if (bsOwnerName == undefined) 
+				bsOwnerName = "";
+			return [formatVal(bsid, "2lz"), bsOwnerName];
+		}
 	}
-	var uic = Math.round(x) + ", " + Math.round(y)
-	console.log(uic);
-	return uic;
+	var uic = Math.round(x) + ", " + Math.round(y);
+	console.log(uic + " " + id);
+	return [uic, ""];
 }
 
 function detailsToLot(id){
@@ -627,5 +680,9 @@ function detailsToLot(id){
 	} else {
 		lot.querySelector("#lot-pricedetails").innerHTML = "";
 	}
-	lot.querySelector("#lot-timestamp").innerHTML = displayData[id][12];
+	var addInfo = "";
+	addInfo += (displayData[id][12][1] != "" ? "" + displayData[id][12][1] + ", ": "");
+	addInfo += (displayData[id][12][0] != "" ? "" + displayData[id][12][0] : "");
+	addInfo += (displayData[id][12][2] != "" ? "</br> " + displayData[id][12][2] : "");
+	lot.querySelector("#lot-timestamp").innerHTML = addInfo;
 }

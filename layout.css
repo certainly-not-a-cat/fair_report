@@ -45,10 +45,6 @@ body *
 		display: none;
 	}
 
-
-
-
-
 #data-container 
 {
 	position: absolute;
@@ -72,16 +68,9 @@ body *
 {
 	margin: 0px;
 	padding: 0px;
-	line-height: 120%;
-}
+	/*line-height: 120%;*/
+	line-height: 10pt;
 
-#data td:nth-child(1), #data td:nth-child(5)
-{
-	display: inline-block;
-	max-width: 26px;
-	max-height: 26px;
-	overflow: hidden;
-	text-align: center;
 }
 
 #data img
@@ -101,32 +90,65 @@ body *
 }
 
 /*Icons*/
-#data td:nth-child(1), #data td:nth-child(5),
-#data-headers div:nth-child(1), #data-headers div:nth-child(5)
-{
-	width: 26px;
-}
-
-#data-headers div:nth-child(1), #data-headers div:nth-child(5)
-{
-	display: none;
-}
-
-/*Merch, price names*/
 #data td:nth-child(2), #data td:nth-child(6)
 {
-	width: 244px;
-	padding-left: 1pt;
+	width: 26px;
+	display: inline-block;
+	max-height: 26px;
+	overflow: hidden;
+	text-align: center;
 }
 
 #data-headers div:nth-child(2), #data-headers div:nth-child(6)
 {
-	width: 269px;	
+	display: none;
 }
 
+/*Merch name*/
+#data td:nth-child(3)
+{
+	width: 244px;
+	padding-left: 0.5em;
+}
+
+#data-headers div:nth-child(3)
+{
+	width: 270px;	
+}
+
+/*Brand name*/
+#data td:nth-child(1)
+{
+	max-height: 26px;
+	width: 120px;
+	overflow: hidden;
+	font-size: 10pt;
+	letter-spacing: -0.035em;
+	word-spacing: -0.15em;
+	text-align: center;
+}
+
+#data-headers div:nth-child(1)
+{
+	width: 120px;	
+}
+
+/*Price name*/
+#data td:nth-child(7)
+{
+	width: 123px;
+	padding-left: 0.5em;
+}
+
+#data-headers div:nth-child(7)
+{
+	width: 149px;	
+}
+
+
 /*Q, LEft, Qp, X*/
-#data td:nth-child(3), #data td:nth-child(4), #data-headers div:nth-child(3), #data-headers div:nth-child(4),
-#data td:nth-child(7), #data td:nth-child(8), #data-headers div:nth-child(7), #data-headers div:nth-child(8)
+#data td:nth-child(4), #data td:nth-child(5), #data-headers div:nth-child(4), #data-headers div:nth-child(5),
+#data td:nth-child(8), #data td:nth-child(9), #data-headers div:nth-child(8), #data-headers div:nth-child(9)
 {
 	text-align: center;
 	width: 40px;
@@ -160,24 +182,32 @@ body *
 	z-index: 4;	
 	border: none;
 	outline: none;
-	height: 18px;
-	margin-top: 1px;
+	height: 16px;
+	font-size: 9.0pt;
 }
 
 #filters>*
 {
 	border-bottom: #000 1px solid;
+	margin-top: 2px !important;
+}
+
+#filters .spacer
+{
+	height: 6pt;
+	border: 0px black none !important;
 }
 
 .dropdownButton
 {
 	position: absolute;
+	vertical-align: middle;
 	z-index: 5;
 	width: 20px;
 	text-align: center;
 	cursor: pointer;
 	border: none !important;
-	font-size: 13.0pt;	
+	font-size: 12pt !important;	
 }
 
 .dropdownList
@@ -199,19 +229,20 @@ body *
 	cursor: pointer;	
 }
 
-#filterGoods, #filterPrice, #filterInfo, #filterBonuses
+#filterGoods, #filterPrice, #filterBonuses,
+#filterInfo, #filterTrader
 {
 	width: 296px;
 }
 
 #filterQmin, #filterQmax, #filterLmin, #filterLmax, #filterPQmin, #filterPQmax, #filterPAMTmin, #filterPAMTmax 
 {
-	width: 64px;
+	width: 68px;
 }
 
 #filterLmin, #filterPAMTmin
 {
-	margin-left: 28px;
+	margin-left: 12px;
 }
 
 #filters .button_halfwide
@@ -316,7 +347,7 @@ body *
 		font-size: 110%;
 		text-align: left;
 		margin-top: 0.3em;
-		margin-bottom: 0.1em;
+		margin-bottom: 0.3em;
 	}
 
 #mapContainer 
