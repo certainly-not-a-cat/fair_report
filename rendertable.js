@@ -276,12 +276,12 @@ function filterData(array) {
 			var itemtraderName = array[i][12][1];
 			var itemtraderID = array[i][12][0];
 			if (filterTraderRange !== undefined) {
-				if ( (itemtraderID < filterTraderRange[0]) || (itemtraderID > filterTraderRange[1]) ) {
+				if ( (itemtraderID.toUpperCase() < formatVal(filterTraderRange[0], "2lz").toUpperCase()) || (itemtraderID.toUpperCase() > formatVal(filterTraderRange[1], "2lz").toUpperCase()) ) {
 					array[i][13] = true;
 					continue;	
 				}
 			} else {
-				if( (itemtraderName.toUpperCase().indexOf(filterTrader.toUpperCase()) == -1) && (itemtraderID.toUpperCase().indexOf(filterTrader.toUpperCase()) == -1)  ) 
+				if( (itemtraderName.toUpperCase().indexOf(filterTrader.toUpperCase()) == -1) && (itemtraderID.toUpperCase().indexOf(formatVal(filterTrader, "2lz").toUpperCase()) == -1) ) 
 				{
 					array[i][13] = true;
 					continue;
@@ -643,7 +643,8 @@ function searchForId(id, format){
 		}
 	}
 	var uic = Math.round(x) + ", " + Math.round(y);
-	console.log(uic + " " + id);
+	// console.log(uic + " " + id);
+	console.log(uic);
 	return [uic, ""];
 }
 
