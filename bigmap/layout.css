@@ -14,24 +14,27 @@
 		fill: #8AD;
 	}
 
+	#mapSVG .hili{
+		fill: #fb8;
+	}
+
 	#mapSVG text{
-		font-size: 4.5pt;
-		letter-spacing: -0.08em;
+		font-size: 4.2pt;
+		letter-spacing: -0.06em;
 		fill: black;
 		text-anchor: middle;
 		alignment-baseline: middle;
+	}
+
+	#mapSVG .hili-text {
+		font-size: 4.8pt;
+		fill: red;
+		text-anchor: middle;
+		alignment-baseline: middle;
+		font-weight: bold;
 	}
 
 #mapContainer 
 {
 	background: url("../gfx/6x.png") no-repeat;
 }
-
-	#mapSVG .SVGstand {
-		fill: #06A;
-	}
-	
-	#mapSVG .SVGmarker {
-		fill: #ACD;
-		stroke: #000;
-	}
