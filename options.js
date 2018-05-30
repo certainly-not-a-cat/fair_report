@@ -4,7 +4,7 @@ var ns = "http://www.w3.org/2000/svg";
 var zoomx = 1;
 var zoomy = 1;
 var offx = 19;
-var offy = 164;
+var offy = 214;
 
 var fixx = 0;
 var fixy = -1.375;
