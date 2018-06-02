@@ -31,7 +31,7 @@ body *
 	{
 		cursor: pointer;
 		text-align: center !important;
-		font-size: 11pt;
+		font-size: 12pt;
 		padding-top: 3pt;
 	}
 
@@ -68,15 +68,20 @@ body *
 {
 	margin: 0px;
 	padding: 0px;
-	/*line-height: 120%;*/
 	line-height: 10pt;
-
 }
 
-#data img
-{
+#data .image-container {
+	display: block;
+	max-width: 32px;
+	max-height: 32px;
+	overflow: hidden;
+	text-align: center;	
+}
+
+#data .image-container img{
 	display: inline-block;
-	max-width: 26px;
+	max-width: 32px;
 }
 
 #data tbody td *
@@ -86,17 +91,13 @@ body *
 
 #data tr td
 {
-	height: 26px;
+	height: 33px;
 }
 
 /*Icons*/
 #data td:nth-child(2), #data td:nth-child(6)
 {
-	width: 26px;
-	display: inline-block;
-	max-height: 26px;
-	overflow: hidden;
-	text-align: center;
+	width: 32px;
 }
 
 #data-headers div:nth-child(2), #data-headers div:nth-child(6)
@@ -108,41 +109,40 @@ body *
 #data td:nth-child(3)
 {
 	width: 244px;
-	padding-left: 0.5em;
+	padding-left: 0.3em;
 }
 
 #data-headers div:nth-child(3)
 {
-	width: 270px;	
+	width: 276px;	
 }
 
 /*Brand name*/
 #data td:nth-child(1)
 {
-	max-height: 26px;
-	width: 120px;
+	width: 108px;
 	overflow: hidden;
 	font-size: 10pt;
-	letter-spacing: -0.035em;
-	word-spacing: -0.15em;
+	letter-spacing: -0.038em;
+	word-spacing: -0.18em;
 	text-align: center;
 }
 
 #data-headers div:nth-child(1)
 {
-	width: 120px;	
+	width: 108px;	
 }
 
 /*Price name*/
 #data td:nth-child(7)
 {
 	width: 123px;
-	padding-left: 0.5em;
+	padding-left: 0.2em;
 }
 
 #data-headers div:nth-child(7)
 {
-	width: 149px;	
+	width: 155px;	
 }
 
 

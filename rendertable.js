@@ -5,6 +5,9 @@ document.onLoad = main();
 function formatVal(val, format) {
 	if( !format ) return val;
 	switch ( format ) {
+		case "aztext" : 
+			return val.toLowerCase().replace(/[^a-z]/g, "");
+			break;
 		case "sign" : 
 			return val > 0 ? "+" + val : val ;
 			break;
@@ -25,6 +28,10 @@ function formatVal(val, format) {
 		default :
 			return val;
 	}	
+}
+
+function azContains(a, b){
+	return formatVal(a, "aztext").indexOf( formatVal(b, "aztext") ) !== -1;
 }
 
 function bakeUL(array) {
@@ -256,7 +263,7 @@ function filterData(array) {
 			if( filterGoods.length > 0 ) {
 				if( itemInfo == "") itemInfo = parseDetails(array[i][2]).innerHTML.replace(/<.*?>/g, " ");
 				var itemName = array[i][1] + itemInfo;
-				if( itemName.toUpperCase().indexOf(filterGoods.toUpperCase()) == -1 ) {
+				if( !azContains(itemName, filterGoods) ) {
 					array[i][13] = true;
 					continue;
 				}
@@ -265,7 +272,7 @@ function filterData(array) {
 		//filter by info
 		if( filterInfo.length > 0 ) {
 			if( itemInfo == "") itemInfo = parseDetails(array[i][2]).innerHTML.replace(/<.*?>/g, " ");
-			if( itemInfo.toUpperCase().indexOf(filterInfo.toUpperCase()) == -1 ) {
+			if( !azContains(itemInfo, filterInfo) ) {
 				array[i][13] = true;
 				continue;
 			}
@@ -281,7 +288,7 @@ function filterData(array) {
 					continue;	
 				}
 			} else {
-				if( (itemtraderName.toUpperCase().indexOf(filterTrader.toUpperCase()) == -1) && (itemtraderID.toUpperCase().indexOf(formatVal(filterTrader, "2lz").toUpperCase()) == -1) ) 
+				if( ( !azContains(itemtraderName, filterTrader) ) && (itemtraderID.toUpperCase().indexOf(formatVal(filterTrader, "2lz").toUpperCase()) == -1) ) 
 				{
 					array[i][13] = true;
 					continue;
@@ -306,7 +313,7 @@ function filterData(array) {
 		//filter by price
 		if( filterPrice != "") {
 			var itemPrice = array[i][6] + (array[i][7] ? array[i][7] : "");
-			if( itemPrice.toUpperCase().indexOf(filterPrice.toUpperCase()) == -1 ) {
+			if( !azContains(itemPrice, filterPrice) ){
 				array[i][13] = true;
 				continue;
 			}
@@ -320,7 +327,7 @@ function filterData(array) {
 			}
 
 		//filter by price AMT
-		if( !(isNaN(filterPAMTmin) && isNaN(filterPAMTmin)) )
+		if( !(isNaN(filterPAMTmin) && isNaN(filterPAMTmax)) )
 			if( array[i][9] < filterPAMTmin || array[i][9] > filterPAMTmax  ) {
 				array[i][13] = true;	
 				continue;
@@ -417,10 +424,13 @@ function renderTable(array) {
 		cells[0].innerHTML = brand;
 
 		//Merch icon
+		var imgcontainer = document.createElement("div");
+		imgcontainer.classList.add("image-container");
 		var img = document.createElement("img");
 		if ( !opts.debug ) img.src = (basicURL + array[i][0]).replace("/gems/gemstone", "/gems/any");
 		img.alt = array[i][0];
-		cells[1].appendChild(img);
+		imgcontainer.appendChild(img);
+		cells[1].appendChild(imgcontainer);
 		
 		//Merch name
 		cells[2].innerHTML = array[i][1];
@@ -446,10 +456,13 @@ function renderTable(array) {
 
 
 		//Price icon
+		var pimgcontainer = document.createElement("div");
+		pimgcontainer.classList.add("image-container");
 		var pimg = document.createElement("img");
 		if ( !opts.debug ) pimg.src = (basicURL + array[i][5]).replace("/gems/gemstone", "/gems/any");
 		pimg.alt = array[i][5];
-		cells[5].appendChild(pimg);
+		pimgcontainer.appendChild(pimg);
+		cells[5].appendChild(pimgcontainer);
 
 		//price name
 		if( array[i][5].indexOf("coins/") != -1 ) {
