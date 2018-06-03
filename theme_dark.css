@@ -3,57 +3,64 @@
 #888 - mono tip
 
 #421 - fill
-#631 - stroke
-#D62 - accent
+#1C3B46 - stroke
+#1C3B46 - accent
+
+#000000 - even row BG
+#0D1519 - main BG
+#2A373D - hili BG
+#A39F96 - main text
+#F5DBCE - hili text
 */
 
 body 
 {
-	background-color: #000;
-	color: #DDD;
+	background-color: #0D1519;
+	color: #ADA89E;
 }
 
 body *
 {
-	color: #DDD;
+	color: #ADA89E;
 }
 
 #data-headers
 {
-	background-color: #000;
+	background-color: #0D1519;
 }
 
 
 #data th 
 {
-	color: color: #FFF !important;
+	color: color: #ADA89E !important;
 }
 
 #data-headers .hdr:hover
 {
-	color: #D62 !important;
+	color: #FAE4D9 !important;
 }
 
 #data tbody tr:nth-child(even)
 {
-	background-color:#111;
+	background-color:#000000;
 }
 
 #data tr:hover td
 {
-	background-color: #631;
-	color: #FFF;
+	background-color: #1C3B46;
+	color: #FAE4D9;
 }
 
 .dropdownList
 {
-	background-color: #000 !important;
+	background-color: #000000 !important;
 	border: #888 1px solid !important;
 }
 
 .dropdownList div:hover 
 {
-	background-color: #631;
+	background-color: #1C3B46;
+	color: #FAE4D9 !important;
 }
 
 #filters>*
@@ -77,17 +84,17 @@ body *
 
 #lot-details *
 {
-	color: #BBB;
+	color: #ADA89E;
 }
 
 #lot-details h4
 {
-	color: #FFF;
+	color: #FAE4D9;
 }
 
 #lot-price
 {
-	color: #D62 !important;
+	color: #FAE4D9 !important;
 }
 
 #mapContainer 
@@ -96,10 +103,10 @@ body *
 }
 
 	#mapSVG .SVGstand {
-		fill: #876;
+		fill: #777;
 	}
 	
 	#mapSVG .SVGmarker {
-		fill: #FED;
+		fill: #FAE4D9;
 		stroke: #000;
 	}
