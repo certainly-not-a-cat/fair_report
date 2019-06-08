@@ -19,7 +19,7 @@
 	}
 
 	#mapSVG text{
-		font-size: 4.2pt;
+		font-size: 4.0pt;
 		letter-spacing: -0.06em;
 		fill: black;
 		text-anchor: middle;
@@ -27,7 +27,7 @@
 	}
 
 	#mapSVG .hili-text {
-		font-size: 4.8pt;
+		font-size: 4.0pt;
 		fill: red;
 		text-anchor: middle;
 		alignment-baseline: middle;

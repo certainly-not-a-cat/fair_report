@@ -8,7 +8,7 @@ function mapGen() {
 		var newMarkText = coords[i][0];
 		var newMarkX = (coords[i][1]-fixx)*modx+offx;
 		var newMarkY = (coords[i][2]-fixy)*mody+offy;
-		mapAddMark(newMarkText, newMarkX, newMarkY, 5);
+		mapAddMark(newMarkText, newMarkX, newMarkY, 4.9);
 	}
 }
 

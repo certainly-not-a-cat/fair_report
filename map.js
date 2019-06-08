@@ -49,7 +49,7 @@ function mapGen(array) {
 	for (i = 0; i < coordsF.length; i++) {
 		var newMarkX = (coordsF[i][0]-fixx)*modx+offx;
 		var newMarkY = (coordsF[i][1]-fixy)*mody+offy;
-		mapAddMark(svg, "rect", newMarkX, newMarkY, 2.5, "SVGstand");
+		mapAddMark(svg, "rect", newMarkX, newMarkY, 1.5, "SVGstand");
 	}
 }
 

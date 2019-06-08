@@ -1,20 +1,10 @@
 
 *.psd
-old/index.html
-old/mapBG.png
-mapBG.png.bkp
-old/20171214.html
-cp_test.html
+_mobile/*.*
 *.bkp
-beta/test.css
-data.js
 favicon.png
 bigmap/SBS.js
 bigmap/index-offline.html
 index-offline.html
 data.js
-data.js
 SBS.js
-data.js
-data.js
-data.js
