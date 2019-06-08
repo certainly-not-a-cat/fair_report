@@ -3,8 +3,8 @@ var basicURL = "http://www.havenandhearth.com/mt/r/gfx/invobjs/";
 var ns = "http://www.w3.org/2000/svg";
 var zoomx = 6;
 var zoomy = 6;
-var offx = 18.65*zoomx;
-var offy = 164.55*zoomy;
+var offx = 236*zoomx;
+var offy = 48*zoomy;
 
 var fixx = 0;
 var fixy = 0;

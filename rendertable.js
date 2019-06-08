@@ -421,7 +421,8 @@ function renderTable(array) {
 		if (brand.length > maxWidthBrand)
 			if (brand.indexOf(" ") > maxWidthBrand || brand.indexOf(" ") == -1)
 				brand = brand.substr(0, maxWidthBrand)+"..";
-		cells[0].innerHTML = brand;
+		// cells[0].innerHTML = brand; 
+		cells[0].innerHTML = "";
 
 		//Merch icon
 		var imgcontainer = document.createElement("div");
