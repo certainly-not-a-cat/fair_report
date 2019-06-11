@@ -8,7 +8,7 @@ function mapGen() {
 		var newMarkText = coords[i][0];
 		var newMarkX = (coords[i][1]-fixx)*modx+offx;
 		var newMarkY = (coords[i][2]-fixy)*mody+offy;
-		mapAddMark(newMarkText, newMarkX, newMarkY, 4.9);
+		mapAddMark(newMarkText, newMarkX, newMarkY, 3.5);
 	}
 }
 
@@ -17,7 +17,7 @@ function mapAddMark (mt, mx, my, r)
 	var rect_mark = document.createElementNS(ns, 'rect');
 	if (mt.indexOf("X") !== -1) {
 		rect_mark.setAttribute('class', 'hili');
-		r+=1;
+		r+=0.5;
 	}
 	rect_mark.setAttribute('x', Math.round(mx-r));
 	rect_mark.setAttribute('y', Math.round(my-r));

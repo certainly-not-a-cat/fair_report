@@ -19,15 +19,15 @@
 	}
 
 	#mapSVG text{
-		font-size: 4.0pt;
-		letter-spacing: -0.06em;
+		font-size: 2.0pt;
+		letter-spacing: -0.1em;
 		fill: black;
 		text-anchor: middle;
 		alignment-baseline: middle;
 	}
 
 	#mapSVG .hili-text {
-		font-size: 4.0pt;
+		font-size: 2.5pt;
 		fill: red;
 		text-anchor: middle;
 		alignment-baseline: middle;
@@ -36,5 +36,5 @@
 
 #mapContainer 
 {
-	background: url("../gfx/6x.png") no-repeat;
+	background: url("../gfx/x4.png") no-repeat;
 }
